@@ -4,37 +4,39 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MAEW Ω∞ v1.2 COMMERCIAL - Architecture Audit & License Center</title>
+<title>MAEW Ω∞ v1.3 ULTRA COMMERCIAL - Gemini 3.1 & Chaos Simulator</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Orbitron:wght@700;900&family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
   body {
     font-family: 'Prompt', sans-serif;
-    background: #020108;
+    background: #010005;
     color: #e2e8f0;
     overflow-x: hidden;
   }
   .font-futuristic { font-family: 'Orbitron', sans-serif; }
   .font-tech { font-family: 'Chakra Petch', sans-serif; }
+  
+  /* แกนกลางแก้วโปร่งแสง Cyber Glassmorphism */
   .glass {
-    background: rgba(8, 8, 22, 0.92);
-    backdrop-filter: blur(16px);
-    border: 1px solid rgba(168, 85, 247, 0.25);
+    background: rgba(4, 3, 15, 0.94);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(234, 179, 8, 0.15);
   }
   .gold-border {
-    border: 1px solid rgba(234, 179, 8, 0.5);
-    box-shadow: 0 0 30px rgba(234, 179, 8, 0.15);
+    border: 1px solid rgba(234, 179, 8, 0.45);
+    box-shadow: 0 0 25px rgba(234, 179, 8, 0.08);
   }
   .premium-gold-glow {
-    box-shadow: 0 0 40px rgba(234, 179, 8, 0.35);
+    box-shadow: 0 0 45px rgba(234, 179, 8, 0.4);
     border-color: #eab308 !important;
   }
   .tech-corner {
     position: absolute;
     width: 14px;
     height: 14px;
-    border: 2px solid rgba(6, 182, 212, 0.6);
+    border: 2px solid rgba(234, 179, 8, 0.6);
     pointer-events: none;
   }
   .tc-tl { top: -1px; left: -1px; border-right: none; border-bottom: none; }
@@ -43,47 +45,59 @@
   .tc-br { bottom: -1px; right: -1px; border-left: none; border-top: none; }
   
   /* ตัวกำหนดการเลื่อนเนื้อหา */
-  ::-webkit-scrollbar { width: 6px; height: 6px; }
-  ::-webkit-scrollbar-track { background: rgba(0,0,0,0.3); }
-  ::-webkit-scrollbar-thumb { background: rgba(234, 179, 8, 0.3); border-radius: 4px; }
-  ::-webkit-scrollbar-thumb:hover { background: rgba(6,182,212,0.6); }
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: rgba(1, 0, 5, 0.5); }
+  ::-webkit-scrollbar-thumb { background: rgba(234, 179, 8, 0.35); border-radius: 6px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(6, 182, 212, 0.6); }
 
-  /* เอฟเฟกต์ปุ่มควบคุม */
-  .tab-btn { transition: all 0.2s ease-in-out; }
+  /* เอฟเฟกต์แอนิเมชันปุ่มควบคุม */
+  .tab-btn { transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
   .tab-btn.active {
-    background: rgba(234, 179, 8, 0.15);
+    background: rgba(234, 179, 8, 0.2);
     border-color: #eab308;
     color: #fff;
-    box-shadow: 0 0 10px rgba(234, 179, 8, 0.2);
+    box-shadow: 0 0 15px rgba(234, 179, 8, 0.35);
+  }
+
+  /* คลื่นชีพจรเตือนความสว่างต่ำ */
+  @keyframes pulseGlow {
+    0%, 100% { opacity: 0.6; box-shadow: 0 0 15px rgba(234, 179, 8, 0.1); }
+    50% { opacity: 1; box-shadow: 0 0 30px rgba(234, 179, 8, 0.35); }
+  }
+  .glow-pulse {
+    animation: pulseGlow 2.5s infinite;
   }
 </style>
 </head>
 <body class="min-h-screen flex flex-col">
 
-<!-- ส่วนหัวเรื่องระดับสูง -->
+<!-- ส่วนหัวเรื่องระดับพรีเมียมองค์กร (Enterprise Sovereign Header) -->
 <header class="container mx-auto px-4 mt-4">
-  <div class="glass gold-border rounded-xl p-4 relative transition-all duration-500" id="header-container">
+  <div class="glass gold-border rounded-xl p-4 relative transition-all duration-700 glow-pulse" id="header-container">
     <div class="tech-corner tc-tl"></div><div class="tech-corner tc-tr"></div><div class="tech-corner tc-bl"></div><div class="tech-corner tc-br"></div>
     <div class="flex flex-col lg:flex-row justify-between items-center gap-3">
       <div class="flex items-center gap-3">
-        <span class="w-3.5 h-3.5 bg-yellow-400 rounded-full animate-ping"></span>
+        <span class="relative flex h-4 w-4">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-4 w-4 bg-yellow-500" id="ping-indicator"></span>
+        </span>
         <div>
-          <div class="text-xs font-tech text-yellow-400 font-bold tracking-wider">MAEW Ω∞ COMMERCIAL STACK v1.2 • AUDIT HUB EDITION</div>
-          <div class="text-[9px] text-slate-400 font-tech">Sovereign Audit Framework • 24/7 Enterprise SLA Verification • Gemini 3.1 Integrated</div>
+          <div class="text-xs font-tech text-yellow-400 font-bold tracking-wider uppercase" id="stack-title">MAEW Ω∞ STACK v1.3 • ENTERPRISE LATEST EDITION</div>
+          <div class="text-[9px] text-slate-400 font-tech">Unified Quantum Core • Gemini 3.1 Real-Time API Engine • LTS Support 2026-2035</div>
         </div>
       </div>
       <div class="text-center">
-        <h1 class="text-xl lg:text-3xl font-black font-futuristic text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-amber-400 to-yellow-600 tracking-widest">
-          MAEW OS COMMERCIAL
+        <h1 class="text-2xl lg:text-4xl font-extrabold font-futuristic text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-amber-400 to-yellow-600 tracking-wider">
+          SANATANA AI STUDIO
         </h1>
-        <p class="text-[9px] text-slate-400 uppercase tracking-widest font-futuristic mt-0.5">Sovereignty Audit Platform & Engine Hub</p>
+        <p class="text-[9px] text-slate-500 uppercase tracking-widest font-futuristic mt-0.5">Sovereign Civilization OS Platform</p>
       </div>
       <div class="flex flex-wrap gap-2 items-center justify-center">
-        <span id="ai-status" class="text-[9px] px-2.5 py-1 bg-yellow-950/40 border border-yellow-500/30 text-yellow-300 rounded font-tech font-bold transition-all">
-          <i class="fa-solid fa-shield-halved mr-1 text-yellow-400"></i> AUDIT NODE: READY
+        <span id="ai-status" class="text-[9px] px-3 py-1.5 bg-yellow-950/40 border border-yellow-500/30 text-yellow-300 rounded font-tech font-bold transition-all">
+          <i class="fa-solid fa-shield-halved mr-1 text-yellow-400"></i> AUDIT NODE: ACTIVE
         </span>
-        <span class="text-[9px] px-2.5 py-1 bg-emerald-950/40 border border-emerald-500/30 text-emerald-300 rounded font-tech font-bold">
-          COMPLIANCE RATE: <span id="compliance-pct" class="text-yellow-400">98.4%</span>
+        <span class="text-[9px] px-3 py-1.5 bg-emerald-950/40 border border-emerald-500/30 text-emerald-300 rounded font-tech font-bold">
+          LIVE MRR: <span id="mrr-val" class="font-bold text-emerald-400">$382,400</span>
         </span>
       </div>
     </div>
@@ -91,10 +105,10 @@
 </header>
 
 <main class="container mx-auto px-4 py-4 flex-grow grid grid-cols-1 lg:grid-cols-12 gap-4">
-  <!-- แผงควบคุมด้านซ้าย: พอร์ทัลการตรวจสอบสิทธิ์และเครื่องมือสั่งปิดดีล -->
+  <!-- แผงควบคุมและปิดการขายด้านซ้าย (Left Workspace) -->
   <div class="lg:col-span-3 flex flex-col gap-4">
     
-    <!-- แผงยืนยันคีย์ลิขสิทธิ์ความปลอดภัยสูง (License Verification Center) -->
+    <!-- แผงยืนยันสิทธิ์อนุญาตความปลอดภัยสูง (License Center) -->
     <div class="glass p-4 rounded-xl relative border border-yellow-500/30" id="license-portal-card">
       <div class="tech-corner tc-tl"></div><div class="tech-corner tc-tr"></div>
       <h3 class="text-xs font-bold text-yellow-400 font-futuristic mb-3 tracking-wide flex items-center justify-between">
@@ -103,14 +117,14 @@
       </h3>
       <div class="space-y-3 font-tech text-[11px]">
         <div>
-          <label class="block text-slate-400 text-[10px] mb-1">รหัสสิทธิ์เปิดใช้งานคอร์ (License Key)</label>
+          <label class="block text-slate-400 text-[10px] mb-1">รหัสลิขสิทธิ์โหนด (License Key)</label>
           <div class="relative">
-            <input id="license-key-input" type="text" placeholder="ป้อนรหัส เช่น: MAEW-ENTERPRISE-LTS" class="w-full p-2.5 bg-black/80 border border-slate-800 rounded text-slate-200 focus:outline-none focus:border-yellow-400 font-mono text-center tracking-wider text-xs">
+            <input id="license-key-input" type="text" placeholder="ป้อนคีย์ เช่น: MAEW-ENTERPRISE-LTS" class="w-full p-2.5 bg-black/80 border border-slate-800 rounded text-slate-200 focus:outline-none focus:border-yellow-400 font-mono text-center tracking-wider text-xs">
           </div>
-          <p class="text-[8px] text-slate-500 mt-1">ทดลองใช้รหัสสากล: <span class="text-yellow-500 underline cursor-pointer" onclick="fillTestKey()">MAEW-ENTERPRISE-LTS</span> เพื่อเป็นผู้ใช้พรีเมียม</p>
+          <p class="text-[8px] text-slate-500 mt-1">ทดลองใช้คีย์ทองคำ: <span class="text-yellow-500 underline cursor-pointer" onclick="fillTestKey()">MAEW-ENTERPRISE-LTS</span> เพื่อเป็นผู้ใช้พรีเมียม</p>
         </div>
         <button onclick="activateLicenseKey()" class="w-full py-2.5 bg-gradient-to-r from-yellow-500 via-amber-500 to-yellow-600 text-black font-extrabold rounded shadow-lg shadow-yellow-900/40 hover:scale-[1.02] active:scale-[0.98] transition-all text-xs">
-          <i class="fa-solid fa-circle-check mr-1"></i> ยืนยันสิทธิ์อนุญาตและขยายกำลัง
+          <i class="fa-solid fa-circle-check mr-1"></i> ยืนยันสิทธิ์อนุญาตความเสถียร
         </button>
         <div id="license-log" class="bg-black/70 p-2 rounded border border-slate-900 h-[60px] overflow-y-auto text-[9px] text-slate-500 font-mono">
           [PORTAL] รอรับรหัสสิทธิ์ใบอนุญาตเพื่อเปิดการเชื่อมต่อศูนย์ควบคุม...
@@ -118,14 +132,15 @@
       </div>
     </div>
 
-    <!-- เครื่องมือคำนวณและประเมินมูลค่าสัญญาเพื่อปิดการขาย (Enterprise SaaS Estimator) -->
+    <!-- เครื่องมือคำนวณและประเมินมูลค่าสัญญาเพื่อปิดการขาย (Enterprise SaaS Calculator) -->
     <div class="glass p-4 rounded-xl border border-cyan-500/20">
-      <h3 class="text-xs font-bold text-cyan-400 font-futuristic mb-2.5">
-        <i class="fa-solid fa-calculator mr-1.5 text-cyan-400"></i> SWARM PRICING CALCULATOR
+      <h3 class="text-xs font-bold text-cyan-400 font-futuristic mb-2.5 flex items-center justify-between">
+        <span><i class="fa-solid fa-calculator mr-1.5 text-cyan-400"></i> SWARM PRICING</span>
+        <span class="text-[8px] bg-cyan-950 text-cyan-300 px-1 py-0.5 rounded font-mono">ESTIMATOR</span>
       </h3>
       <div class="space-y-3 font-tech text-[10px]">
         <div>
-          <label class="block text-slate-400 mb-1">ปรับขนาดกำลัง AI Agent Swarm (Scale ขนาดจำลอง)</label>
+          <label class="block text-slate-400 mb-1">ปรับขนาดจำนวน AI Agent Swarm</label>
           <input type="range" id="agent-slider" min="1000" max="500000" step="5000" value="75000" oninput="calculatePrice()" class="w-full accent-yellow-400 bg-slate-900">
           <div class="flex justify-between text-slate-400 mt-1">
             <span>1K Agents</span>
@@ -139,35 +154,35 @@
             <span class="text-slate-200 font-bold">$1,500/เดือน</span>
           </div>
           <div class="flex justify-between text-slate-400 mb-1">
-            <span>ค่าประมวลผล Swarm Resource</span>
+            <span>ค่าจัดสรร Swarm Compute</span>
             <span class="text-slate-200" id="compute-cost-val">$600/เดือน</span>
           </div>
           <hr class="border-slate-800 my-1.5">
           <div class="flex justify-between items-center text-yellow-400 font-bold">
-            <span class="text-[10px] text-slate-300">ประมาณการสัญญาบริการ:</span>
+            <span class="text-[10px] text-slate-300">สัญญาบริการองค์กร:</span>
             <span class="text-sm font-futuristic" id="total-cost-val">$2,100/mo</span>
           </div>
         </div>
         <button onclick="openPaymentModalWithCustom()" class="w-full py-2 bg-gradient-to-r from-cyan-600 to-blue-500 text-white font-bold rounded hover:opacity-90 active:scale-95 transition-all text-xs">
-          <i class="fa-solid fa-cart-shopping mr-1"></i> จองและขอใบเสนอราคา
+          <i class="fa-solid fa-cart-shopping mr-1"></i> ดำเนินการออกใบเสนอราคา
         </button>
       </div>
     </div>
 
-    <!-- แผงเชื่อมต่อ AI Studio และระบบประมวลผล Gemini 3.1 -->
+    <!-- แผงเชื่อมต่อคลาวด์อัจฉริยะ (AI Studio Connector Cores) -->
     <div class="glass p-4 rounded-xl relative border border-cyan-500/10">
       <h3 class="text-xs font-bold text-cyan-400 font-futuristic mb-3 tracking-wide">
         <i class="fa-solid fa-brain mr-1.5 text-cyan-400"></i> AI STUDIO CONNECTOR
       </h3>
       <div class="space-y-2.5 font-tech text-[11px]">
         <div>
-          <label class="block text-slate-400 text-[10px] mb-1">API KEY (ใช้ระบบหลักหากเว้นว่างไว้)</label>
-          <input id="ai-key" type="password" placeholder="คีย์ระบบพร้อมประมวลผล..." class="w-full p-2 bg-black/60 border border-slate-800 rounded text-slate-200 font-mono text-xs focus:outline-none focus:border-cyan-500">
+          <label class="block text-slate-400 text-[10px] mb-1">API KEY (ใช้ของระบบหากเว้นว่างไว้)</label>
+          <input id="ai-key" type="password" placeholder="คีย์หลักทำงานอยู่อัตโนมัติ..." class="w-full p-2 bg-black/60 border border-slate-800 rounded text-slate-200 font-mono text-xs focus:outline-none focus:border-cyan-500">
         </div>
         <div>
-          <label class="block text-slate-400 text-[10px] mb-1">โมเดลประมวลผลภาษาธรรมดา</label>
+          <label class="block text-slate-400 text-[10px] mb-1">โมเดลประมวลผลเครือข่าย</label>
           <select id="ai-model" class="w-full p-2 bg-black/60 border border-slate-800 rounded text-slate-300 text-xs focus:border-yellow-400 focus:outline-none">
-            <option value="gemini-3.1-pro-commercial">Gemini 3.1 Pro (Commercial Enterprise)</option>
+            <option value="gemini-3.1-pro-commercial">Gemini 3.1 Pro (Sovereign Enterprise)</option>
             <option value="gemini-3.1-flash-commercial">Gemini 3.1 Flash (High-Speed Swarm)</option>
             <option value="gemini-2.5-flash-preview-09-2025" selected>Gemini 2.5 Flash LTS (Stable standard)</option>
           </select>
@@ -179,16 +194,19 @@
     </div>
   </div>
 
-  <!-- แผงควบคุมตรงกลาง: สตูดิโอทดลองแชต/วาดภาพ และระบบตรวจสอบสิทธิบัตรและสถาปัตยกรรม (Audit Hub) -->
+  <!-- แผงทดลองประมวลผลและการจัดทำสภาวะโกลาหลตรงกลาง (Center Column Area) -->
   <div class="lg:col-span-6 flex flex-col gap-4">
     
     <div class="glass gold-border p-4 rounded-xl relative flex flex-col min-h-[500px]" id="central-playground-card">
       <div class="tech-corner tc-tl"></div><div class="tech-corner tc-tr"></div><div class="tech-corner tc-bl"></div><div class="tech-corner tc-br"></div>
       
-      <!-- เมนูควบคุมหลักรวมโหมด Audit ประจำรุ่น v1.2 -->
+      <!-- เมนูควบคุมแท็บทั้งหมดประจำรุ่น v1.3 -->
       <div class="flex border-b border-yellow-500/20 pb-2 mb-4 overflow-x-auto gap-1">
-        <button onclick="switchTab('tab-audit-tool')" id="btn-tab-audit-tool" class="tab-btn active px-3 py-1.5 text-xs font-futuristic border border-transparent rounded hover:border-yellow-500/30 text-slate-400 whitespace-nowrap bg-yellow-950/20 border-yellow-800/40">
-          <i class="fa-solid fa-shield-circle-check text-yellow-400 mr-1 animate-pulse"></i> Architecture Audit Hub
+        <button onclick="switchTab('tab-audit-tool')" id="btn-tab-audit-tool" class="tab-btn active px-3 py-1.5 text-xs font-futuristic border border-transparent rounded hover:border-yellow-500/30 text-slate-400 whitespace-nowrap">
+          <i class="fa-solid fa-shield-circle-check mr-1 text-yellow-400"></i> Audit Hub
+        </button>
+        <button onclick="switchTab('tab-chaos-drill')" id="btn-tab-chaos-drill" class="tab-btn px-3 py-1.5 text-xs font-futuristic border border-transparent rounded hover:border-yellow-500/30 text-slate-400 whitespace-nowrap bg-red-950/20 border-red-800/40">
+          <i class="fa-solid fa-circle-radiation mr-1 text-red-400 animate-pulse"></i> Chaos Drill Simulator (SRE)
         </button>
         <button onclick="switchTab('tab-chat')" id="btn-tab-chat" class="tab-btn px-3 py-1.5 text-xs font-futuristic border border-transparent rounded hover:border-yellow-500/30 text-slate-400 whitespace-nowrap">
           <i class="fa-solid fa-message mr-1"></i> AI Chat
@@ -200,28 +218,28 @@
           <i class="fa-solid fa-volume-high mr-1"></i> Speech Synth
         </button>
         <button onclick="switchTab('tab-blueprints')" id="btn-tab-blueprints" class="tab-btn px-3 py-1.5 text-xs font-futuristic border border-transparent rounded hover:border-yellow-500/30 text-slate-400 whitespace-nowrap">
-          <i class="fa-solid fa-folder-open mr-1 text-yellow-400"></i> Blueprints
+          <i class="fa-solid fa-folder-open text-yellow-400 mr-1"></i> Blueprints
         </button>
       </div>
 
-      <!-- ส่วนรันแอปตามหมวดหมู่การบริการ -->
+      <!-- ส่วนรันแอปแบบไดนามิก -->
       <div class="flex-grow flex flex-col justify-between">
         
-        <!-- แท็บควบคุมใหม่: ศูนย์ตรวจสอบระบบและประเมินสถาปัตยกรรม (ARCHITECTURE AUDIT HUB) -->
+        <!-- แท็บควบคุมที่ 1: ศูนย์สแกนตรวจสอบสถาปัตยกรรม (ARCHITECTURE AUDIT HUB) -->
         <div id="tab-audit-tool" class="tab-content flex flex-col flex-grow gap-3">
           <div class="flex-grow flex flex-col gap-2.5">
             <div class="bg-yellow-950/20 border border-yellow-500/20 p-2.5 rounded-lg text-[11px] text-slate-300 leading-relaxed font-tech">
-              <span class="text-yellow-400 font-bold block mb-1"><i class="fa-solid fa-circle-info"></i> ปัญหาลิงก์ภายนอกเข้าไม่ถึง? (GitHub Pages / Private Repository)</span>
-              หากระบบค้นหาไม่สามารถสแกนลิงก์ภายนอกโดยตรง ป้อน URL โครงการจำลองของคุณด้านล่างนี้ ระบบจะคำนวณและประมวลเอกสารรายงานออดิตเชิงลึกระดับองค์กรพร้อมรายละเอียด Actionable Gap Analysis ได้ทันที!
+              <span class="text-yellow-400 font-bold block mb-1"><i class="fa-solid fa-circle-info"></i> ระบบวิพากษ์และประเมินสิทธิบัตรเชิงปฏิสัมพันธ์</span>
+              ระบุพิกัดลิงก์ของหน้า GitHub Pages หรือแหล่งจัดเก็บโค้ดของคุณจำลอง ระบบจะสแกนโครงสร้างตามหลักสากลของอารยธรรม เพื่อรายงานช่องว่างของระบบ (Gap Analysis) และให้คะแนนความพร้อมทันที!
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-12 gap-3 mt-1 text-xs">
               <div class="md:col-span-8">
-                <label class="block text-slate-400 font-bold mb-1">ลิงก์ประเมินตรวจสอบ (Repository or Deployment URL)</label>
+                <label class="block text-slate-400 font-bold mb-1">ลิงก์ประเมินสแกน (Deployment URL / Repository)</label>
                 <input id="audit-url-input" type="text" value="https://zxsvzv00-cpu.github.io/maew-hyperos-omega-infinity/" class="w-full p-2.5 bg-black/80 border border-slate-800 rounded font-mono text-slate-200 focus:outline-none focus:border-yellow-400 text-xs">
               </div>
               <div class="md:col-span-4">
-                <label class="block text-slate-400 font-bold mb-1">มาตรฐานตรวจสอบ</label>
+                <label class="block text-slate-400 font-bold mb-1">ชุดเกณฑ์สากล</label>
                 <select id="audit-standard" class="w-full p-2.5 bg-black/80 border border-slate-800 rounded text-slate-300 focus:outline-none focus:border-yellow-400">
                   <option value="canonical-compliance">Canonical v13.0 Compliance</option>
                   <option value="architecture-review">Architecture & Layer Review</option>
@@ -235,27 +253,69 @@
             <div class="mt-2 bg-slate-950/80 p-2 rounded border border-slate-900 text-xs font-tech">
               <label class="flex items-center gap-2 cursor-pointer text-slate-300">
                 <input type="checkbox" id="use-live-llm-audit" class="rounded accent-yellow-500 bg-black" checked>
-                <span>เปิดใช้งานขุมพลัง Gemini 3.1 Pro ในการสแกนและจัดทำเอกสารความเห็นวิจารณ์จริงตามหลักวิชาการ (ต้องการ API Key)</span>
+                <span>สตรีมข้อมูลสแกนไปประมวลผลข้อเขียนความเห็นจริงผ่านทาง Gemini 3.1 Pro (ต้องการ API Key)</span>
               </label>
             </div>
           </div>
           <button onclick="runCivilizationAudit()" id="btn-run-audit" class="py-2.5 bg-gradient-to-r from-yellow-500 via-amber-500 to-yellow-600 text-black font-black font-futuristic rounded hover:opacity-90 flex items-center justify-center gap-2 transition-all">
-            <span>เริ่มต้นการตรวจสอบ (RUN CIVILIZATION AUDIT)</span> <i class="fa-solid fa-magnifying-glass-chart"></i>
+            <span>เริ่มต้นกระบวนการสแกน (RUN CIVILIZATION AUDIT)</span> <i class="fa-solid fa-magnifying-glass-chart"></i>
           </button>
         </div>
 
-        <!-- แท็บที่ 1: แชตประมวลผลข้อความ -->
+        <!-- แท็บควบคุมใหม่: ตัวสลักภัยพิบัติโกลาหลจำลอง (SRE CHAOS DRILL SIMULATOR) -->
+        <div id="tab-chaos-drill" class="tab-content hidden flex flex-col flex-grow gap-3">
+          <div class="flex-grow flex flex-col gap-2.5">
+            <div class="bg-red-950/20 border border-red-500/20 p-2.5 rounded-lg text-[11px] text-slate-300 leading-relaxed font-tech">
+              <span class="text-red-400 font-bold block mb-1"><i class="fa-solid fa-circle-radiation animate-pulse"></i> จำลองภัยพิบัติและทดสอบ SRE Resilience</span>
+              ทดลองสับเปลี่ยนสถานการณ์วิกฤต (Chaos Injection) เพื่อวิพากษ์ขีดความสามารถการกู้คืนสภาพแบบไร้รอยต่อ (Self-Healing SLA) ของระบบ MAEW OS ต่อหน้าลูกค้าหรือคณะกรรมการประเมินโครงการ
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-2.5 mt-2">
+              <button onclick="injectChaos('latency')" class="p-3 bg-red-950/30 hover:bg-red-950/60 border border-red-800/40 rounded-lg text-left transition-all group">
+                <span class="text-yellow-400 font-bold block text-xs group-hover:translate-x-1 transition-transform"><i class="fa-solid fa-gauge-simple-high mr-1"></i> Latency Drift</span>
+                <span class="text-[9px] text-slate-400 block mt-1">เร่งค่าปิงหน่วงเวลาเครือข่ายสวอร์มเกินสัดส่วนวิกฤต</span>
+              </button>
+              <button onclick="injectChaos('split')" class="p-3 bg-red-950/30 hover:bg-red-950/60 border border-red-800/40 rounded-lg text-left transition-all group">
+                <span class="text-yellow-400 font-bold block text-xs group-hover:translate-x-1 transition-transform"><i class="fa-solid fa-network-wired mr-1"></i> Swarms Partition</span>
+                <span class="text-[9px] text-slate-400 block mt-1">แบ่งครึ่งสายตาข้อมูล 75,000 เอเจนต์ให้ออกจากโหนดหลัก</span>
+              </button>
+              <button onclick="injectChaos('sovereign')" class="p-3 bg-red-950/30 hover:bg-red-950/60 border border-red-800/40 rounded-lg text-left transition-all group">
+                <span class="text-yellow-400 font-bold block text-xs group-hover:translate-x-1 transition-transform"><i class="fa-solid fa-lock-open mr-1"></i> Security Breach</span>
+                <span class="text-[9px] text-slate-400 block mt-1">จำลองเหตุถูกเจาะระบบเกาะความมั่นคงเลเยอร์ 1-3</span>
+              </button>
+            </div>
+
+            <!-- กล่องรายงานสถิติของ SRE ตอนรันโกลาหล -->
+            <div class="bg-black/80 border border-slate-900 rounded-lg p-3 mt-2 text-xs font-mono">
+              <div class="flex justify-between items-center text-[10px] border-b border-slate-900 pb-1.5 mb-1.5 text-slate-500">
+                <span>ACTIVE HEALING ENGINE STATUS</span>
+                <span id="healing-status" class="text-emerald-400 font-bold">STANDBY</span>
+              </div>
+              <div class="grid grid-cols-2 gap-y-1 text-[10px] text-slate-300">
+                <div>อัตราความหน่วง (Ping): <span id="sre-latency-val" class="text-cyan-400">8ms</span></div>
+                <div>สถานภาพความจำฝูงเอเจนต์: <span id="sre-memory-status" class="text-emerald-400">SYNCED</span></div>
+                <div>ระดับเกราะ Layer 1-12: <span id="sre-layer-armor" class="text-emerald-400">INTEG (100%)</span></div>
+                <div>ระยะเวลากู้คืนล่าสุด: <span id="sre-healing-timer" class="text-slate-400">0.00s</span></div>
+              </div>
+            </div>
+          </div>
+          <button onclick="triggerPurgeEffect(); showToast('กระตุ้นอนุภาคสนามพลังเพื่อล้างสถานะโกลาหลเรียบร้อย!', 'success');" class="py-2 bg-slate-900 border border-slate-800 text-slate-400 text-xs font-tech font-bold rounded hover:text-white transition-all">
+            <i class="fa-solid fa-wind mr-1"></i> ล้างข้อมูลและล้างสภาวะเพื่อเซ็ตระบบเป็นศูนย์
+          </button>
+        </div>
+
+        <!-- แท็บที่ 2: แชตประมวลผลข้อความ -->
         <div id="tab-chat" class="tab-content hidden flex flex-col flex-grow gap-3">
           <div class="flex-grow flex flex-col gap-2">
-            <label class="text-xs font-tech text-yellow-400 block font-bold">ป้อนรายละเอียดเพื่อวิเคราะห์ข้อมูลเชิงลึกด้วยเกราะป้องกันชั้นเลิศ</label>
+            <label class="text-xs font-tech text-yellow-400 block font-bold">ป้อนรายละเอียดเพื่อวิเคราะห์โครงสร้างธุรกิจด้วยระบบความปลอดภัยชั้นเลิศ</label>
             <div class="relative flex-grow">
-              <textarea id="chat-prompt" placeholder="เช่น: จงวิพากษ์ข้อตกลงและหลักรัฐธรรมนูญของระบบความปลอดภัยข้อมูลเสรีภาพองค์กร..." class="w-full h-32 p-3 bg-black/60 border border-slate-800 rounded text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-yellow-400 font-tech resize-none"></textarea>
+              <textarea id="chat-prompt" placeholder="เช่น: จงวิเคราะห์ความต่างอย่างเป็นระบบของ Gemini 3.1 Pro เมื่อเปรียบเทียบกับรุ่นก่อนหน้านี้..." class="w-full h-32 p-3 bg-black/60 border border-slate-800 rounded text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-yellow-400 font-tech resize-none"></textarea>
             </div>
             
             <div class="flex flex-wrap items-center justify-between gap-2 bg-slate-950/80 p-2 rounded border border-slate-900 text-xs font-tech">
               <label class="flex items-center gap-2 cursor-pointer text-slate-300">
                 <input type="checkbox" id="chat-search" class="rounded accent-yellow-500 bg-black" checked>
-                <span>เปิดใช้งาน Google Search Grounding (ดึงข่าวสารอ้างอิงตรงเวลาเรียลไทม์)</span>
+                <span>เปิดใช้งาน Google Search Grounding (ดึงสารสารอ้างอิงตรงเวลาเรียลไทม์)</span>
               </label>
             </div>
           </div>
@@ -264,22 +324,22 @@
           </button>
         </div>
 
-        <!-- แท็บที่ 2: วาดภาพประกอบระดับความเสถียร Imagen 4 -->
+        <!-- แท็บที่ 3: วาดภาพประกอบระดับสากล Imagen 4 -->
         <div id="tab-imagen" class="tab-content hidden flex flex-col flex-grow gap-3">
           <div class="flex-grow flex flex-col gap-2">
-            <label class="text-xs font-tech text-yellow-400 block font-bold">สั่งจัดสรรพิกเซลภาพถ่ายความคมชัดด้วยโครงสร้างเอนจิน Imagen 4.0</label>
-            <textarea id="image-prompt" placeholder="A stunning golden shield with cryptographic symbols, rotating in cybernetic space, highly realistic, dark gold aesthetic" class="w-full h-24 p-3 bg-black/60 border border-slate-800 rounded text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-yellow-400 font-tech resize-none"></textarea>
+            <label class="text-xs font-tech text-yellow-400 block font-bold">สั่งจัดสรรพิกเซลภาพถ่ายความชัดระดับสตูดิโอผ่านเอนจิน Imagen 4.0</label>
+            <textarea id="image-prompt" placeholder="A deluxe cybernetic key made of solid gold, detailed tech engravings, glowing purple light inside a clean glass container, highly detailed, octane render" class="w-full h-24 p-3 bg-black/60 border border-slate-800 rounded text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-yellow-400 font-tech resize-none"></textarea>
           </div>
           <button onclick="triggerImageGeneration()" id="btn-image-gen" class="py-2.5 bg-gradient-to-r from-yellow-500 to-amber-600 text-black font-black font-futuristic rounded hover:opacity-90 flex items-center justify-center gap-2 transition-all">
             <span>สังเคราะห์ภาพดิจิทัล (GENERATE IMAGE)</span> <i class="fa-solid fa-palette"></i>
           </button>
         </div>
 
-        <!-- แท็บที่ 3: สังเคราะห์เสียงบรรยายอัจฉริยะ (TTS) -->
+        <!-- แท็บที่ 4: สังเคราะห์เสียงบรรยายพรีเมียม (TTS) -->
         <div id="tab-tts" class="tab-content hidden flex flex-col flex-grow gap-3">
           <div class="flex-grow flex flex-col gap-3">
             <div>
-              <label class="text-xs font-tech text-yellow-400 block font-bold mb-1">เลือกผู้ให้บริการน้ำเสียงระดับสากล (Corporate Voices)</label>
+              <label class="text-xs font-tech text-yellow-400 block font-bold mb-1">เลือกคลื่นเสียงต้นแบบบรรยายสำหรับธุรกิจ (Corporate Speaker)</label>
               <select id="tts-voice" class="w-full p-2 bg-black/60 border border-slate-800 rounded text-slate-300 text-xs focus:outline-none">
                 <option value="Kore">Kore (เสียงสุขุม น่าเลื่อมใส)</option>
                 <option value="Zephyr">Zephyr (เสียงกระตือรือร้น ทรงสิทธิ์นำเสนอ)</option>
@@ -287,19 +347,18 @@
               </select>
             </div>
             <div>
-              <label class="text-xs font-tech text-yellow-400 block font-bold mb-1">ป้อนข้อความจำลองที่ใช้ฝึกฝนออกเสียงคำพูด</label>
-              <textarea id="tts-prompt" placeholder="Say cheerfully: ขณะนี้ศูนย์ตรวจสอบสถาปัตยกรรมของ MAEW OS กำลังดำเนินประเมินความปลอดภัยเรียบร้อยแล้ว!" class="w-full h-24 p-3 bg-black/60 border border-slate-800 rounded text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-yellow-500 font-tech resize-none"></textarea>
+              <label class="text-xs font-tech text-yellow-400 block font-bold mb-1">ป้อนข้อมูลข้อความที่นำไปฝึกฝนออกเสียง</label>
+              <textarea id="tts-prompt" placeholder="Say cheerfully: ระบบเอนจินโกลาหลจำลอง ได้จัดเก็บข้อมูลสถิติดิจิทัลของคุณเรียบร้อยแล้ว!" class="w-full h-24 p-3 bg-black/60 border border-slate-800 rounded text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-yellow-500 font-tech resize-none"></textarea>
             </div>
           </div>
           <button onclick="triggerTTS()" id="btn-tts-gen" class="py-2.5 bg-gradient-to-r from-yellow-500 to-amber-600 text-black font-black font-futuristic rounded hover:opacity-90 flex items-center justify-center gap-2 transition-all">
-            <span>แปลงคลื่นอักขระเป็นเสียงบรรยาย (SPEECH SYNTH)</span> <i class="fa-solid fa-volume-high"></i>
+            <span>แปลงสตรีมคลื่นอักขระเป็นสุนทรพจน์ (SPEECH SYNTH)</span> <i class="fa-solid fa-volume-high"></i>
           </button>
         </div>
 
-        <!-- แท็บที่ 4: เล่มสารบัญแม่บทและระบบข้อตกลง -->
+        <!-- แท็บที่ 5: แฟ้มข้อมูลสถาปัตยกรรมและสารบรรณสัญญา -->
         <div id="tab-blueprints" class="tab-content hidden flex flex-col flex-grow gap-4">
           <div class="grid grid-cols-1 md:grid-cols-12 gap-3 flex-grow">
-            <!-- สารบรรณเล่มที่ I-V -->
             <div class="md:col-span-4 flex flex-col gap-1.5 max-h-[300px] overflow-y-auto pr-1">
               <span class="text-[10px] font-bold text-yellow-500 uppercase tracking-wider block mb-1">
                 <i class="fa-solid fa-book-open"></i> MASTER SPECIFICATION VOLUMES
@@ -332,7 +391,7 @@
                 <span id="registry-state" class="text-[9px] px-2 py-0.5 bg-yellow-950/40 text-yellow-300 border border-yellow-500/30 rounded uppercase font-tech">Reference</span>
               </div>
               <div id="registry-body" class="text-[11px] text-slate-300 font-tech whitespace-pre-wrap leading-relaxed">
-                คลิกตรวจสอบรายละเอียดสัญญาสารบรรณด้านซ้าย เพื่อนำเข้ามาแสดงในกระดานนี้...
+                กรุณาเลือกแฟ้มสารบัญแม่บทสัญญาด้านซ้าย เพื่อนำสถิติข้อมูลอ้างอิงเข้ามาฉายในพื้นที่นี้...
               </div>
             </div>
           </div>
@@ -345,17 +404,17 @@
               <div onclick="filterArl(1)" class="cursor-pointer p-2 bg-slate-950 hover:bg-slate-900 rounded border border-slate-800 transition-all">
                 <span class="text-[9px] text-slate-500 block">ARL 1-3</span>
                 <span class="text-yellow-400 font-bold">REFERENCE ARCH</span>
-                <span class="text-[8px] text-slate-400 block mt-1">วิสัยทัศน์ข้อกำหนดอ้างอิง</span>
+                <span class="text-[8px] text-slate-400 block mt-1">วิสัยทัศน์ความพร้อมระดับต้น</span>
               </div>
               <div onclick="filterArl(4)" class="cursor-pointer p-2 bg-slate-950 hover:bg-slate-900 rounded border border-slate-800 transition-all">
                 <span class="text-[9px] text-slate-500 block">ARL 4-6</span>
                 <span class="text-cyan-400 font-bold">IMPLEMENTATION</span>
-                <span class="text-[8px] text-slate-400 block mt-1">การรันต้นแบบและจำลองระบบ</span>
+                <span class="text-[8px] text-slate-400 block mt-1">โมเดลทดสอบและสถิติใช้งาน</span>
               </div>
               <div onclick="filterArl(7)" class="cursor-pointer p-2 bg-slate-950 hover:bg-slate-900 rounded border border-slate-800 transition-all">
                 <span class="text-[9px] text-slate-500 block">ARL 7-9</span>
                 <span class="text-emerald-400 font-bold">PRODUCTION</span>
-                <span class="text-[8px] text-slate-400 block mt-1">ผ่านตรวจรับความปลอดภัยสูง</span>
+                <span class="text-[8px] text-slate-400 block mt-1">การตรวจรับสำหรับส่งออกขายจริง</span>
               </div>
             </div>
           </div>
@@ -364,46 +423,46 @@
       </div>
     </div>
 
-    <!-- แผงจำลองภาพดวงตาสลักสนามพลังงานจำลองแบบ Real-Time -->
+    <!-- ส่วนจำลองทัศนียภาพของวงโคจรและสนามควอนตัมเกตเวย์ (Quantum Singularity Core View) -->
     <div class="glass gold-border p-4 rounded-xl relative flex flex-col">
       <div class="tech-corner tc-tl"></div><div class="tech-corner tc-tr"></div><div class="tech-corner tc-bl"></div><div class="tech-corner tc-br"></div>
       <div class="flex justify-between border-b border-yellow-500/20 pb-2.5 mb-3">
         <h3 class="text-xs font-bold text-yellow-400 font-futuristic flex items-center gap-1.5">
-          <i class="fa-solid fa-circle-dot animate-pulse text-yellow-500"></i> Quantum Singularity & Core Sandbox Simulation
+          <i class="fa-solid fa-circle-dot animate-pulse text-yellow-500"></i> Quantum Core Simulator Engine
         </h3>
-        <span class="text-[9px] px-2.5 py-1 bg-yellow-950/50 text-yellow-300 rounded border border-yellow-800/40 font-tech">
-          GRAVITY 5.4G | ACTIVE ENGINE
+        <span class="text-[9px] px-2.5 py-1 bg-yellow-950/50 text-yellow-300 rounded border border-yellow-800/40 font-tech" id="vortex-badge">
+          STABILITY ACTIVE
         </span>
       </div>
-      <div class="relative h-[150px] bg-black/90 rounded-xl border border-slate-900 overflow-hidden">
+      <div class="relative h-[150px] bg-black/95 rounded-xl border border-slate-900 overflow-hidden">
         <canvas id="singularity-canvas" class="w-full h-full absolute inset-0 cursor-crosshair"></canvas>
         <div class="relative z-10 h-full flex flex-col items-center justify-center pointer-events-none">
           <div id="central-core" class="w-14 h-14 rounded-full bg-gradient-to-br from-yellow-400 to-amber-600 animate-pulse flex items-center justify-center transition-all duration-300">
             <i id="core-icon" class="fa-solid fa-atom text-black text-lg animate-spin" style="animation-duration:4s"></i>
           </div>
           <div id="visualizer-status-text" class="mt-3 text-[10px] font-tech text-yellow-300 font-bold uppercase tracking-wider">EVENT HORIZON STABLE</div>
-          <div class="text-[8px] text-slate-500">แตะหรือเลื่อนขยับเมาส์ เพื่อบิดทอความโค้งสนามจำลอง</div>
+          <div class="text-[8px] text-slate-500">สัมผัสหรือเคลื่อนย้ายเมาส์ในตารางเพื่อจำลองแรงโน้มถ่วง</div>
         </div>
         <div class="absolute top-3 left-3 bg-black/80 px-2 py-1 rounded border border-yellow-500/30 text-[9px] font-tech text-yellow-400" id="gravity-val">GRAVITY: 5.4G</div>
-        <div class="absolute top-3 right-3 bg-black/80 px-2 py-1 rounded border border-yellow-500/30 text-[9px] font-tech text-yellow-300 animate-pulse" id="ai-sync-badge">SYSTEM: DEMO MODE</div>
+        <div class="absolute top-3 right-3 bg-black/80 px-2 py-1 rounded border border-yellow-500/30 text-[9px] font-tech text-yellow-300 animate-pulse" id="ai-sync-badge">SYSTEM: STANDBY MODE</div>
       </div>
       <div class="grid grid-cols-4 gap-2 mt-3 font-tech text-[9px] text-center">
         <div class="bg-slate-950 p-2 rounded border border-slate-900"><span class="text-slate-500 block">Sovereign Tier</span><span class="text-yellow-400 font-bold" id="grid-tier-name">DEMO</span></div>
         <div class="bg-slate-950 p-2 rounded border border-slate-900"><span class="text-slate-500 block">Quantum State</span><span id="q-state" class="text-purple-400 font-bold">STABLE</span></div>
-        <div class="bg-slate-950 p-2 rounded border border-slate-900"><span class="text-slate-500 block">SLA Index</span><span class="text-emerald-400 font-bold">99.999%</span></div>
-        <div class="bg-slate-950 p-2 rounded border border-slate-900"><span class="text-slate-500 block">Auto-healing</span><span class="text-emerald-400 font-bold">ACTIVE</span></div>
+        <div class="bg-slate-950 p-2 rounded border border-slate-900"><span class="text-slate-500 block">SLA Index</span><span id="dashboard-sla-pct" class="text-emerald-400 font-bold">99.999%</span></div>
+        <div class="bg-slate-950 p-2 rounded border border-slate-900"><span class="text-slate-500 block">Auto-healing</span><span id="auto-healing-badge" class="text-emerald-400 font-bold">ACTIVE</span></div>
       </div>
     </div>
 
-    <!-- ส่วนคอนโซลข้อความ CLI สำหรับสั่งการ -->
+    <!-- ส่วนจำลองคอนโซลเทอร์มินัล (Command Control Terminal) -->
     <div class="glass p-4 rounded-xl relative">
       <h3 class="text-xs font-bold text-yellow-500 font-futuristic mb-2 flex items-center justify-between">
         <span>SYSTEM COMMAND CONSOLE</span>
         <button onclick="clearCli()" class="text-[9px] text-slate-500 hover:text-slate-300 bg-black px-1.5 py-0.5 rounded border border-slate-800">Clear</button>
       </h3>
-      <div class="bg-black/90 p-3 rounded border border-slate-900 font-mono text-[10px] text-emerald-400 h-[100px] overflow-y-auto" id="cli-log">
-        <div>[SYSTEM] v1.2.0 LTS Booting Sequence complete...</div>
-        <div>[AI STUDIO] เอนจินจำลองตรวจรับทำงานแล้ว พิมพ์ 'help' เพื่อเช็ครหัสระบบ</div>
+      <div class="bg-black/90 p-3 rounded border border-slate-900 font-mono text-[10px] text-emerald-400 h-[100px] overflow-y-auto shadow-inner" id="cli-log">
+        <div>[SYSTEM] v1.3.0 LTS Core Ready to Accept Commands...</div>
+        <div>[AI STUDIO] ระบบจำลองตรวจสิทธิ์การชำระเสร็จสมบูรณ์แล้ว พิมพ์ 'help' เพื่อสืบค้นข้อมูลรหัส</div>
       </div>
       <div class="grid grid-cols-4 gap-1 mt-2 font-tech text-[8px]">
         <button onclick="runCmd('maew ai connect')" class="py-1.5 bg-yellow-950/40 border border-yellow-850/40 rounded text-yellow-300 font-bold hover:bg-yellow-900/50">ai connect</button>
@@ -414,10 +473,9 @@
     </div>
   </div>
 
-  <!-- แผงควบคุมและแสดงรายงานผลลัพธ์ด้านขวา: เวิร์กสเปซสรุปผลงานระดับสูง -->
+  <!-- แผงประเมินวิเคราะห์และรายงานด้านขวา (Right Inspector & Results Area) -->
   <div class="lg:col-span-3 flex flex-col gap-4">
-    
-    <!-- เวิร์กสเปซความละเอียดสูงแสดงรายงานออดิตและข้อมูลวิเคราะห์ (WORKSPACE VIEWPORT) -->
+    <!-- หน้าจอแสดงผลประเภทไดนามิกของข้อมูล (ENGINE WORKSPACE) -->
     <div class="glass p-4 rounded-xl border border-yellow-500/20 relative flex flex-col min-h-[300px]">
       <div class="tech-corner tc-tl"></div><div class="tech-corner tc-tr"></div>
       <h3 class="text-xs font-bold text-yellow-400 font-futuristic mb-3 flex items-center justify-between">
@@ -425,24 +483,25 @@
         <span id="output-type" class="text-[9px] px-2 py-0.5 bg-slate-900 text-slate-400 rounded uppercase font-tech">STANDBY</span>
       </h3>
       
+      <!-- พื้นที่เวิร์กสเปซจัดเก็บและฉายรูปจำลอง -->
       <div class="flex-grow flex flex-col justify-center bg-black/60 rounded border border-slate-900 p-3 overflow-y-auto max-h-[380px]" id="workspace-viewport">
         
-        <!-- สถานะรอมอบหมายงานเริ่มต้น -->
+        <!-- ข้อมูลสแตนด์บายดั้งเดิม -->
         <div id="output-default" class="text-center space-y-2 py-8 text-slate-500">
           <i class="fa-solid fa-circle-nodes text-3xl text-slate-700 animate-pulse"></i>
-          <p class="text-[11px] font-tech">ป้อน URL โครงการและเลือกสถิติตรวจสอบ จากนั้นกดเริ่มสแกนเพื่อรับสรุปรายงานที่นี่</p>
+          <p class="text-[11px] font-tech">ระบุข้อมูลที่จำเป็นแล้วสั่งดำเนินการสแกนสถิติหรือสร้างสรรค์ภาพเพื่อฉายผลลัพธ์ที่นี่</p>
         </div>
 
-        <!-- หน้าแอนิเมชันความปลอดภัยขณะตรวจวิเคราะห์ระบบ -->
+        <!-- หน้าต่างแอนิเมชันตอนประมวลผลหรือรันระบบสแกน -->
         <div id="output-loader" class="hidden text-center space-y-3 py-12">
           <div class="inline-block relative">
             <div class="w-10 h-10 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin"></div>
             <div class="w-6 h-6 border-4 border-cyan-400 border-b-transparent rounded-full animate-spin absolute top-2 left-2" style="animation-direction:reverse"></div>
           </div>
-          <p id="loader-text" class="text-[11px] text-yellow-400 font-tech font-bold animate-pulse">กำลังสแกนและประมวลผลรายงานสิทธิบัตรเชิงลึก...</p>
+          <p id="loader-text" class="text-[11px] text-yellow-400 font-tech font-bold animate-pulse">กำลังจัดสรรเกณฑ์ความสอดคล้องความมั่นคงระดับสูง...</p>
         </div>
 
-        <!-- หน้าต่างรวบรวมไฟล์รายงานเอกสารประเภทตัวหนังสือ (PDF / MD Output) -->
+        <!-- หน้าแสดงรายงานประเมินและข้อมูลตัวหนังสือความคมชัดสูง -->
         <div id="output-text-area" class="hidden text-xs text-slate-300 leading-relaxed space-y-2 select-all h-full">
           <div class="flex justify-between border-b border-slate-900 pb-1 mb-2">
             <span class="text-[9px] text-yellow-400 font-bold">ANALYZED RESPONSES</span>
@@ -456,24 +515,24 @@
           </div>
         </div>
 
-        <!-- หน้าต่างดาวน์โหลดรูปภาพจาก Imagen 4 -->
+        <!-- หน้าต่างแสดงภาพถ่ายสิทธิบัตรจาก Imagen 4 -->
         <div id="output-image-area" class="hidden flex flex-col items-center justify-center gap-2">
           <div class="border border-yellow-500/30 p-1 bg-black rounded relative group">
             <img id="image-response-element" src="" alt="Imagen Generated Image" class="max-w-full rounded border border-slate-800" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=500';">
           </div>
-          <a id="image-download-btn" href="#" download="maew-audit-artwork.png" class="w-full text-center py-1.5 bg-slate-900 border border-slate-800 hover:text-yellow-400 rounded text-[10px] font-tech">
+          <a id="image-download-btn" href="#" download="maew-enterprise.png" class="w-full text-center py-1.5 bg-slate-900 border border-slate-800 hover:text-yellow-400 rounded text-[10px] font-tech">
             <i class="fa-solid fa-download mr-1"></i> บันทึกภาพลงดิสก์เครื่อง
           </a>
         </div>
 
-        <!-- หน้าต่างทดลองเล่นไฟล์เสียงสิทธิบัตรและสุนทรพจน์ -->
+        <!-- หน้าต่างเล่นไฟล์สตรีมมิ่งเสียงพรีเมียม (Audio Synth Wave) -->
         <div id="output-audio-area" class="hidden flex flex-col items-center justify-center gap-3 py-6">
           <div class="w-12 h-12 rounded-full bg-yellow-900/10 border border-yellow-500/30 flex items-center justify-center text-yellow-400">
             <i class="fa-solid fa-wave-square text-lg animate-pulse"></i>
           </div>
           <div class="text-center font-tech">
             <div id="audio-voice-name" class="text-xs font-bold text-yellow-400">Voice: Kore</div>
-            <div class="text-[9px] text-slate-500">ระบบประดับคุณภาพน้ำเสียงระดับสากล 16-bit WAV</div>
+            <div class="text-[9px] text-slate-500">แปลงสัญญาณคลื่นเสียงระดับคุณภาพสูงเสร็จสิ้น 16-bit WAV</div>
           </div>
           <audio id="audio-player" controls class="w-full h-8 max-w-xs mt-1 outline-none text-yellow-400 bg-yellow-950 rounded-lg"></audio>
         </div>
@@ -481,68 +540,77 @@
       </div>
     </div>
 
-    <!-- แดชบอร์ดตรวจสอบประสิทธิภาพแบบเรียลไทม์ (SaaS & SLA Metrics Panel) -->
+    <!-- แผงรายงานสถิติประสิทธิภาพองค์กรแบบเรียลไทม์ (SaaS Operations Panel) -->
     <div class="glass p-4 rounded-xl border border-yellow-500/20">
-      <h3 class="text-xs font-bold text-yellow-400 font-futuristic mb-3">
-        <i class="fa-solid fa-chart-line mr-1 text-yellow-400"></i> SAAS & OPERATION KPI
+      <h3 class="text-xs font-bold text-yellow-400 font-futuristic mb-3 flex items-center justify-between">
+        <span><i class="fa-solid fa-chart-line mr-1 text-yellow-400"></i> SAAS & OPERATION KPI</span>
+        <span class="text-[8px] bg-emerald-950 text-emerald-300 px-1 py-0.5 rounded font-mono">LIVE RUN</span>
       </h3>
       <div class="space-y-3 font-tech text-[10px]">
         <div>
-          <div class="flex justify-between"><span>สถิติความเสถียรทราฟฟิก Gemini 3.1</span><span class="text-yellow-400 font-bold">99.999% SLA Stable</span></div>
+          <div class="flex justify-between">
+            <span>ระดับความเสถียรทราฟฟิก (SLA Index)</span>
+            <span class="text-yellow-400 font-bold" id="metrics-sla-pct">99.999% SLA Stable</span>
+          </div>
           <div class="w-full bg-slate-950 h-1.5 rounded mt-1 overflow-hidden">
-            <div class="bg-gradient-to-r from-yellow-500 to-amber-600 h-full" style="width:100%"></div>
+            <div id="metrics-sla-bar" class="bg-gradient-to-r from-yellow-500 to-amber-600 h-full transition-all duration-300" style="width:100%"></div>
           </div>
         </div>
         <div>
-          <div class="flex justify-between"><span>อัตราผลกำไรสุทธิการทำธุรกรรม (ROI)</span><span class="text-cyan-400 font-bold">428% Net Profit</span></div>
+          <div class="flex justify-between">
+            <span>กำไรเชิงปริมาณการประมวลผล (ROI)</span>
+            <span class="text-cyan-400 font-bold" id="metrics-roi-pct">428% Net Profit</span>
+          </div>
           <div class="w-full bg-slate-950 h-1.5 rounded mt-1 overflow-hidden">
-            <div class="bg-cyan-500 h-full" style="width:85%"></div>
+            <div id="metrics-roi-bar" class="bg-cyan-500 h-full transition-all duration-500" style="width:85%"></div>
           </div>
         </div>
         <div class="pt-2 border-t border-slate-900 flex justify-between items-center text-slate-400 text-[9px]">
-          <span>สถานะฝ่ายสนับสนุนสากล:</span>
-          <span class="text-emerald-400 font-bold flex items-center gap-1"><span class="w-2 h-2 bg-emerald-400 rounded-full inline-block animate-pulse"></span> คู่สายระดับผู้บริหาร</span>
+          <span>สายด่วนช่วยเหลือเทคนิค:</span>
+          <span class="text-emerald-400 font-bold flex items-center gap-1">
+            <span id="support-pulse" class="w-2 h-2 bg-emerald-400 rounded-full inline-block animate-pulse"></span> โทรด่วนสากลระดับผู้บริหาร
+          </span>
         </div>
       </div>
     </div>
 
-    <!-- แผงโครงสร้างสัญญาน 12 ชั้นของอารยธรรม -->
+    <!-- แกนธรรมนูญ 12 ชั้นของอารยธรรม (Immutable 12 Layers Checklist) -->
     <div class="glass p-4 rounded-xl">
       <h3 class="text-xs font-bold text-cyan-400 font-futuristic mb-3">12 LAYERS CONSTITUTION</h3>
       <div class="space-y-1 font-tech text-[10px] max-h-[120px] overflow-y-auto">
-        <div class="p-1.5 bg-slate-950 rounded flex justify-between items-center border border-slate-900">
-          <span>L1 Constitution</span><span class="text-green-400 font-bold">✓ ENFORCED</span>
+        <div class="p-1.5 bg-slate-950 rounded flex justify-between items-center border border-slate-900" id="layer-item-1">
+          <span>Layer 1 Constitution</span><span class="text-green-400 font-bold" id="layer-status-1">✓ ENFORCED</span>
         </div>
-        <div class="p-1.5 bg-slate-950 rounded flex justify-between items-center border border-slate-900">
-          <span>L3 Intelligence Bridge</span><span class="text-emerald-400 font-bold">✓ STREAMING</span>
+        <div class="p-1.5 bg-slate-950 rounded flex justify-between items-center border border-slate-900" id="layer-item-3">
+          <span>Layer 3 Intelligence Bridge</span><span class="text-emerald-400 font-bold" id="layer-status-3">✓ STREAMING</span>
         </div>
-        <div class="p-1.5 bg-yellow-950/20 rounded flex justify-between items-center border border-yellow-500/20">
-          <span>L12 Self Evolution AI</span><span class="text-yellow-400 font-bold">✓ ACTIVE COMMERCIAL</span>
+        <div class="p-1.5 bg-yellow-950/20 rounded flex justify-between items-center border border-yellow-500/20" id="layer-item-12">
+          <span>Layer 12 Self Evolution AI</span><span class="text-yellow-400 font-bold" id="layer-status-12">✓ COMMERCIAL STATE</span>
         </div>
       </div>
     </div>
   </div>
 </main>
 
-<!-- ส่วนข้อตกลงและลิขสิทธิ์ท้ายหน้าเพจ -->
+<!-- ส่วนท้ายแสดงเอกสารสัญญาด้านกฎหมาย -->
 <footer class="text-center py-4 pb-24 border-t border-slate-900 text-[10px] text-slate-500 font-futuristic tracking-widest">
-  MAEW Ω∞ STACK CO. © 2026 • ALL RIGHTS RESERVED • ENTERPRISE COMMERCIAL VERSION 1.2
+  MAEW Ω∞ STACK CO. © 2026 • ALL RIGHTS RESERVED • ENTERPRISE COMMERCIAL VERSION 1.3
 </footer>
 
-<!-- แถบด้านล่างสำหรับสั่งจองชำระค่าลิขสิทธิ์เชิงธุรกิจ -->
+<!-- แถบด้านล่างสำหรับสั่งจองประมวลสิทธิ์และลิขสิทธิ์ระดับพรีเมียมอย่างเป็นทางการ -->
 <div style="position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(2,1,8,0.98);border-top:2px solid #eab308;padding:12px 14px;">
   <div style="max-width:1280px;margin:0 auto;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;align-items:center;font-family:'Chakra Petch'">
-    <span style="color:#eab308;font-size:12px;font-weight:800;letter-spacing:1px;" class="animate-pulse">🚀 ลิขสิทธิ์ธุรกิจอัจฉริยะครบวงจร (LTS Commercial Package):</span>
+    <span style="color:#eab308;font-size:12px;font-weight:800;letter-spacing:1px;" class="animate-pulse">🚀 สัญญาธุรกิจอัจฉริยะแบบบูรณาการ (LTS Commercial Package):</span>
     <button onclick="openPaymentModal()" style="background:linear-gradient(135deg,#eab308,#d97706);color:#000;padding:8px 18px;border-radius:6px;font-weight:900;font-size:11px;cursor:pointer;" class="hover:scale-105 active:scale-95 transition-all shadow-md shadow-yellow-500/20">
-      <i class="fa-solid fa-credit-card mr-1"></i> ซื้อสิทธิ์ลิขสิทธิ์ / อัพเกรดโหนด $7,500/เดือน
+      <i class="fa-solid fa-credit-card mr-1"></i> สั่งซื้อลิขสิทธิ์ความเสถียร $7,500/เดือน
     </button>
     <a href="https://aistudio.google.com/" target="_blank" style="background:#06b6d4;color:#000;padding:8px 18px;border-radius:6px;font-weight:700;font-size:11px;text-decoration:none;" class="hover:scale-105 active:scale-95 transition-all">
-      คู่มือความปลอดภัย API Key →
+      จัดหา API Key เปล่าส่วนตัว →
     </a>
   </div>
 </div>
 
-<!-- หน้าต่างสั่งจ่ายธุรกรรมจำลองเพื่อปิดใบเสนอราคา (SaaS Payment Modal) -->
+<!-- หน้าต่างเกตเวย์รับจ่ายเงินจำลองความปลอดภัยระดับทหาร (Payment Modal Checkout Simulator) -->
 <div id="payment-modal" class="hidden fixed inset-0 z-[99999] flex items-center justify-center bg-black/80 backdrop-filter backdrop-blur-md p-4">
   <div class="glass gold-border rounded-2xl w-full max-w-lg p-6 relative flex flex-col gap-4 animate-fade-in">
     <div class="tech-corner tc-tl"></div><div class="tech-corner tc-tr"></div><div class="tech-corner tc-bl"></div><div class="tech-corner tc-br"></div>
@@ -552,13 +620,13 @@
         <i class="fa-solid fa-shield-halved text-yellow-400 text-lg"></i>
         <div>
           <h3 class="text-sm font-bold font-futuristic text-yellow-400 tracking-wider">MAEW OS ENTERPRISE BILLING</h3>
-          <p class="text-[9px] text-slate-400">ระบบสั่งซื้อความปลอดภัยระดับทหารและรับรหัสเปิดใช้งานทันที</p>
+          <p class="text-[9px] text-slate-400">ระบบประมวลสัญญาซื้อขายความเสถียรสูงจำลองความปลอดภัยระดับทหาร</p>
         </div>
       </div>
       <button onclick="closePaymentModal()" class="text-slate-400 hover:text-white text-lg"><i class="fa-solid fa-xmark"></i></button>
     </div>
 
-    <!-- บัตรเครดิตหรูหราจำลอง -->
+    <!-- หน้าบัตรเครดิตพรีเมียมสีทองจำลองเพื่อดึงดูดการขาย -->
     <div class="bg-gradient-to-br from-yellow-600 via-amber-500 to-yellow-800 p-4 rounded-xl text-black flex flex-col justify-between h-36 shadow-lg shadow-yellow-500/10">
       <div class="flex justify-between items-start">
         <span class="text-xs font-bold tracking-widest font-futuristic uppercase">Sovereign Civilization Card</span>
@@ -577,11 +645,11 @@
       </div>
     </div>
 
-    <!-- รายละเอียดข้อมูลบัตรเครดิต -->
+    <!-- ฟอร์มจำลองข้อมูลจ่ายเงิน -->
     <div class="space-y-3 font-tech text-xs">
       <div class="grid grid-cols-2 gap-2">
         <div>
-          <label class="block text-slate-400 mb-1">ชื่อผู้ซื้อ / หน่วยงานองค์กร</label>
+          <label class="block text-slate-400 mb-1">ชื่อผู้ซื้อ / หน่วยงานในเครือ</label>
           <input id="pay-name" type="text" value="MAEW GLOBAL CORP" oninput="document.getElementById('card-holder-display').innerText = this.value" class="w-full p-2 bg-slate-900 border border-slate-800 rounded focus:outline-none focus:border-yellow-400">
         </div>
         <div>
@@ -612,9 +680,9 @@
       </div>
     </div>
 
-    <!-- ปุ่มเพื่อทำการยืนยันชำระสิทธิ์ลิขสิทธิ์ -->
+    <!-- ปุ่มเพื่อส่งบิลสรุปประเมินราคารับรหัสยืนยันแบบไดนามิก -->
     <button onclick="processCommercialOrder()" class="w-full py-3 bg-gradient-to-r from-yellow-500 via-amber-500 to-yellow-600 text-black font-black rounded-lg text-xs hover:scale-[1.01] active:scale-[0.98] transition-all">
-      <i class="fa-solid fa-lock mr-1"></i> ชำระเงินจำลองเพื่อเปิดรหัสลิขสิทธิ์ทันที
+      <i class="fa-solid fa-lock mr-1"></i> ชำระเงินจำลองเพื่อออกรหัสอนุญาตความมั่นคงใช้งานทันที
     </button>
   </div>
 </div>
@@ -623,9 +691,10 @@
 <div id="toast-container" class="fixed top-5 right-5 z-[999999] flex flex-col gap-2 pointer-events-none"></div>
 
 <script>
-  // ชุดข้อมูลคีย์และระบบสัญญาทั้ง 5 เล่ม
+  // ตัวแปรรองรับ API Key หลักของรันไทม์
   const apiKey = ""; 
 
+  // ข้อมูลสถิติสัญญาทั้ง 5 เล่มของพิมพ์เขียว
   const volumesDatabase = {
     1: {
       title: "VOLUME I — VISION & CONSTITUTION",
@@ -716,21 +785,21 @@ Response: 200 OK
     }
   };
 
-  // ตรวจจับการใส่คีย์ของระบบ
+  // เช็คคีย์หลักพรีรันและคีย์ผู้ควบคุม
   function getActiveApiKey() {
     const customKey = document.getElementById('ai-key').value.trim();
     if (customKey) return customKey;
     return apiKey; 
   }
 
-  // แสดงระบบแจ้งเตือนสุดพรีเมียม (Toast Alert Notification)
+  // ระบบแจ้งเตือนสุดพรีเมียม (Toast Alert System)
   function showToast(message, type = 'success') {
     const container = document.getElementById('toast-container');
     const toast = document.createElement('div');
     toast.className = `p-3 rounded-lg text-xs font-tech flex items-center gap-2 pointer-events-auto shadow-lg transition-all transform translate-y-2 opacity-0 duration-300 ${
-      type === 'success' ? 'bg-yellow-500 text-black border border-yellow-600' :
+      type === 'success' ? 'bg-yellow-500 text-black border border-yellow-600 font-bold' :
       type === 'info' ? 'bg-slate-900 text-slate-200 border border-slate-700' :
-      'bg-red-950/90 text-red-300 border border-red-500/50'
+      'bg-red-950 text-red-300 border border-red-500/50 font-bold animate-bounce'
     }`;
     toast.innerHTML = `<i class="fa-solid ${type === 'success' ? 'fa-circle-check' : type === 'info' ? 'fa-circle-info' : 'fa-triangle-exclamation'}"></i> <span>${message}</span>`;
     container.appendChild(toast);
@@ -747,13 +816,13 @@ Response: 200 OK
     }, 4000);
   }
 
-  // กรอกคีย์ทดสอบล่วงหน้าความสวยงามเพื่อปิดการขาย
+  // ป้อนรหัสลิขสิทธิ์ระดับองค์กรสำหรับการทดสอบขายพรีเมียม
   function fillTestKey() {
     document.getElementById('license-key-input').value = 'MAEW-ENTERPRISE-LTS';
-    showToast('วางคีย์ลิขสิทธิ์ตัวอย่างระดับองค์กรเรียบร้อย คลิกเพื่อยืนยันสิทธิ์!', 'info');
+    showToast('เตรียมคีย์ตัวอย่างระดับองค์กรไว้ให้แล้ว กดตรวจสอบเพื่อเปลี่ยนโหมดพรีเมียม', 'info');
   }
 
-  // ระบบยืนยันคีย์ใบอนุญาต
+  // ระบบประเมินและยืนยันรหัสใบอนุญาต (License Verification)
   function activateLicenseKey() {
     const key = document.getElementById('license-key-input').value.trim();
     const log = document.getElementById('license-log');
@@ -762,35 +831,35 @@ Response: 200 OK
       document.getElementById('license-badge').innerText = 'ENTERPRISE GOLD';
       document.getElementById('license-badge').className = 'text-[8px] bg-yellow-500 text-black px-1.5 py-0.5 rounded font-extrabold uppercase animate-pulse';
       
-      document.getElementById('header-container').className = 'glass premium-gold-glow rounded-xl p-4 relative transition-all duration-500';
-      document.getElementById('central-playground-card').className = 'glass premium-gold-glow p-4 rounded-xl relative flex flex-col min-h-[480px] transition-all duration-500';
+      document.getElementById('header-container').className = 'glass premium-gold-glow rounded-xl p-4 relative transition-all duration-700 glow-pulse';
+      document.getElementById('central-playground-card').className = 'glass premium-gold-glow p-4 rounded-xl relative flex flex-col min-h-[500px] transition-all duration-700';
       
       document.getElementById('ai-status').innerHTML = '<i class="fa-solid fa-crown text-yellow-400"></i> ULTRA ENTERPRISE NODE: ACTIVE';
       document.getElementById('ai-status').className = 'text-[9px] px-2.5 py-1 bg-yellow-950/80 border border-yellow-400/80 text-yellow-300 rounded font-tech font-bold animate-pulse';
       
       document.getElementById('grid-tier-name').innerText = 'GEMINI 3.1 ACTIVE';
       document.getElementById('grid-tier-name').className = 'text-yellow-400 font-extrabold animate-pulse';
-      document.getElementById('ai-sync-badge').innerText = 'SYSTEM: GEMINI 3.1 ACTIVE';
+      document.getElementById('ai-sync-badge').innerText = 'SYSTEM: GEMINI 3.1 PRO ACTIVE';
       document.getElementById('ai-sync-badge').className = 'absolute top-3 right-3 bg-black/80 px-2 py-1 rounded border border-yellow-500/50 text-[9px] font-tech text-yellow-400 animate-pulse';
       
-      log.innerHTML = '[LICENSE] ✓ ตรวจสอบลิขสิทธิ์โหนดสำเร็จ!<br>[LICENSE] ยินดีต้อนรับสู่โหนดประมวลผลระดับอารยธรรมเต็มรูปแบบ';
-      appendCli('[LICENSE] Activated Enterprise Elite node successfully via digital signature.', 'warn');
-      showToast('ยืนยันรหัสใบอนุญาตระดับสูงสุดพรีเมียมเรียบร้อยแล้ว!', 'success');
+      log.innerHTML = '[LICENSE] ✓ ยืนยันรหัสสิทธิบัตรเปิดใช้คอร์พรีเมียมสากลสำเร็จ!<br>[LICENSE] ระบบอัปเกรดสถานภาพเป็นพรีเมียมโหนดทองคำเรียบร้อยแล้ว';
+      appendCli('[LICENSE] Activated Enterprise Elite node successfully via cryptographic signature.', 'warn');
+      showToast('ปลดล็อคโมดูลพรีเมียมอัจฉริยะ Gemini 3.1 แบบ Enterprise เรียบร้อย!', 'success');
       
-      // ปรับจูนคะแนนความสอดคล้องความเสถียร
-      document.getElementById('compliance-pct').innerText = "99.9% Verified";
-      document.getElementById('compliance-pct').className = "text-emerald-400 font-extrabold";
+      // อัปเดตสถิติ MRR สดบนแดชบอร์ด
+      document.getElementById('mrr-val').innerText = '$389,900';
+      document.getElementById('mrr-val').className = 'text-yellow-400 font-bold';
       
       triggerCorePulse('yellow');
     } else if (key) {
-      log.innerHTML = '[LICENSE] <span class="text-red-400">[FAIL] รหัสสิทธิ์ใช้งานไม่ถูกต้องหรือสิ้นสุดสัญญาจองคลังข้อมูล</span>';
-      showToast('ไม่สามารถยืนยันได้: รหัสความปลอดภัยล้มเหลว', 'error');
+      log.innerHTML = '[LICENSE] <span class="text-red-400">[FAIL] ไม่พบคีย์ข้อมูลลิขสิทธิ์ตัวนี้ในระนาบสัญญาคลาวด์</span>';
+      showToast('ไม่สามารถเปิดสิทธิ์ได้: รหัสข้อมูลไม่ผ่านความปลอดภัย', 'error');
     } else {
-      showToast('กรุณากรอกรหัสสิทธิ์ใบอนุญาตใช้งานก่อนกดยืนยัน', 'warn');
+      showToast('กรุณากรอกรหัสลิขสิทธิ์ก่อนดำเนินการ', 'warn');
     }
   }
 
-  // คำนวณราคาคอมพิวติ้งตามขนาด Swarm
+  // คำนวณราคา SaaS ตามขนาดความต้องการคอมพิวต์
   function calculatePrice() {
     const agents = parseInt(document.getElementById('agent-slider').value);
     document.getElementById('slider-agents-val').innerText = agents.toLocaleString() + ' Agents';
@@ -800,7 +869,7 @@ Response: 200 OK
     document.getElementById('total-cost-val').innerText = `$${totalCost.toLocaleString()}/mo`;
   }
 
-  // จัดการโมเดลสรุปยอดสั่งซื้อ
+  // สั่งเปิดโมดอลคำนวนราคาเพื่อสั่งจอง
   function openPaymentModal() {
     document.getElementById('pay-service').value = "Sovereign Enterprise Tier (LTS)";
     document.getElementById('modal-invoice-price').innerText = "$7,500/mo";
@@ -819,7 +888,7 @@ Response: 200 OK
     document.getElementById('payment-modal').classList.add('hidden');
   }
 
-  // ออกใบเสร็จอย่างเป็นทางการในการชำระเงินจำลอง
+  // ออกบิลจำลองสิทธิบัตรพรีเมียมทันทีใน Workspace ขวา
   function processCommercialOrder() {
     const clientName = document.getElementById('pay-name').value.trim() || 'MAEW GLOBAL CORP';
     const chosenService = document.getElementById('pay-service').value;
@@ -832,38 +901,46 @@ Response: 200 OK
     const invoiceNumber = "INV-" + Math.floor(100000 + Math.random() * 900000);
     const mockLicenseKey = "MAEW-LTS-" + Math.random().toString(36).substr(2, 9).toUpperCase();
     
+    // คำนวณเพิ่มยอด Live MRR บนหน้าเพจจริง +$7,500 แบบไดนามิกเพื่อสาธิตความพรีเมียม
+    const mrrValEl = document.getElementById('mrr-val');
+    let currentMrr = parseInt(mrrValEl.innerText.replace(/[^0-9]/g, ''));
+    let newMrr = currentMrr + 7500;
+    mrrValEl.innerText = `$${newMrr.toLocaleString()}`;
+    mrrValEl.className = "font-bold text-yellow-400 animate-pulse";
+
     const invoiceHtml = `<div class="p-4 bg-slate-950 border border-yellow-500/40 rounded-lg text-slate-200 font-tech">
       <div class="flex justify-between items-center border-b border-slate-800 pb-2 mb-3">
         <span class="text-[10px] text-yellow-400 font-bold"><i class="fa-solid fa-file-invoice-dollar"></i> ใบเสร็จรับเงินอย่างเป็นทางการ</span>
         <span class="text-[9px] text-slate-400">${invoiceNumber}</span>
       </div>
       <h4 class="font-bold text-yellow-400 text-xs mb-2">MAEW COGNITIVE SOVEREIGNTY LTD</h4>
-      <p class="text-[10px] text-slate-300"><b>ผู้ชำระ:</b> ${clientName}</p>
-      <p class="text-[10px] text-slate-300"><b>บริการทำสัญญา:</b> ${chosenService}</p>
+      <p class="text-[10px] text-slate-300"><b>ผู้ชำระสิทธิ์:</b> ${clientName}</p>
+      <p class="text-[10px] text-slate-300"><b>บริการประมวลผล:</b> ${chosenService}</p>
       <p class="text-[10px] text-slate-300"><b>ยอดค่าลิขสิทธิ์:</b> <span class="text-emerald-400 font-bold">${totalCost}</span></p>
-      <p class="text-[10px] text-slate-300"><b>สถานะทำธุรกรรม:</b> <span class="text-emerald-400 font-bold">✓ ชำระแล้วสำเร็จ (Sandbox)</span></p>
+      <p class="text-[10px] text-slate-300"><b>สถานะทำรายการ:</b> <span class="text-emerald-400 font-bold">✓ ชำระสัญญาสมบูรณ์ (Live SaaS Ticker Updated!)</span></p>
       
       <div class="mt-4 p-2 bg-yellow-500/10 border border-yellow-500/30 rounded text-center">
-        <span class="block text-[8px] text-yellow-300 uppercase font-futuristic">นี่คือคีย์สิทธิ์เปิดใช้งานคอร์ลิขสิทธิ์ของคุณ (License Key)</span>
+        <span class="block text-[8px] text-yellow-300 uppercase font-futuristic">นี่คือรหัสเปิดใช้งานความเสถียรสูงสุดของคุณ (License Key)</span>
         <code class="block text-xs font-mono font-bold text-yellow-400 select-all my-1">${mockLicenseKey}</code>
-        <span class="block text-[8px] text-slate-400">คัดลอกรหัสนี้แล้วนำไปใส่ลงในช่องรหัสสิทธิ์เปิดใช้งานซ้ายสุดเพื่อขยายขอบข่าย</span>
+        <span class="block text-[8px] text-slate-400">คัดลอกรหัสนี้แล้วป้อนใส่ช่องยืนยันลิขสิทธิ์ฝั่งซ้ายของหน้าจอเพื่อเปิดสิทธิ์เต็มพิกัด</span>
       </div>
     </div>`;
     
     document.getElementById('text-response-content').innerHTML = invoiceHtml;
     document.getElementById('grounding-area').classList.add('hidden');
     
-    appendCli(`[BILLING] Checkout processed successfully for invoice ${invoiceNumber}`, 'warn');
-    showToast('ชำระจำลองเสร็จเรียบร้อย! คัดลอกรหัสที่ได้รับแล้วนำไปใส่ลงช่องทางด้านซ้ายเพื่อทดลองใช้งานจริง', 'success');
+    appendCli(`[BILLING] Checkout processed successfully. SRE SaaS MRR ticker updated to +$7,500.`, 'warn');
+    showToast('สั่งซื้อจำลองเรียบร้อย! ยอดจอง MRR ขยับขึ้นสดบนสถิติหัวเว็บแล้ว', 'success');
   }
 
-  // สลับแท็บข้อมูลการประมวลผลสากล
+  // ระบบปรับเปลี่ยนแท็บข้อมูล
   function switchTab(tabId) {
     document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
     document.getElementById(tabId).classList.remove('hidden');
 
     document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
     if (tabId === 'tab-audit-tool') document.getElementById('btn-tab-audit-tool').classList.add('active');
+    if (tabId === 'tab-chaos-drill') document.getElementById('btn-tab-chaos-drill').classList.add('active');
     if (tabId === 'tab-chat') document.getElementById('btn-tab-chat').classList.add('active');
     if (tabId === 'tab-imagen') document.getElementById('btn-tab-imagen').classList.add('active');
     if (tabId === 'tab-tts') document.getElementById('btn-tab-tts').classList.add('active');
@@ -876,7 +953,7 @@ Response: 200 OK
     updateSingularityTheme(tabId);
   }
 
-  // เรียกสัญญาสารบรรณขึ้นกระดานความเข้าใจ
+  // เรียกข้อมูลเล่มสิทธิบัตรแม่บท
   function selectVolume(volId) {
     document.querySelectorAll('.vol-btn').forEach(btn => btn.classList.remove('border-yellow-500', 'bg-yellow-950/20'));
     document.getElementById(`vol-btn-${volId}`).classList.add('border-yellow-500', 'bg-yellow-950/20');
@@ -890,7 +967,7 @@ Response: 200 OK
     }
   }
 
-  // แผนประเมินความพร้อม (ARL Board Filter)
+  // ตัวจำลองดึงแผนภาพความพร้อม
   function filterArl(level) {
     const registryTitle = document.getElementById('registry-title');
     const registryState = document.getElementById('registry-state');
@@ -932,37 +1009,232 @@ Response: 200 OK
     }
   }
 
-  // --- FEATURE: AUTOMATED ARCHITECTURE AUDIT & FLEET MANAGER (NEW v1.2) ---
-  async function runCivilizationAudit() {
+  // --- SRE CHAOS DRILL SIMULATOR CONTROL ENGINE (NEW v1.3) ---
+  let healingInterval = null;
+  function injectChaos(type) {
+    // ปิดอินเตอร์วัลการรักษาก่อนหน้าหากทำงานค้างอยู่
+    if (healingInterval) clearInterval(healingInterval);
+
+    const slaMetricPct = document.getElementById('metrics-sla-pct');
+    const slaMetricBar = document.getElementById('metrics-sla-bar');
+    const dashboardSlaPct = document.getElementById('dashboard-sla-pct');
+    const visualizerText = document.getElementById('visualizer-status-text');
+    const coreElement = document.getElementById('central-core');
+    const vortexBadge = document.getElementById('vortex-badge');
+    const healingBadge = document.getElementById('healing-status');
+    const autoHealingBadge = document.getElementById('auto-healing-badge');
+
+    // ปรับเปลี่ยนพิกัดการทำงาน SRE ในแท็บจำลองภัยพิบัติ
+    const sreLatency = document.getElementById('sre-latency-val');
+    const sreMemory = document.getElementById('sre-memory-status');
+    const sreLayer = document.getElementById('sre-layer-armor');
+    const sreTimer = document.getElementById('sre-healing-timer');
+
+    // ทริกเกอร์แอนิเมชันป่วนบนหน้าจอ
+    coreElement.className = "w-20 h-20 rounded-full bg-gradient-to-br from-red-600 via-orange-500 to-yellow-500 animate-ping flex items-center justify-center transition-all duration-300";
+    vortexBadge.innerText = "ALERT: DESYNC DRIFT";
+    vortexBadge.className = "text-[9px] px-2.5 py-1 bg-red-950/80 text-red-300 rounded border border-red-500/40 font-tech animate-pulse";
+    healingBadge.innerText = "PANIC: RE-ROUTING";
+    healingBadge.className = "text-red-400 font-bold animate-pulse";
+    autoHealingBadge.innerText = "HEALING CORE";
+    autoHealingBadge.className = "text-yellow-400 font-bold animate-pulse";
+
+    // ปรับเปลี่ยนความเร็วของโมเลกุลในแคนวาสซิงกูลาริตี (เร่งความเร็วจลาจล)
+    particles.forEach(p => {
+      p.s = Math.random() * 5 + 2; 
+      p.dist = Math.random() * 250 + 80;
+    });
+
+    // เริ่มต้นสถานการณ์จำลองตามหมวดหมู่ภัยพิบัติ
+    let targetSla = 99.999;
+    let currentSla = 99.999;
+    
+    if (type === 'latency') {
+      appendCli('[SRE CHAOS] INJECTED Drill: Vortex Latency Spike. Triggering high payload queues...', 'error');
+      sreLatency.innerText = "482ms (CRITICAL)";
+      sreLatency.className = "text-red-400 font-bold";
+      sreMemory.innerText = "SYNCED";
+      sreMemory.className = "text-emerald-400";
+      sreLayer.innerText = "INTEG (100%)";
+      sreLayer.className = "text-emerald-400";
+      visualizerText.innerText = "VORTEX LATENCY EMERGENCY";
+      visualizerText.className = "mt-3 text-[10px] font-tech text-red-400 font-bold uppercase tracking-wider animate-pulse";
+      targetSla = 82.415;
+    } else if (type === 'split') {
+      appendCli('[SRE CHAOS] INJECTED Drill: Layer 5 Swarm Partition Drill. Partitioning active agents...', 'error');
+      sreLatency.innerText = "12ms";
+      sreLatency.className = "text-cyan-400";
+      sreMemory.innerText = "SPLIT (DESYNC)";
+      sreMemory.className = "text-red-400 font-bold animate-pulse";
+      sreLayer.innerText = "INTEG (100%)";
+      sreLayer.className = "text-emerald-400";
+      visualizerText.innerText = "SWARM AGENTS PARTITIONED";
+      visualizerText.className = "mt-3 text-[10px] font-tech text-orange-400 font-bold uppercase tracking-wider animate-pulse";
+      targetSla = 71.309;
+    } else if (type === 'sovereign') {
+      appendCli('[SRE CHAOS] INJECTED Drill: Layer 1-3 Constitutional Integrity Drill. Unauthorized calls detected...', 'error');
+      sreLatency.innerText = "19ms";
+      sreLatency.className = "text-cyan-400";
+      sreMemory.innerText = "SYNCED";
+      sreMemory.className = "text-emerald-400";
+      sreLayer.innerText = "COMPROMISED (L2-L3)";
+      sreLayer.className = "text-red-400 font-bold animate-pulse";
+      visualizerText.innerText = "CONSTITUTION VIOLATION BLOCK";
+      visualizerText.className = "mt-3 text-[10px] font-tech text-red-500 font-bold uppercase tracking-wider animate-pulse";
+      targetSla = 64.912;
+      
+      // ล็อค Layer จำลองสีส้มแดงเพื่อความสวยงาม
+      document.getElementById('layer-status-3').innerText = "⚠ LOCKDOWN BLOCKED";
+      document.getElementById('layer-status-3').className = "text-red-400 font-bold animate-pulse";
+    }
+
+    showToast('แจ้งเตือนภัยพิบัติจำลอง! ตรวจพบบิดพริ้วระบบ SLA ต่ำลงเรียบร้อย', 'error');
+
+    // แอนิเมชันตอนค่า SLA ตกลงมาแบบเรียบเนียน (SLA Drain Animation)
+    let dropInterval = setInterval(() => {
+      currentSla -= 1.85;
+      if (currentSla <= targetSla) {
+        currentSla = targetSla;
+        clearInterval(dropInterval);
+        
+        // เมื่อค่าตกลงมาสุดแล้ว สั่งรันระเบียบเอนจิน "Auto-Healing" เดี๋ยวนั้นเพื่อแสดงความ resilience ของระบบ
+        triggerSelfHealing(type);
+      }
+      slaMetricPct.innerText = `${currentSla.toFixed(3)}% Live`;
+      slaMetricBar.style.width = `${currentSla}%`;
+      dashboardSlaPct.innerText = `${currentSla.toFixed(3)}%`;
+      dashboardSlaPct.className = "text-red-400 font-bold animate-pulse";
+    }, 50);
+  }
+
+  // ระบบเฝ้าระวังเอนจินกู้คืนพิกัดอัตโนมัติ (SRE Self-Healing Loop)
+  function triggerSelfHealing(drillType) {
+    const slaMetricPct = document.getElementById('metrics-sla-pct');
+    const slaMetricBar = document.getElementById('metrics-sla-bar');
+    const dashboardSlaPct = document.getElementById('dashboard-sla-pct');
+    const visualizerText = document.getElementById('visualizer-status-text');
+    const coreElement = document.getElementById('central-core');
+    const vortexBadge = document.getElementById('vortex-badge');
+    const healingBadge = document.getElementById('healing-status');
+    const autoHealingBadge = document.getElementById('auto-healing-badge');
+
+    const sreLatency = document.getElementById('sre-latency-val');
+    const sreMemory = document.getElementById('sre-memory-status');
+    const sreLayer = document.getElementById('sre-layer-armor');
+    const sreTimer = document.getElementById('sre-healing-timer');
+
+    appendCli('[SRE OBS] Initiating Automated SRE Self-Healing Engine. Re-routing container networks...', 'warn');
+    healingBadge.innerText = "ACTIVE: HEALING";
+    healingBadge.className = "text-yellow-400 font-bold animate-pulse";
+
+    let startTime = Date.now();
+    let currentSla = parseFloat(dashboardSlaPct.innerText);
+
+    healingInterval = setInterval(() => {
+      let elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
+      sreTimer.innerText = `${elapsed}s`;
+
+      // ค่อยๆ ดึง SLA กลับคืนมาทีละสเต็ป
+      currentSla += 0.55;
+      if (currentSla >= 99.999) {
+        currentSla = 99.999;
+        clearInterval(healingInterval);
+        
+        // คืนสถิติสู่สภาวะปกติอย่างสมบูรณ์แบบ
+        coreElement.className = "w-16 h-16 rounded-full bg-gradient-to-br from-yellow-400 to-amber-600 animate-pulse flex items-center justify-center transition-all duration-300";
+        vortexBadge.innerText = "STABILITY ACTIVE";
+        vortexBadge.className = "text-[9px] px-2.5 py-1 bg-yellow-950/50 text-yellow-300 rounded border border-yellow-800/40 font-tech";
+        healingBadge.innerText = "STANDBY";
+        healingBadge.className = "text-emerald-400 font-bold";
+        autoHealingBadge.innerText = "ACTIVE";
+        autoHealingBadge.className = "text-emerald-400 font-bold";
+
+        sreLatency.innerText = "8ms";
+        sreLatency.className = "text-cyan-400";
+        sreMemory.innerText = "SYNCED";
+        sreMemory.className = "text-emerald-400";
+        sreLayer.innerText = "INTEG (100%)";
+        sreLayer.className = "text-emerald-400";
+
+        visualizerText.innerText = "EVENT HORIZON STABLE";
+        visualizerText.className = "mt-3 text-[10px] font-tech text-yellow-300 font-bold uppercase tracking-wider";
+
+        // รีเซ็ตความเร็วของอนุภาคในแคนวาสคืนกลับพิกัดสวอร์มเดิม
+        particles.forEach(p => {
+          p.s = Math.random() * 0.9 + 0.3;
+          p.dist = Math.random() * 120 + 30;
+        });
+
+        // คืนสภาพสัญลักษณ์สิทธิธรรมนูญ Layer 1-12
+        document.getElementById('layer-status-3').innerText = "✓ STREAMING";
+        document.getElementById('layer-status-3').className = "text-emerald-400 font-bold";
+
+        showToast('สถิติ SLA ถูกดึงกลับมาเป็น 99.999% อย่างสมบูรณ์แบบ! Auto-Core Healing สำเร็จ!', 'success');
+        appendCli(`[SRE OBS] Automated Self-Healing Drill ended. Core metrics restored in ${elapsed}s with 0 dataloss.`, 'info');
+      }
+
+      slaMetricPct.innerText = `${currentSla.toFixed(3)}% Live`;
+      slaMetricBar.style.width = `${currentSla}%`;
+      dashboardSlaPct.innerText = `${currentSla.toFixed(3)}%`;
+      dashboardSlaPct.className = "text-emerald-400 font-bold";
+    }, 50);
+  }
+
+  // --- AUTOMATED ARCHITECTURE AUDIT PORTAL (NEW v1.3) ---
+  function runCivilizationAudit() {
     const targetUrl = document.getElementById('audit-url-input').value.trim();
     const standard = document.getElementById('audit-standard').value;
     const useLiveLLM = document.getElementById('use-live-llm-audit').checked;
 
     if (!targetUrl) {
-      showToast('กรุณาระบุ URL โครงการที่ต้องการให้สแกน', 'warn');
+      showToast('กรุณาระบุ URL โครงการที่ต้องการประเมินตรวจสอบ', 'warn');
       return;
     }
 
-    showWorkspace('LOADING', 'กำลังจำลองสภาพแวดล้อมสแกน L1-L12 และดึงโครงสร้างอารยธรรมจากเซิร์ฟเวอร์...');
+    // ทริกเกอร์แอนิมิชันสแกนสดทีละเฟสในเวิร์กสเปซขวา
+    showWorkspace('LOADING', 'สแกนชั้น Layer 1 Constitution ของระบบเป้าหมาย...');
     triggerCorePulse('cyan');
-    appendCli(`[AUDITOR] Initiated security and compliance scan for: ${targetUrl}`, 'info');
+    appendCli(`[AUDITOR] Initiated interactive audit sequence for: ${targetUrl}`, 'info');
 
-    // สร้างข้อมูลรายงานที่ละเอียดอ่อนตามหัวเรื่องที่เลือกแบบอัตโนมัติ (Fallback)
-    const mockReport = generateMockAuditReport(targetUrl, standard);
+    // ลำดับขั้นตอนการตรวจสอบ (Simulation Audit Pipeline)
+    let auditPhases = [
+      { text: "กำลังถอดพิกัดข้อมูล Layer 2 Hyper Kernel และเช็คช่องทางรั่วไหล...", delay: 800 },
+      { text: "กำลังประเมินอัตราตอบสนองสัญญาณของโหนด 75,000 Swarm Agents...", delay: 1600 },
+      { text: "กำลังจับคู่เกณฑ์ประเมินสิทธิบัตรรุ่น Canonical v13.0...", delay: 2400 },
+      { text: "กำลังสร้างรายงานข้อเสนอวิจัย Gap Analysis และคะแนนความมั่นคง...", delay: 3200 }
+    ];
 
-    if (useLiveLLM) {
-      const key = getActiveApiKey();
-      if (!key && !apiKey) {
-        appendCli('[AUDITOR] ไม่พบคีย์สำหรับการประเมินเรียลไทม์ผ่าน LLM. สลับเข้าใช้งานระบบวิเคราะห์ภายในอัตโนมัติ...', 'warn');
-        // รันแบบออฟไลน์
-        setTimeout(() => {
-          renderAuditReport(mockReport);
-        }, 3000);
-        return;
-      }
+    auditPhases.forEach((phase, index) => {
+      setTimeout(() => {
+        document.getElementById('loader-text').innerText = phase.text;
+        appendCli(`[AUDITOR] Pipeline phase: ${phase.text}`, 'info');
+        
+        // เมื่อเฟสสุดท้ายสิ้นสุด สั่งดึงสรุปรายงานความหนาแน่นขึ้นแสดงทันที
+        if (index === auditPhases.length - 1) {
+          setTimeout(() => {
+            const mockReport = generateMockAuditReport(targetUrl, standard);
+            
+            if (useLiveLLM) {
+              const key = getActiveApiKey();
+              if (!key && !apiKey) {
+                appendCli('[AUDITOR] ไม่พบคีย์วิเคราะห์ผ่าน LLM. สลับรันระบบวิเคราะห์ออฟไลน์เกรดองค์กรสากล...', 'warn');
+                renderAuditReport(mockReport);
+                return;
+              }
+              // รันผ่านระบบ AI Studio API จริงกรณีมีคีย์ระบุ
+              executeLiveLLMAudit(targetUrl, standard);
+            } else {
+              renderAuditReport(mockReport);
+            }
+          }, 800);
+        }
+      }, phase.delay);
+    });
+  }
 
-      // ดึงสิทธิ์ส่งต่อเข้าประมวลผลระดับสูงด้วย Gemini 3.1
-      const prompt = `จงเขียนรายงานการตรวจสอบสถาปัตยกรรม (Architecture Audit Report) ระดับองค์กรอย่างละเอียดและมีมาตรฐานวิชาการสูงสุด สำหรับ URL โครงการนี้: ${targetUrl} ภายใต้เกณฑ์ตรวจสอบมาตรฐาน: ${standard} 
+  // ส่งสแกนข้อมูลจริงผ่านโครงข่าย Gemini 3.1 Pro กรณีได้รับอนุญาตคีย์
+  async function executeLiveLLMAudit(targetUrl, standard) {
+    const prompt = `จงเขียนรายงานการตรวจสอบสถาปัตยกรรม (Architecture Audit Report) ระดับองค์กรอย่างละเอียดและมีมาตรฐานวิชาการสูงสุด สำหรับ URL โครงการนี้: ${targetUrl} ภายใต้เกณฑ์ตรวจสอบมาตรฐาน: ${standard} 
 โดยครอบคลุมหัวข้อเหล่านี้อย่างมีน้ำหนักและวิพากษ์เชิงลึกตามจริง:
 1. การตรวจสอบสถานะปัจจุบันเทียบกับระบบ MAEW Ω∞ CIVILIZATION STACK
 2. การให้คะแนนเชิงวิชาการ (1-10 คะแนน) แยกตามด้าน: Architecture, Security, Performance, UX, AI Governance, Production Readiness
@@ -970,51 +1242,43 @@ Response: 200 OK
 4. Actionable Roadmap & แนะนำช่องทางขยับสู่เวอร์ชันถัดไป (Roadmap v14.0) โดยยึดมั่นหลักการ Architecture Freeze
 เขียนรายงานทั้งหมดในรูปแบบเอกสารที่เป็นระบบ น่าเชื่อถือ คล้ายคลึงกับคำแนะนำที่สรุปร่วมกันก่อนหน้านี้`;
 
-      const payload = {
-        contents: [{ parts: [{ text: prompt }] }],
-        systemInstruction: {
-          parts: [{ text: "คุณคือ หัวหน้าสถาปนิกผู้ตรวจสอบระดับนานาชาติ (Sovereign Chief Auditor) มีความเชี่ยวชาญด้านระบบความเสถียร LTS สากลและการปิดดีลองค์กรขนาดใหญ่" }]
-        }
-      };
-
-      const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent`;
-
-      try {
-        appendCli('[AUDITOR] Sending codebase and blueprints context to Gemini 3.1 Pro engine...', 'info');
-        const data = await callGeminiAPI(endpoint, payload);
-        const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
-
-        if (!text) throw new Error('ไม่สามารถจัดหาข้อสรุปการตรวจจากเอนจิน AI ได้');
-
-        showWorkspace('AUDIT REPORT');
-        document.getElementById('output-text-area').classList.remove('hidden');
-        document.getElementById('text-response-content').innerText = text;
-        document.getElementById('grounding-area').classList.add('hidden');
-        showToast('การจัดทำเอกสารความเห็นเชิงวิเคราะห์ Gemini 3.1 เสร็จสมบูรณ์แล้ว!', 'success');
-        appendCli('[AUDITOR] Sovereign Audit Report compiled successfully with Gemini LLM feedback.', 'warn');
-      } catch (err) {
-        handleExecutionError(err, 'AUDIT HUB');
+    const payload = {
+      contents: [{ parts: [{ text: prompt }] }],
+      systemInstruction: {
+        parts: [{ text: "คุณคือ หัวหน้าสถาปนิกผู้ตรวจสอบระบบความปลอดภัยสากล (Sovereign Chief Auditor) มีความเชี่ยวชาญด้านสถาปัตยกรรมระบบนิเวศข้อมูลไอทีของโมเดอร์ตระกูล 3.1" }]
       }
+    };
 
-    } else {
-      // ดำเนินการรันแบบ Offline Engine
-      setTimeout(() => {
-        renderAuditReport(mockReport);
-      }, 3000);
+    const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent`;
+
+    try {
+      appendCli('[AUDITOR] Sending metadata context directly to Gemini 3.1 Pro engine...', 'info');
+      const data = await callGeminiAPI(endpoint, payload);
+      const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+
+      if (!text) throw new Error('ไม่ได้รับการตอบกลับจากปัญญาประดิษฐ์');
+
+      showWorkspace('AUDIT REPORT');
+      document.getElementById('output-text-area').classList.remove('hidden');
+      document.getElementById('text-response-content').innerText = text;
+      document.getElementById('grounding-area').classList.add('hidden');
+      showToast('สร้างรายงานวิจัยตรวจรับ Gemini 3.1 สำเร็จเสร็จสิ้นแล้ว!', 'success');
+      appendCli('[AUDITOR] Compliance audit ended smoothly with live generative output.', 'warn');
+    } catch (err) {
+      handleExecutionError(err, 'AUDIT HUB');
     }
   }
 
-  // ฟังก์ชันวาดรายงานบนกระดานด้านขวา
   function renderAuditReport(reportText) {
     showWorkspace('AUDIT REPORT');
     document.getElementById('output-text-area').classList.remove('hidden');
     document.getElementById('text-response-content').innerText = reportText;
     document.getElementById('grounding-area').classList.add('hidden');
-    showToast('การวิเคราะห์ข้อมูลความปลอดภัยและการให้คะแนนสากลเสร็จสมบูรณ์!', 'success');
-    appendCli('[AUDITOR] Dynamic compliance check complete. Offline Engine populated.', 'warn');
+    showToast('การตรวจสอบสถานะสิทธิบัตรและความสอดคล้องตามเกณฑ์สากลเสร็จสมบูรณ์!', 'success');
+    appendCli('[AUDITOR] SRE compliance check completed. Results rendered on Workspace.', 'warn');
   }
 
-  // ตัวจัดโครงสร้างเอกสารประเมินอัจฉริยะ (Offline High-Fidelity Report Generator)
+  // สร้างไฟล์รายงานวิจัยตรวจรับเชิงพาณิชย์เกรดพรีเมียม (Offline High-Fidelity Audit Template)
   function generateMockAuditReport(url, standard) {
     const dateStr = new Date().toLocaleDateString('th-TH', { year: 'numeric', month: 'long', day: 'numeric' });
     let standardName = "";
@@ -1027,64 +1291,64 @@ Response: 200 OK
     return `=======================================================
    SOVEREIGN CIVILIZATION ARCHITECTURE AUDIT REPORT
 =======================================================
-รหัสเอกสาร: MAEW-AUD-${Math.floor(100000 + Math.random() * 900000)}
-วันที่ตรวจสอบ: ${dateStr}
+รหัสสิทธิเอกสาร: MAEW-AUD-${Math.floor(100000 + Math.random() * 900000)}
+วันที่สแกนระบบ: ${dateStr}
 เกณฑ์ตรวจสอบหลัก: ${standardName}
 ที่อยู่ URL เป้าหมาย: ${url}
 
 -------------------------------------------------------
-1. บทวิเคราะห์ความสอดคล้องสถานะปัจจุบัน
+1. ผลการตรวจรับสิทธิสถานะปัจจุบัน (Status Verification)
 -------------------------------------------------------
-จากรายงานวิชาการจำลองเชิงโครงสร้างของแพลตฟอร์มเป้าหมาย เทียบเคียงกับคัมภีร์หลัก "MAEW Ω∞ CIVILIZATION STACK v1.1" พบว่า:
-- ระบบเป้าหมายจัดหมวดหมู่ความพร้อมทางสถาปัตยกรรมอยู่ในระดับ (ARL-2 ถึง ARL-3) 
-- มีกรอบอ้างอิงและการระบุวิสัยทัศน์ที่ชัดเจน แต่โครงสร้างรันไทม์หลัก (Runtime Engine) และสัญญาบริการ API flow ด้านหลังยังทำงานอยู่ในลักษณะแซนด์บ็อกซ์จำลอง
-- ชั้นกฎบัตรจริยธรรม Layer 1-3 มีความสอดคล้องกับ Immutable Principles มากกว่า 95%
-- มีจุดเสี่ยงในการแปลงข้อมูลระดับสัญญาณเชื่อมโยงกับฮาร์ดแวร์ภายนอก (Robot Workforces)
+จากการเชื่อมต่อและสกัดข้อมูลทราฟฟิกจำลองของลิงก์โครงการเทียบเคียงกับคัมภีร์หลัก "MAEW Ω∞ CIVILIZATION STACK v1.1" พบว่า:
+- ระบบเป้าหมายจัดโครงสร้างและแผนความพร้อมสถาปัตยกรรมอยู่ในระดับ (ARL-2 ถึง ARL-3) 
+- ชั้น Layer 1 Constitution มีความมั่นคงเทียบเท่าข้อกำหนดสากล (Compliance Rate: 98.4%)
+- แต่อัตราการตอบสนองความหน่วงจริงของฝูงเอเจนต์ (Swarm Agent Latency) ยังขาดการติดตั้งศูนย์เฝ้าระวัง SRE และแผนกู้ภัยพิบัติ DR อย่างมีระบบ
 
 -------------------------------------------------------
-2. ตารางคะแนนประเมินคุณภาพ (Sovereign Audit Metrics)
+2. ตารางเกรดคะแนนประเมินคุณภาพ (Sovereign Audit Metrics)
 -------------------------------------------------------
-- Architecture Integrity (ความสมบูรณ์ของโครงสร้าง):     9.2 / 10
-- Cybersecurity & Zero Trust (ความปลอดภัยข้อมูล):     8.8 / 10
-- Concurrency & Performance (ความเร็วและการรับภาระ): 8.5 / 10
-- UI/UX Accessibility (ความสะดวกสำหรับนักพัฒนา):       9.0 / 10
-- AI Governance & Ethics (การกำกับจริยธรรมข้อมูล):      9.5 / 10
-- Production Reliability (ความพร้อมใช้งานจริง):          8.2 / 10
+- Architecture Integrity (ความสมบูรณ์ของแกนสถาปัตยกรรม):  9.4 / 10
+- Cybersecurity & Zero Trust (ระดับความมั่นคงข้อมูล):    8.9 / 10
+- Concurrency & Performance (การจัดการภาระโหลด):     8.5 / 10
+- UI/UX Accessibility (ความสะดวกในการจัดการของเหลว):   9.1 / 10
+- AI Governance & Ethics (การคุ้มครองสิทธิ์อธิปไตย):      9.5 / 10
+- Production SRE Reliability (สถิติกู้ภัยพิบัติฉุกเฉิน):   8.3 / 10
 
-สรุปคะแนนประเมินสากลในภาพรวม: 8.87 / 10 (เกรดพรีเมียมระดับสากล)
-
--------------------------------------------------------
-3. บทวิเคราะห์ช่องว่างทางเทคโนโลยี (Sovereign Gap Analysis)
--------------------------------------------------------
-- [GAP A] ขาดแผนสำรองภัยพิบัติอัตโนมัติ (Disaster Recovery Runbook) ระดับองค์กรสำหรับการขัดข้องของแกนระบบเกิน 250 มิลลิวินาที
-- [GAP B] การแบ่งขอบเขตของ Reference, Implementation, และ Production Architecture ยังไม่ได้รับการแยกคู่สายอย่างแท้จริงบนคลาวด์โปรดักชัน
-- [GAP C] ขาดเอกสารจำพวก Data Dictionary และเครื่องมือทำลายสิทธิบัตรอัตโนมัติกรณีถูกคุกคามในขอบข่ายกฎหมายอธิปไตย
+สรุปผลคะแนนประเมินร่วมกันในภาพรวม: 8.95 / 10 (เกรดความน่าเชื่อถือระดับสากล)
 
 -------------------------------------------------------
-4. คำแนะนำการพัฒนาสู่เวอร์ชันถัดไป (Roadmap v14.0 Transition Plan)
+3. ข้อมูลวิจัยช่องว่างทางเทคโนโลยี (Sovereign Gap Analysis)
 -------------------------------------------------------
-เพื่อผลักดันให้ระบบเข้าสู่เกรดการส่งมอบ Production อย่างสมบูรณ์แบบ แนะนำให้ดำเนินการดังนี้โดยไม่ทำลาย Architecture Freeze:
-1. ปิดดีลเชื่อมโยง API Gateway ของ Gemini 3.1 Pro เพื่อเข้าสแกนทราฟฟิกข้อมูลจริง
-2. ยกระดับการป้องกันจากระบบ Sandbox สู่สถาปัตยกรรมไร้รอยต่อ Zero-Trust (Zero Trust Access Control)
-3. ร่างพิมพ์เขียว "Roadmap v14.0" เพื่อจัดการเรื่องสิทธิ์เปิดใช้งานและการทำ Chaos Engineering ในโครงข่าย Swarm`;
+- [GAP A] ขาดกล่องควบคุม SRE Chaos Injector ในสภาพแวดล้อมโปรดักชันจริงเพื่อจัดลำดับและกู้คืน SLA
+- [GAP B] ขาดการแยกคู่สาย Reference, Implementation, และ Production ออกจากกันอย่างเบ็ดเสร็จบนฐานข้อมูลคลาวด์
+- [GAP C] ขาดเอกสาร Dictionary สำหรับรองรับ API Contracts ปลั๊กอินเชื่อมต่อไปยังส่วนฮาร์ดแวร์ภายนอก (Robot Workforces)
+
+-------------------------------------------------------
+4. คำแนะนำเพื่อขยับตัวสู่รุ่นถัดไป (Roadmap v14.0 Transition Plan)
+-------------------------------------------------------
+เพื่อจัดเตรียมความสอดคล้องกับมาตรฐานความพร้อมสัญญาระยะยาว LTS:
+1. แนะนำให้เชื่อมเอนจิน API ของ Gemini 3.1 Pro เพื่อเข้าสแกนทราฟฟิกข้อมูลจริง
+2. ติดตั้งระบบ Auto-Core Healing เพื่อควบคุมขอบเขตความพร้อมเวลา SLA ไม่ให้ตกรั้งต่ำกว่า 99.999%
+3. ออกข้อตกลงแผนการทำสถิติ Chaos Engineering ดิจิทัลในขอบเขตเครือข่าย Swarm`;
   }
 
-  // จำลองระบบตรวจสอบเชื่อมโยง
+  // จำลองการเชื่อมต่อ AI Cores
   function connectAI() {
     const key = getActiveApiKey();
     if (!key && !apiKey) {
-      showToast('กรุณากรอก API Key สำหรับวิเคราะห์ระบบ', 'error');
+      showToast('กรุณาระบุรหัส API Key สำหรับสตรีมมิ่งความปลอดภัย', 'error');
       return;
     }
     const chosenModel = document.getElementById('ai-model').value;
-    showToast(`✓ เชื่อมต่อสถานภาพกับโมเดล ${chosenModel} สำเร็จเรียบร้อย!`, 'success');
+    showToast(`✓ เชื่อมต่อระบบหลักเข้าหาโมเดล ${chosenModel} สำเร็จแล้ว!`, 'success');
+    appendCli(`[AI STUDIO] Unified core node linked with high-concurrency model routing to ${chosenModel}.`, 'info');
   }
 
-  // ยืนยันเวอร์ชันอัพเกรด
+  // เช็คเวอร์ชันอัพเกรดบนระบบคลาวด์
   function checkUpdate() {
     const bar = document.getElementById('update-bar');
     const log = document.getElementById('update-log');
-    log.innerHTML = '[UPDATE] ติดต่อเซิร์ฟเวอร์หลักเพื่อเช็คสิทธิ์อารยธรรม...';
+    log.innerHTML = '[UPDATE] ติดต่อเซิร์ฟเวอร์หลักเชิงพาณิชย์เพื่อตรวจเช็คสิทธิ์...';
     bar.style.width = '30%';
     setTimeout(() => {
       bar.style.width = '100%';
@@ -1093,13 +1357,13 @@ Response: 200 OK
     }, 1500);
   }
 
-  // พิมพ์ข้อความแสดงความสามารถบนคอนโซล CLI
+  // คอนโซลข้อความ CLI
   function appendCli(text, type = 'info') {
     const log = document.getElementById('cli-log');
     const row = document.createElement('div');
     let color = 'text-emerald-400';
-    if (type === 'error') color = 'text-red-400';
-    if (type === 'warn') color = 'text-yellow-400';
+    if (type === 'error') color = 'text-red-400 font-bold';
+    if (type === 'warn') color = 'text-yellow-400 font-bold';
     if (type === 'output') color = 'text-cyan-300';
     row.innerHTML = `<span class="text-slate-600">[${new Date().toLocaleTimeString()}]</span> <span class="${color}">${text}</span>`;
     log.appendChild(row);
@@ -1118,19 +1382,19 @@ Response: 200 OK
       checkUpdate();
     } else if (cmd === 'maew singularity trigger') {
       triggerPurgeEffect();
-      appendCli('> บิดทอความโค้งแม่เหล็กด้วยระดับวิกฤตความหนาแน่นสูงชั่วคราว!', 'warn');
+      appendCli('> บิดโค้งแม่เหล็กแกนเวลาด้วยแรงเหนี่ยวนำระดับวิกฤตความหนาแน่นสูง!', 'warn');
     } else if (cmd === 'help') {
-      appendCli('คำสั่ง: maew ai connect, maew update check, maew singularity trigger', 'info');
+      appendCli('ชุดรหัส: maew ai connect, maew update check, maew singularity trigger, clear', 'info');
     } else {
-      appendCli(`ไม่เข้าใจคำสั่งระบบปฏิบัติการ "${cmd}"`, 'error');
+      appendCli(`ไม่คุ้นชินรหัสระบบปฏิบัติการ "${cmd}"`, 'error');
     }
   }
 
-  // ประมวลผลข้อความถอดรหัสของคลาวด์อัจฉริยะ (ด้วยการจัดเก็บ routing หา Gemini)
+  // ประมวลผลข้อความแชตอัจฉริยะส่งต่อไปหา Gemini API
   async function triggerTextGeneration() {
     const prompt = document.getElementById('chat-prompt').value.trim();
     if (!prompt) {
-      showToast('กรุณากรอกข้อความสั่งการคำถามก่อน', 'warn');
+      showToast('โปรดระบุรายละเอียดคำสั่งคำถามก่อน', 'warn');
       return;
     }
 
@@ -1141,7 +1405,7 @@ Response: 200 OK
     }
 
     const chosenModel = document.getElementById('ai-model').value;
-    showWorkspace('LOADING', `โมดูล ${chosenModel} กำลังคำนวณและตอบรับอย่างหนาแน่น...`);
+    showWorkspace('LOADING', `โมดูล ${chosenModel} กำลังคำนวณและประมวลผลทราฟฟิกรองรับอย่างหนาแน่น...`);
     triggerCorePulse('cyan');
 
     const useSearch = document.getElementById('chat-search').checked;
@@ -1159,11 +1423,11 @@ Response: 200 OK
     const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent`;
 
     try {
-      appendCli(`[AI STUDIO] Sending corporate query directly to: ${chosenModel}`, 'info');
+      appendCli(`[AI STUDIO] Dispatching request with high-concurrency model routing to ${chosenModel}...`, 'info');
       const data = await callGeminiAPI(endpoint, payload);
       const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
       
-      if (!text) throw new Error('ไม่ได้รับการตอบรับจากเอนจินของระบบ');
+      if (!text) throw new Error('ไม่ได้รับการตอบรับจากระบบประมวลผลหลัก');
 
       showWorkspace('TEXT RESPONSE');
       document.getElementById('output-text-area').classList.remove('hidden');
@@ -1185,27 +1449,27 @@ Response: 200 OK
         groundingArea.classList.add('hidden');
       }
 
-      appendCli(`[CHAT] Process finished under ${chosenModel} overlay.`, 'warn');
+      appendCli(`[CHAT] Rendered output successfully via ${chosenModel} pipeline.`, 'warn');
     } catch (err) {
       handleExecutionError(err, 'CHAT');
     }
   }
 
-  // สร้างภาพประกอบอัจฉริยะความละเอียดสูง Imagen 4
+  // สร้างภาพประกอบผ่านสถาปัตยกรรม Imagen 4
   async function triggerImageGeneration() {
     const prompt = document.getElementById('image-prompt').value.trim();
     if (!prompt) {
-      showToast('กรุณาระบุรายละเอียดรูปภาพความสวยงาม', 'warn');
+      showToast('กรุณาระบุรายละเอียดภาพที่ต้องการให้ออกแบบ', 'warn');
       return;
     }
 
     const key = getActiveApiKey();
     if (!key && !apiKey) {
-      showToast('ไม่พบคีย์ประมวลผลวาดภาพบนระบบก้อนเมฆ', 'error');
+      showToast('ไม่พบคีย์สำหรับรังสรรค์พิกเซลบนคลาวด์', 'error');
       return;
     }
 
-    showWorkspace('LOADING', 'โมดูล Imagen-4 กำลังร้อยเรียงพิกเซลสัดส่วนภาพถ่าย...');
+    showWorkspace('LOADING', 'โมดูล Imagen-4 กำลังเรียงสเปกตรัมเม็ดสีอย่างหนาแน่นวิจิตร...');
     triggerCorePulse('yellow');
 
     const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict`;
@@ -1229,7 +1493,7 @@ Response: 200 OK
       const data = await response.json();
       const base64Bytes = data.predictions?.[0]?.bytesBase64Encoded;
 
-      if (!base64Bytes) throw new Error('ไม่พบขอบข่ายของรูปภาพกลับมาจากโมเดล');
+      if (!base64Bytes) throw new Error('ไม่พบข้อมูลภาพถ่ายสิทธิบัตรส่งกลับมาจากการจัดสรรพิกเซล');
 
       const imageUrl = `data:image/png;base64,${base64Bytes}`;
       
@@ -1238,29 +1502,29 @@ Response: 200 OK
       document.getElementById('image-response-element').src = imageUrl;
       document.getElementById('image-download-btn').href = imageUrl;
 
-      appendCli('[IMAGEN] สังเคราะห์ภาพดิจิทัลและส่งเข้าเวิร์กสเปซแล้วสำเร็จ');
+      appendCli('[IMAGEN] สังเคราะห์ภาพดิจิทัลระดับองค์กรพรีเมียมเรียบร้อยแล้ว');
     } catch (err) {
       handleExecutionError(err, 'IMAGEN');
     }
   }
 
-  // แปลงตัวหนังสือภาษาไทยและอังกฤษเป็นเสียงพรีเมียม (TTS)
+  // แปลงตัวอักษรเป็นสตรีมไฟล์เสียง (Speech Synth TTS Engine)
   async function triggerTTS() {
     const text = document.getElementById('tts-prompt').value.trim();
     const voice = document.getElementById('tts-voice').value;
 
     if (!text) {
-      showToast('กรุณาระบุข้อความสุนทรพจน์ออกเสียง', 'warn');
+      showToast('กรุณาระบุคำอักขระประโยคคำบรรยายเสียง', 'warn');
       return;
     }
 
     const key = getActiveApiKey();
     if (!key && !apiKey) {
-      showToast('ไม่พบรหัสคีย์ในการจัดสรรสเปกตรัมคลื่นเสียง', 'error');
+      showToast('ไม่พบรหัสคีย์เพื่อจัดสรรความถี่สี่ระดับเสียง', 'error');
       return;
     }
 
-    showWorkspace('LOADING', 'สร้างเสียงสังเคราะห์สไตล์พรีเมียมผ่านขบวนการความร้อนคลาวด์...');
+    showWorkspace('LOADING', 'เชื่อมกำลังสตรีมมิ่งเพื่อแปลงคลื่นรหัสความหนาแน่นเสียงสูง...');
     triggerCorePulse('yellow');
 
     const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent`;
@@ -1292,7 +1556,7 @@ Response: 200 OK
       const data = await response.json();
       const base64Audio = data.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
 
-      if (!base64Audio) throw new Error('ไม่ได้รับการตอบกลับสัญญาณคลื่นเสียงความหนาแน่นสูง');
+      if (!base64Audio) throw new Error('ไม่พบข้อมูลเสียงสุนทรพจน์ส่งกลับมาจากผู้บรรยายคลาวด์');
 
       const wavUrl = pcmToWav(base64Audio, 24000);
 
@@ -1304,85 +1568,13 @@ Response: 200 OK
       audioPlayer.src = wavUrl;
       audioPlayer.play();
 
-      appendCli('[TTS] จัดเก็บสัญญาณความถี่เสียงบรรยายพรีเมียมเสร็จสิ้น');
+      appendCli('[TTS] จัดเก็บสัญญาณเสียงเสร็จสิ้นและพร้อมเริ่มงาน');
     } catch (err) {
       handleExecutionError(err, 'TTS');
     }
   }
 
-  // ถอดรูปภาพเข้ามาวิจารณ์เชิงประเมิน (Multimodal Vision Engine)
-  async function triggerVision() {
-    const imageUrl = document.getElementById('vision-url').value.trim();
-    const prompt = document.getElementById('vision-prompt').value.trim();
-
-    if (!imageUrl) {
-      showToast('ระบุที่อยู่ลิงก์รูปภาพสากลสำหรับสแกน', 'warn');
-      return;
-    }
-
-    const key = getActiveApiKey();
-    if (!key && !apiKey) {
-      showToast('ไม่พบคีย์สิทธิ์เปิดระบบจักขุสายตาภาพ', 'error');
-      return;
-    }
-
-    showWorkspace('LOADING', 'ถอดแบบสัดส่วนรูปภาพเข้าหาศูนย์ตรวจสอบของระบบเพื่อสรุปวิจารณ์...');
-    triggerCorePulse('cyan');
-
-    try {
-      const imgFetchResponse = await fetch(imageUrl);
-      if (!imgFetchResponse.ok) throw new Error('เกิดปัญหากดดึงข้อมูลพิกเซลจากลิงก์ภาพต้นทางภายนอก');
-      const blob = await imgFetchResponse.blob();
-      
-      const reader = new FileReader();
-      reader.readAsDataURL(blob);
-      reader.onloadend = async () => {
-        const base64Data = reader.result.split(',')[1];
-        const mimeType = blob.type || "image/png";
-
-        const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent`;
-        const payload = {
-          contents: [{
-            role: "user",
-            parts: [
-              { text: prompt },
-              { inlineData: { mimeType: mimeType, data: base64Data } }
-            ]
-          }]
-        };
-
-        try {
-          const data = await callGeminiAPI(endpoint, payload);
-          const responseText = data.candidates?.[0]?.content?.parts?.[0]?.text;
-
-          if (!responseText) throw new Error('ไม่ได้รับข้อมูลวิภาคโครงสร้างของสัดส่วนภาพถ่ายชิ้นนี้');
-
-          showWorkspace('MULTIMODAL SENSE');
-          document.getElementById('output-text-area').classList.remove('hidden');
-          document.getElementById('text-response-content').innerText = responseText;
-          document.getElementById('grounding-area').classList.add('hidden');
-
-          appendCli('[VISION] ถอดประสาทสัมผัสจักขุวิเคราะห์รูปภาพเชิงอุดมคติสำเร็จเรียบร้อย');
-        } catch (visionErr) {
-          handleExecutionError(visionErr, 'VISION ENGINE');
-        }
-      };
-    } catch (err) {
-      handleExecutionError(err, 'VISION STACK');
-    }
-  }
-
-  function setSampleVision(theme) {
-    const urlInput = document.getElementById('vision-url');
-    if (theme === 'space') {
-      urlInput.value = 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80';
-    } else {
-      urlInput.value = 'https://images.unsplash.com/photo-1515263487990-61b07816b324?auto=format&fit=crop&w=600&q=80';
-    }
-    appendCli(`[VISION] ตัวอย่างสำหรับแนว "${theme}" ถูกส่งต่อเข้าหาช่องวิเคราะห์ตรวจสอบ`);
-  }
-
-  // --- ทั่วไปเพื่อประคองความปลอดภัยและความหน่วงต่ำ ---
+  // --- ทั่วไปเพื่อประคองความเสถียรและความปลอดภัยระบบคลาวด์ ---
   async function callGeminiAPI(url, payload) {
     const key = getActiveApiKey();
     const finalUrl = `${url}?key=${key}`;
@@ -1428,11 +1620,11 @@ Response: 200 OK
     document.getElementById('output-text-area').classList.remove('hidden');
     
     const errorHtml = `<div class="p-3 bg-red-950/40 border border-red-500/30 text-red-300 rounded rounded-lg font-tech">
-      <h4 class="font-bold mb-1"><i class="fa-solid fa-triangle-exclamation"></i> การดำเนินการล้มเหลว</h4>
+      <h4 class="font-bold mb-1"><i class="fa-solid fa-triangle-exclamation"></i> การประมวลผลขัดข้อง</h4>
       <p class="text-[11px] mb-2">${err.message}</p>
       <div class="text-[9px] text-slate-400">
-        • ตรวจสอบรหัสคีย์ที่ใส่ในช่องลิขสิทธิ์ความปลอดภัยหรือเครือข่ายอินเทอร์เน็ตของเครื่องพกพา<br>
-        • หากใช้คีย์จำลองทดสอบ แนะนำให้เชื่อมคีย์ส่วนตัวจาก Google AI Studio
+        • ตรวจสอบให้มั่นใจว่ารหัสคีย์สิทธิ์และระดับ API Key ถูกต้อง สำหรับทดสอบความเสถียรบนเครือข่ายเป้าหมาย<br>
+        • แนะนำให้ขอ API Key ฟรีจาก Google AI Studio ป้อนในแผงควบคุมซ้ายสุด
       </div>
     </div>`;
     document.getElementById('text-response-content').innerHTML = errorHtml;
@@ -1562,6 +1754,7 @@ Response: 200 OK
 
   function updateSingularityTheme(tabId) {
     if (tabId === 'tab-audit-tool') activeThemeColor = '#eab308';
+    if (tabId === 'tab-chaos-drill') activeThemeColor = '#dc2626'; // สีส้มแดงโกลาหล
     if (tabId === 'tab-chat') activeThemeColor = '#06b6d4';
     if (tabId === 'tab-imagen') activeThemeColor = '#f59e0b';
     if (tabId === 'tab-tts') activeThemeColor = '#a855f7';
@@ -1633,7 +1826,7 @@ Response: 200 OK
       ctx.fill();
     });
 
-    ctx.fillStyle = '#020108';
+    ctx.fillStyle = '#010005';
     ctx.beginPath();
     ctx.arc(gX, gY, 15, 0, 6.28);
     ctx.fill();
@@ -1650,7 +1843,7 @@ Response: 200 OK
   window.onload = function() {
     loop();
     calculatePrice();
-    appendCli('[SYSTEM] Architecture Audit Hub loaded with Gemini 3.1 & SRE specification protocols.');
+    appendCli('[SYSTEM] SRE Chaos Engineering Engine & Audit Hub loaded with Gemini 3.1.');
   }
 </script>
 </body>
