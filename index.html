@@ -1,162 +1,1515 @@
+```html
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MAEW Ω∞ v1.1 + SANATANA v13.0 LTS - AI Studio Connected</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAEW Ω∞ v1.1 COMMERCIAL - Gemini 3.1 Enterprise Ready</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Orbitron:wght@700;900&family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-body{font-family:'Prompt',sans-serif;background:#020108;color:#e2e8f0;overflow-x:hidden}
-.font-futuristic{font-family:'Orbitron',sans-serif}.font-tech{font-family:'Chakra Petch',sans-serif}
-.glass{background:rgba(8,8,18,0.88);backdrop-filter:blur(14px);border:1px solid rgba(168,85,247,0.22)}
-.gold-border{border:1px solid rgba(234,179,8,0.5);box-shadow:0 0 22px rgba(234,179,8,0.18)}
-.tech-corner{position:absolute;width:14px;height:14px;border:2px solid rgba(6,182,212,0.6);pointer-events:none}
-.tc-tl{top:-1px;left:-1px;border-right:none;border-bottom:none}.tc-tr{top:-1px;right:-1px;border-left:none;border-bottom:none}
-.tc-bl{bottom:-1px;left:-1px;border-right:none;border-top:none}.tc-br{bottom:-1px;right:-1px;border-left:none;border-top:none}
+  body {
+    font-family: 'Prompt', sans-serif;
+    background: #020108;
+    color: #e2e8f0;
+    overflow-x: hidden;
+  }
+  .font-futuristic { font-family: 'Orbitron', sans-serif; }
+  .font-tech { font-family: 'Chakra Petch', sans-serif; }
+  .glass {
+    background: rgba(8, 8, 22, 0.92);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(168, 85, 247, 0.25);
+  }
+  .gold-border {
+    border: 1px solid rgba(234, 179, 8, 0.5);
+    box-shadow: 0 0 30px rgba(234, 179, 8, 0.15);
+  }
+  .premium-gold-glow {
+    box-shadow: 0 0 40px rgba(234, 179, 8, 0.35);
+    border-color: #eab308 !important;
+  }
+  .tech-corner {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgba(6, 182, 212, 0.6);
+    pointer-events: none;
+  }
+  .tc-tl { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+  .tc-tr { top: -1px; right: -1px; border-left: none; border-bottom: none; }
+  .tc-bl { bottom: -1px; left: -1px; border-right: none; border-top: none; }
+  .tc-br { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+  
+  /* ตัวกำหนดการเลื่อนเนื้อหา */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: rgba(0,0,0,0.3); }
+  ::-webkit-scrollbar-thumb { background: rgba(234, 179, 8, 0.3); border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(6,182,212,0.6); }
+
+  /* เอฟเฟกต์การสลับแท็บ */
+  .tab-btn { transition: all 0.2s ease-in-out; }
+  .tab-btn.active {
+    background: rgba(234, 179, 8, 0.15);
+    border-color: #eab308;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(234, 179, 8, 0.2);
+  }
 </style>
 </head>
 <body class="min-h-screen flex flex-col">
+
+<!-- ส่วนหัวเรื่องระดับสูง -->
 <header class="container mx-auto px-4 mt-4">
-<div class="glass gold-border rounded-xl p-4 relative">
-<div class="tech-corner tc-tl"></div><div class="tech-corner tc-tr"></div><div class="tech-corner tc-bl"></div><div class="tech-corner tc-br"></div>
-<div class="flex flex-col lg:flex-row justify-between items-center gap-3">
-<div class="flex items-center gap-3"><span class="w-3 h-3 bg-emerald-400 rounded-full animate-ping"></span><div><div class="text-xs font-tech text-yellow-400 font-bold">MAEW Ω∞ CIVILIZATION STACK v1.1 + SANATANA v13.0 LTS</div><div class="text-[9px] text-slate-400">AI Studio Connected • Auto-Update • Architecture Freeze • LTS 2025-2030</div></div></div>
-<h1 class="text-lg lg:text-2xl font-black font-futuristic text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-purple-400 to-cyan-400">CIVILIZATION OS CONTROL</h1>
-<div class="flex gap-2"><span id="ai-status" class="text-[9px] px-2.5 py-1 bg-red-950/40 border border-red-500/30 text-red-300 rounded font-tech font-bold">AI STUDIO: DISCONNECTED</span><span class="text-[9px] px-2.5 py-1 bg-emerald-950/40 border border-emerald-500/30 text-emerald-300 rounded font-tech font-bold">MRR $382,400 LIVE</span></div>
-</div>
-</div>
+  <div class="glass gold-border rounded-xl p-4 relative transition-all duration-500" id="header-container">
+    <div class="tech-corner tc-tl"></div><div class="tech-corner tc-tr"></div><div class="tech-corner tc-bl"></div><div class="tech-corner tc-br"></div>
+    <div class="flex flex-col lg:flex-row justify-between items-center gap-3">
+      <div class="flex items-center gap-3">
+        <span class="w-3.5 h-3.5 bg-yellow-400 rounded-full animate-ping"></span>
+        <div>
+          <div class="text-xs font-tech text-yellow-400 font-bold tracking-wider">MAEW Ω∞ COMMERCIAL STACK v1.1 • GEMINI 3.1 POWERED</div>
+          <div class="text-[9px] text-slate-400 font-tech">Official LTS Commercial Core • 24/7 Premium Enterprise SLA • Secure Sovereignty</div>
+        </div>
+      </div>
+      <div class="text-center">
+        <h1 class="text-xl lg:text-3xl font-black font-futuristic text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-amber-400 to-yellow-600 tracking-widest">
+          MAEW COMMERCIAL OS
+        </h1>
+        <p class="text-[9px] text-slate-400 uppercase tracking-widest font-futuristic mt-0.5">Sovereignty Platform with Gemini 3.1</p>
+      </div>
+      <div class="flex flex-wrap gap-2 items-center justify-center">
+        <span id="ai-status" class="text-[9px] px-2.5 py-1 bg-yellow-950/40 border border-yellow-500/30 text-yellow-300 rounded font-tech font-bold transition-all">
+          <i class="fa-solid fa-crown mr-1"></i> LICENSED NODE: STANDBY
+        </span>
+        <span class="text-[9px] px-2.5 py-1 bg-emerald-950/40 border border-emerald-500/30 text-emerald-300 rounded font-tech font-bold">
+          LIVE MRR: <span id="mrr-val">$382,400</span>
+        </span>
+      </div>
+    </div>
+  </div>
 </header>
 
 <main class="container mx-auto px-4 py-4 flex-grow grid grid-cols-1 lg:grid-cols-12 gap-4">
-<!-- LEFT: AI STUDIO + UPDATE + WORKFORCES -->
-<div class="lg:col-span-3 flex flex-col gap-4">
-<div class="glass p-4 rounded-xl relative border border-cyan-500/30">
-<div class="tech-corner tc-tl"></div><div class="tech-corner tc-tr"></div>
-<h3 class="text-xs font-bold text-cyan-400 font-futuristic mb-3"><i class="fa-solid fa-brain"></i> AI STUDIO CONNECTOR</h3>
-<div class="space-y-2 font-tech text-[11px]">
-<input id="ai-key" type="password" placeholder="วาง Gemini API Key..." class="w-full p-2.5 bg-black/60 border border-slate-800 rounded text-slate-200">
-<select id="ai-model" class="w-full p-2 bg-black/60 border border-slate-800 rounded text-slate-300"><option>gemini-2.0-flash-exp</option><option>gemini-1.5-pro</option><option>maew-omega-infinity</option></select>
-<button onclick="connectAI()" class="w-full py-2.5 bg-gradient-to-r from-purple-600 to-cyan-500 text-white font-bold rounded">เชื่อมต่อ AI Studio</button>
-<button onclick="window.open('https://aistudio.google.com/','_blank')" class="w-full py-2 bg-slate-900 border border-slate-800 rounded text-slate-400 text-[10px]">เปิด Google AI Studio →</button>
-<div id="ai-log" class="bg-black/70 p-2 rounded border border-slate-900 h-[60px] overflow-y-auto text-[9px] text-slate-500">[AI] รอการเชื่อมต่อ...</div>
-</div>
-</div>
+  <!-- แผงควบคุมด้านซ้าย: ตัวจัดการคีย์ลิขสิทธิ์และการเปิดใช้งานพรีเมียม -->
+  <div class="lg:col-span-3 flex flex-col gap-4">
+    <!-- แผงการยืนยันลิขสิทธิ์ระดับพรีเมียม -->
+    <div class="glass p-4 rounded-xl relative border border-yellow-500/30" id="license-portal-card">
+      <div class="tech-corner tc-tl"></div><div class="tech-corner tc-tr"></div>
+      <h3 class="text-xs font-bold text-yellow-400 font-futuristic mb-3 tracking-wide flex items-center justify-between">
+        <span><i class="fa-solid fa-key mr-1.5 text-yellow-400"></i> LICENSE ACTIVATION</span>
+        <span id="license-badge" class="text-[8px] bg-red-900/60 border border-red-500/40 text-red-300 px-1.5 py-0.5 rounded uppercase">UNACTIVATED</span>
+      </h3>
+      <div class="space-y-3 font-tech text-[11px]">
+        <div>
+          <label class="block text-slate-400 text-[10px] mb-1">รหัสลิขสิทธิ์ความปลอดภัยสูง (License Key)</label>
+          <div class="relative">
+            <input id="license-key-input" type="text" placeholder="ป้อนคีย์ เช่น: MAEW-ENTERPRISE-LTS" class="w-full p-2.5 bg-black/80 border border-slate-800 rounded text-slate-200 focus:outline-none focus:border-yellow-400 font-mono text-center tracking-wider">
+          </div>
+          <p class="text-[8px] text-slate-500 mt-1">ทดลองใช้คีย์ทองคำ: <span class="text-yellow-500 underline cursor-pointer" onclick="fillTestKey()">MAEW-ENTERPRISE-LTS</span> เพื่ออัปเกรดสถานะทันที</p>
+        </div>
+        <button onclick="activateLicenseKey()" class="w-full py-2.5 bg-gradient-to-r from-yellow-500 via-amber-500 to-yellow-600 text-black font-extrabold rounded shadow-lg shadow-yellow-900/40 hover:scale-[1.02] active:scale-[0.98] transition-all">
+          <i class="fa-solid fa-circle-check mr-1"></i> ยืนยันสิทธิ์อนุญาตใช้งาน
+        </button>
+        <div id="license-log" class="bg-black/70 p-2 rounded border border-slate-900 h-[60px] overflow-y-auto text-[9px] text-slate-500 font-mono">
+          [PORTAL] รอการลงทะเบียนคีย์ลิขสิทธิ์ระดับองค์กร...
+        </div>
+      </div>
+    </div>
 
-<div class="glass p-4 rounded-xl border border-yellow-500/20">
-<h3 class="text-xs font-bold text-yellow-400 font-futuristic mb-3"><i class="fa-solid fa-arrows-rotate"></i> ระบบอัปเดต</h3>
-<div class="space-y-2 font-tech text-[10px]">
-<div class="flex justify-between"><span>Version ปัจจุบัน</span><span class="text-yellow-400 font-bold">v1.1.0</span></div>
-<div class="flex justify-between"><span>Latest</span><span id="latest-ver" class="text-emerald-400 font-bold">v1.1.0 ล่าสุด</span></div>
-<div class="w-full bg-slate-900 h-1 rounded"><div id="update-bar" class="bg-emerald-500 h-1" style="width:100%"></div></div>
-<button onclick="checkUpdate()" class="w-full py-2 bg-yellow-950/50 border border-yellow-700/30 text-yellow-300 rounded font-bold">🔍 ตรวจสอบอัปเดต</button>
-<div id="update-log" class="bg-black/70 p-2 rounded border border-slate-900 text-[9px] text-slate-400">[UPDATE] Freeze ตรวจสอบ ✓<br>[UPDATE] 12 Layers FROZEN<br>[UPDATE] 75K Agents Ready</div>
-</div>
-</div>
+    <!-- เครื่องมือคำนวณและประเมินราคาสื่อนำเสนอของระบบสวอร์ม -->
+    <div class="glass p-4 rounded-xl border border-cyan-500/20">
+      <h3 class="text-xs font-bold text-cyan-400 font-futuristic mb-2.5">
+        <i class="fa-solid fa-calculator mr-1.5 text-cyan-400"></i> SWARM PRICING CALCULATOR
+      </h3>
+      <div class="space-y-3 font-tech text-[10px]">
+        <div>
+          <label class="block text-slate-400 mb-1">เลือกจำนวน AI Agent Swarm (Scale ขนาดองค์กร)</label>
+          <input type="range" id="agent-slider" min="1000" max="500000" step="5000" value="75000" oninput="calculatePrice()" class="w-full accent-yellow-400 bg-slate-900">
+          <div class="flex justify-between text-slate-400 mt-1">
+            <span>1K Agents</span>
+            <span class="text-yellow-400 font-bold" id="slider-agents-val">75,000 Agents</span>
+            <span>500K Agents</span>
+          </div>
+        </div>
+        <div class="bg-black/60 p-2.5 rounded border border-slate-900 text-xs">
+          <div class="flex justify-between text-slate-400 mb-1">
+            <span>ราคาเริ่มต้นฐานเทคโนโลยี</span>
+            <span class="text-slate-200 font-bold">$1,500/เดือน</span>
+          </div>
+          <div class="flex justify-between text-slate-400 mb-1">
+            <span>ค่าจัดสรร Swarm Compute</span>
+            <span class="text-slate-200" id="compute-cost-val">$600/เดือน</span>
+          </div>
+          <hr class="border-slate-800 my-1.5">
+          <div class="flex justify-between items-center text-yellow-400 font-bold">
+            <span class="text-[10px] text-slate-300">ประมาณการสัญญาบริการ:</span>
+            <span class="text-sm font-futuristic" id="total-cost-val">$2,100/mo</span>
+          </div>
+        </div>
+        <button onclick="openPaymentModalWithCustom()" class="w-full py-2 bg-gradient-to-r from-cyan-600 to-blue-500 text-white font-bold rounded hover:opacity-90 active:scale-95 transition-all">
+          <i class="fa-solid fa-cart-shopping mr-1"></i> จองสิทธิ์รับใบเสนอราคา
+        </button>
+      </div>
+    </div>
 
-<div class="glass p-4 rounded-xl border border-cyan-500/20">
-<h3 class="text-xs font-bold text-cyan-400 font-futuristic mb-3">4 WORKFORCES</h3>
-<div class="space-y-2 font-tech text-[11px]">
-<div class="p-2.5 bg-slate-900/60 rounded border border-slate-800"><span class="text-yellow-400 font-bold block">Human</span><span class="text-slate-400">กำหนดนโยบาย จริยธรรม</span></div>
-<div class="p-2.5 bg-slate-900/60 rounded border border-slate-800"><span class="text-cyan-400 font-bold block">Digital</span>API, SaaS</div>
-<div class="p-2.5 bg-purple-950/30 rounded border border-purple-500/30"><span class="text-purple-300 font-bold block">AI Swarm 75K + Studio</span>Virtual Org</div>
-<div class="p-2.5 bg-slate-900/60 rounded border border-slate-800"><span class="text-emerald-400 font-bold block">Robot</span>IoT, Arms</div>
-</div>
-</div>
-</div>
+    <!-- แผงเชื่อมต่อตัวประมวลผลอัจฉริยะ (รวมรุ่นยอดนิยมและ GEMINI 3.1) -->
+    <div class="glass p-4 rounded-xl relative border border-cyan-500/10">
+      <h3 class="text-xs font-bold text-cyan-400 font-futuristic mb-3 tracking-wide">
+        <i class="fa-solid fa-brain mr-1.5 text-cyan-400"></i> AI STUDIO CONNECTOR
+      </h3>
+      <div class="space-y-2.5 font-tech text-[11px]">
+        <div>
+          <label class="block text-slate-400 text-[10px] mb-1">API KEY (ใช้ระบบหลักหากเว้นว่างไว้)</label>
+          <div class="relative">
+            <input id="ai-key" type="password" placeholder="คีย์ระบบพร้อมใช้งานทันที..." class="w-full p-2 bg-black/60 border border-slate-800 rounded text-slate-200 font-mono text-xs">
+          </div>
+        </div>
+        <div>
+          <label class="block text-slate-400 text-[10px] mb-1">โมเดลโครงข่ายปัญญาประดิษฐ์</label>
+          <select id="ai-model" class="w-full p-2 bg-black/60 border border-slate-800 rounded text-slate-300 text-xs focus:border-yellow-400 focus:outline-none">
+            <option value="gemini-3.1-pro-commercial">Gemini 3.1 Pro (Commercial Enterprise)</option>
+            <option value="gemini-3.1-flash-commercial">Gemini 3.1 Flash (High-Speed Swarm)</option>
+            <option value="gemini-2.5-flash-preview-09-2025" selected>Gemini 2.5 Flash LTS (Stable standard)</option>
+          </select>
+        </div>
+        <button onclick="connectAI()" class="w-full py-2 bg-slate-900 border border-slate-800 text-slate-200 font-bold rounded text-[10px] hover:bg-black transition-all">
+          เชื่อมต่อ AI Studio Engine
+        </button>
+      </div>
+    </div>
+  </div>
 
-<!-- CENTER -->
-<div class="lg:col-span-6 flex flex-col gap-4">
-<div class="glass gold-border p-5 rounded-xl relative min-h-[440px] flex flex-col">
-<div class="tech-corner tc-tl"></div><div class="tech-corner tc-tr"></div><div class="tech-corner tc-bl"></div><div class="tech-corner tc-br"></div>
-<div class="flex justify-between border-b border-yellow-500/20 pb-2.5 mb-3">
-<h3 class="text-xs font-bold text-yellow-400 font-futuristic"><i class="fa-solid fa-circle-dot animate-pulse"></i> Quantum Singularity + AI Studio Core</h3>
-<span class="text-[9px] px-2.5 py-1 bg-yellow-950/50 text-yellow-300 rounded border border-yellow-800/40 font-tech">GRAVITY 5.4G | AI LINKED</span>
-</div>
-<div class="relative flex-grow h-[280px] bg-black/80 rounded-xl border border-slate-900 overflow-hidden">
-<canvas id="singularity-canvas" class="w-full h-full absolute inset-0"></canvas>
-<div class="relative z-10 h-full flex flex-col items-center justify-center pointer-events-none">
-<div class="w-20 h-20 rounded-full bg-gradient-to-br from-yellow-400 to-purple-600 animate-pulse flex items-center justify-center"><i class="fa-solid fa-atom text-black text-2xl animate-spin" style="animation-duration:3s"></i></div>
-<div class="mt-3 text-[11px] font-tech text-yellow-300 font-bold">EVENT HORIZON + AI STUDIO SYNCED</div>
-<div class="text-[8px] text-slate-500">ลากเมาส์เพื่อบิดอวกาศ • คลิกเพื่อ Purge + Sync</div>
-</div>
-<div class="absolute top-3 left-3 bg-black/80 px-2 py-1 rounded border border-yellow-500/30 text-[9px] font-tech text-yellow-400" id="gravity-val">GRAVITY: 5.4G</div>
-<div class="absolute top-3 right-3 bg-black/80 px-2 py-1 rounded border border-cyan-500/30 text-[9px] font-tech text-cyan-300" id="ai-sync-badge">AI: OFFLINE</div>
-</div>
-<div class="grid grid-cols-4 gap-2 mt-4 font-tech text-[9px] text-center">
-<div class="bg-slate-900/70 p-2 rounded"><span class="text-slate-500 block">L1-L12</span><span class="text-cyan-400 font-bold">FROZEN</span></div>
-<div class="bg-slate-900/70 p-2 rounded"><span class="text-slate-500 block">Runtimes</span><span class="text-purple-400 font-bold">ONLINE</span></div>
-<div class="bg-slate-900/70 p-2 rounded"><span class="text-slate-500 block">AI Studio</span><span id="ai-stat" class="text-red-400 font-bold">OFFLINE</span></div>
-<div class="bg-slate-900/70 p-2 rounded"><span class="text-slate-500 block">Update</span><span class="text-emerald-400 font-bold">AUTO ON</span></div>
-</div>
-</div>
-<div class="glass p-4 rounded-xl">
-<h3 class="text-xs font-bold text-purple-400 font-futuristic mb-3">10 DIMENSIONS + CLI + AI BRIDGE</h3>
-<div class="bg-black/80 p-3 rounded border border-slate-900 font-mono text-[10px] text-emerald-400 h-[72px] overflow-y-auto" id="cli-log"><div>[SYSTEM] v1.1 AI-Ready...</div><div>[AI STUDIO] Bridge initialized...</div></div>
-<div class="grid grid-cols-4 gap-1 mt-2 font-tech text-[8px]">
-<button onclick="runCmd('maew ai connect')" class="py-1.5 bg-purple-950/40 border border-purple-800/40 rounded text-purple-300 font-bold">ai connect</button>
-<button onclick="runCmd('maew update check')" class="py-1.5 bg-yellow-950/40 border border-yellow-800/40 rounded text-yellow-300">update check</button>
-<button onclick="runCmd('maew singularity trigger')" class="py-1.5 bg-yellow-950 border border-yellow-700/50 rounded text-yellow-300">singularity</button>
-<button onclick="runCmd('help')" class="py-1.5 bg-slate-900 border border-slate-800 rounded text-slate-300">help</button>
-</div>
-</div>
-</div>
+  <!-- แผงควบคุมแกนกลาง: ชุดเครื่องมือทดลองระบบควอนตัมเชิงลึก -->
+  <div class="lg:col-span-6 flex flex-col gap-4">
+    <div class="glass gold-border p-4 rounded-xl relative flex flex-col min-h-[480px]" id="central-playground-card">
+      <div class="tech-corner tc-tl"></div><div class="tech-corner tc-tr"></div><div class="tech-corner tc-bl"></div><div class="tech-corner tc-br"></div>
+      
+      <!-- ตัวสลับแท็บชุดเครื่องมือ -->
+      <div class="flex border-b border-yellow-500/20 pb-2 mb-4 overflow-x-auto gap-1">
+        <button onclick="switchTab('tab-chat')" id="btn-tab-chat" class="tab-btn active px-3 py-1.5 text-xs font-futuristic border border-transparent rounded hover:border-yellow-500/30 text-slate-400 whitespace-nowrap">
+          <i class="fa-solid fa-message mr-1"></i> AI Chat
+        </button>
+        <button onclick="switchTab('tab-imagen')" id="btn-tab-imagen" class="tab-btn px-3 py-1.5 text-xs font-futuristic border border-transparent rounded hover:border-yellow-500/30 text-slate-400 whitespace-nowrap">
+          <i class="fa-solid fa-wand-magic-sparkles mr-1"></i> Imagen 4
+        </button>
+        <button onclick="switchTab('tab-tts')" id="btn-tab-tts" class="tab-btn px-3 py-1.5 text-xs font-futuristic border border-transparent rounded hover:border-yellow-500/30 text-slate-400 whitespace-nowrap">
+          <i class="fa-solid fa-volume-high mr-1"></i> Speech Synth
+        </button>
+        <button onclick="switchTab('tab-vision')" id="btn-tab-vision" class="tab-btn px-3 py-1.5 text-xs font-futuristic border border-transparent rounded hover:border-yellow-500/30 text-slate-400 whitespace-nowrap">
+          <i class="fa-solid fa-eye mr-1"></i> Multimodal
+        </button>
+        <button onclick="switchTab('tab-blueprints')" id="btn-tab-blueprints" class="tab-btn px-3 py-1.5 text-xs font-futuristic border border-transparent rounded hover:border-yellow-500/30 text-slate-400 whitespace-nowrap bg-yellow-950/20 border-yellow-800/40">
+          <i class="fa-solid fa-folder-open text-yellow-400 mr-1"></i> Master Blueprint Registry
+        </button>
+      </div>
 
-<!-- RIGHT -->
-<div class="lg:col-span-3 flex flex-col gap-4">
-<div class="glass p-4 rounded-xl">
-<h3 class="text-xs font-bold text-cyan-400 font-futuristic mb-3">12 LAYERS + STUDIO</h3>
-<div class="space-y-1 font-tech text-[10px] max-h-[340px] overflow-y-auto">
-<div class="p-2 bg-slate-900/40 rounded flex justify-between"><span>L1 Constitution</span><span class="text-green-400">✓</span></div>
-<div class="p-2 bg-slate-900/40 rounded flex justify-between"><span>L2 Hyper Kernel</span><span class="text-green-400">✓</span></div>
-<div class="p-2 bg-slate-900/40 rounded flex justify-between"><span>L3 Intelligence + Studio</span><span class="text-green-400">✓</span></div>
-<div class="p-2 bg-purple-950/20 rounded flex justify-between border border-purple-500/20"><span>L5 Agent + AI Studio</span><span class="text-purple-400">✓</span></div>
-<div class="p-2 bg-slate-900/40 rounded flex justify-between"><span>L8 Developer Studio SDK</span><span class="text-green-400">✓</span></div>
-<div class="p-2 bg-slate-900/40 rounded flex justify-between"><span>L9 Ops Auto-Update</span><span class="text-green-400">✓</span></div>
-<div class="p-2 bg-yellow-950/20 rounded flex justify-between border border-yellow-500/20"><span>L12 Self Evolution AI</span><span class="text-yellow-400">✓</span></div>
-</div>
-</div>
-<div class="glass p-4 rounded-xl">
-<h3 class="text-xs font-bold text-emerald-400 font-futuristic mb-3">AI TRUST + UPDATE</h3>
-<div class="space-y-2 font-tech text-[10px]"><div>Trust Score <span class="float-right text-purple-400 font-bold">99.4%</span><div class="w-full bg-slate-900 h-1.5 rounded mt-1"><div class="bg-purple-500 h-1.5" style="width:99.4%"></div></div></div><div>AI Sync <span id="sync-pct" class="float-right text-cyan-400 font-bold">0%</span><div class="w-full bg-slate-900 h-1.5 rounded mt-1"><div id="sync-bar" class="bg-cyan-500 h-1.5" style="width:0%"></div></div></div><div>Auto-Update <span class="float-right text-emerald-400 font-bold">ON</span><div class="w-full bg-slate-900 h-1.5 rounded mt-1"><div class="bg-emerald-500 h-1.5" style="width:100%"></div></div></div></div>
-</div>
-</div>
+      <!-- เนื้อหาระบบแยกตามความอัจฉริยะ -->
+      <div class="flex-grow flex flex-col justify-between">
+        
+        <!-- แท็บที่ 1: แชตและสั่งการข้อความ -->
+        <div id="tab-chat" class="tab-content flex flex-col flex-grow gap-3">
+          <div class="flex-grow flex flex-col gap-2">
+            <label class="text-xs font-tech text-yellow-400 block font-bold">ป้อนหัวเรื่องเพื่อวิเคราะห์เชิงกลยุทธ์ระดับทศวรรษด้วยเอนจินอัจฉริยะระดับสูง</label>
+            <div class="relative flex-grow">
+              <textarea id="chat-prompt" placeholder="เช่น: จงวิเคราะห์ข้อดีและข้อเสียของการเลือกใช้งานสถาปัตยกรรมอัจฉริยะจากขุมพลังรุ่นใหม่ Gemini 3.1 ในปี 2026..." class="w-full h-32 p-3 bg-black/60 border border-slate-800 rounded text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-yellow-400 font-tech resize-none"></textarea>
+            </div>
+            
+            <div class="flex flex-wrap items-center justify-between gap-2 bg-slate-950/80 p-2 rounded border border-slate-900 text-xs font-tech">
+              <label class="flex items-center gap-2 cursor-pointer text-slate-300">
+                <input type="checkbox" id="chat-search" class="rounded accent-yellow-500 bg-black" checked>
+                <span>เปิดใช้งาน Google Search Grounding (ค้นหาคลังข่าวอ้างอิงตรงเวลาเรียลไทม์)</span>
+              </label>
+            </div>
+          </div>
+          <button onclick="triggerTextGeneration()" id="btn-text-gen" class="py-2.5 bg-gradient-to-r from-yellow-500 to-amber-600 text-black font-black font-futuristic rounded hover:opacity-90 flex items-center justify-center gap-2 transition-all">
+            <span>ส่งคำสั่งไปยังเครือข่าย AI (EXECUTE CLOUD)</span> <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </div>
+
+        <!-- แท็บที่ 2: รังสรรค์ภาพผ่าน Imagen 4 -->
+        <div id="tab-imagen" class="tab-content hidden flex flex-col flex-grow gap-3">
+          <div class="flex-grow flex flex-col gap-2">
+            <label class="text-xs font-tech text-yellow-400 block font-bold">วาดสรรค์ภาพถ่ายแนวสัจนิยมความละเอียดสูงด้วยขุมพลังพิกเซล Imagen 4.0</label>
+            <textarea id="image-prompt" placeholder="A futuristic computing core running Gemini 3.1 Pro engine, floating golden nodes, deep cybernetic space, highly realistic, octane render" class="w-full h-24 p-3 bg-black/60 border border-slate-800 rounded text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-yellow-400 font-tech resize-none"></textarea>
+            <div class="text-[10px] text-slate-500">หมายเหตุ: ใช้โมดูลคณิตศาสตร์ชั้นสูงในการตัดทอนจุดสัญญาณรบกวน (Denoising)</div>
+          </div>
+          <button onclick="triggerImageGeneration()" id="btn-image-gen" class="py-2.5 bg-gradient-to-r from-yellow-500 to-amber-600 text-black font-black font-futuristic rounded hover:opacity-90 flex items-center justify-center gap-2 transition-all">
+            <span>สังเคราะห์ภาพระดับสากล (GENERATE COMMERCIAL)</span> <i class="fa-solid fa-palette"></i>
+          </button>
+        </div>
+
+        <!-- แท็บที่ 3: สังเคราะห์เสียงสุนทรพจน์ -->
+        <div id="tab-tts" class="tab-content hidden flex flex-col flex-grow gap-3">
+          <div class="flex-grow flex flex-col gap-3">
+            <div>
+              <label class="text-xs font-tech text-yellow-400 block font-bold mb-1">เลือกผู้ให้บริการสตรีมมิ่งน้ำเสียงต้นแบบ (Corporate Speaker Voice)</label>
+              <select id="tts-voice" class="w-full p-2 bg-black/60 border border-slate-800 rounded text-slate-300 text-xs focus:outline-none">
+                <option value="Kore">Kore (เสียงน่าเชื่อถือ ลึกและก้องกังวาน)</option>
+                <option value="Zephyr">Zephyr (เสียงทรงพลัง สำหรับการบรรยายโครงการ)</option>
+                <option value="Leda">Leda (เสียงแจ่มใส นุ่มนวล)</option>
+                <option value="Fenrir">Fenrir (เสียงเข้ม สุขุมอย่างเป็นทางการ)</option>
+              </select>
+            </div>
+            <div>
+              <label class="text-xs font-tech text-yellow-400 block font-bold mb-1">ป้อนข้อมูลข้อความที่ต้องการถอดแบบน้ำเสียงอารยธรรม</label>
+              <textarea id="tts-prompt" placeholder="Say cheerfully: ขณะนี้ระบบปฏิบัติการสวอร์มเวอร์ชันอัปเกรด Gemini 3.1 พร้อมเปิดโอกาสให้บริการความเสถียรแก่ท่านแล้ว!" class="w-full h-24 p-3 bg-black/60 border border-slate-800 rounded text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-yellow-500 font-tech resize-none"></textarea>
+            </div>
+          </div>
+          <button onclick="triggerTTS()" id="btn-tts-gen" class="py-2.5 bg-gradient-to-r from-yellow-500 to-amber-600 text-black font-black font-futuristic rounded hover:opacity-90 flex items-center justify-center gap-2 transition-all">
+            <span>สังเคราะห์เสียงบรรยายทันที (SPEECH SYNTH)</span> <i class="fa-solid fa-volume-high"></i>
+          </button>
+        </div>
+
+        <!-- แท็บที่ 4: การสแกนจักขุประสาทวิเคราะห์วิสัยทัศน์รูปภาพ -->
+        <div id="tab-vision" class="tab-content hidden flex flex-col flex-grow gap-3">
+          <div class="flex-grow flex flex-col gap-2">
+            <label class="text-xs font-tech text-yellow-400 block font-bold">ป้อน URL รูปภาพภายนอก เพื่อทำการวิเคราะห์องค์ประกอบโครงสร้างข้อมูล</label>
+            <input id="vision-url" type="text" placeholder="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80..." class="w-full p-2.5 bg-black/60 border border-slate-800 rounded text-xs text-slate-200 placeholder-slate-600 focus:outline-none focus:border-yellow-400 font-tech">
+            <div class="text-[10px] text-slate-400 flex items-center gap-2">
+              <span>เลือกภาพตัวอย่างด่วน:</span>
+              <button onclick="setSampleVision('space')" class="px-2 py-0.5 bg-slate-900 border border-slate-800 rounded text-[9px] hover:text-yellow-400">โครงข่ายนวัตกรรมอวกาศ</button>
+              <button onclick="setSampleVision('cyber')" class="px-2 py-0.5 bg-slate-900 border border-slate-800 rounded text-[9px] hover:text-yellow-400">สถาปัตยกรรมเมืองแห่งอนาคต</button>
+            </div>
+            
+            <div class="mt-2">
+              <label class="text-xs font-tech text-slate-400 block mb-1">ระบุคำถามต่อรูปภาพเพื่อตรวจสอบเชิงลึก</label>
+              <input id="vision-prompt" type="text" value="โปรดสรุปและวิพากษ์แนวโน้มเทคโนโลยีความมั่นคงที่ซ่อนอยู่ในรูปภาพนี้อย่างเฉียบแหลม" class="w-full p-2.5 bg-black/60 border border-slate-800 rounded text-xs text-slate-200 focus:outline-none focus:border-yellow-400 font-tech">
+            </div>
+          </div>
+          <button onclick="triggerVision()" id="btn-vision-gen" class="py-2.5 bg-gradient-to-r from-yellow-500 to-amber-600 text-black font-black font-futuristic rounded hover:opacity-90 flex items-center justify-center gap-2 transition-all">
+            <span>ประมวลผลรูปภาพ (ANALYZE IMAGE)</span> <i class="fa-solid fa-eye"></i>
+          </button>
+        </div>
+
+        <!-- แท็บที่ 5: แฟ้มสารบัญข้อตกลงและสถาปัตยกรรมแม่บท -->
+        <div id="tab-blueprints" class="tab-content hidden flex flex-col flex-grow gap-4">
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-3 flex-grow">
+            <!-- ส่วนจัดเตรียมเล่มเอกสารแม่บท -->
+            <div class="md:col-span-4 flex flex-col gap-1.5 max-h-[300px] overflow-y-auto pr-1">
+              <span class="text-[10px] font-bold text-yellow-500 uppercase tracking-wider block mb-1">
+                <i class="fa-solid fa-book-open"></i> MASTER SPECIFICATION VOLUMES
+              </span>
+              <button onclick="selectVolume(1)" id="vol-btn-1" class="vol-btn w-full text-left p-2 bg-slate-900/60 border border-slate-800 rounded text-[11px] font-tech text-slate-300 hover:border-yellow-500/30 hover:bg-black transition-all">
+                <span class="text-yellow-400 font-bold block">Vol I — Vision & Const</span>
+                <span class="text-[9px] text-slate-400 block">ARL-2 • Reference Arch</span>
+              </button>
+              <button onclick="selectVolume(2)" id="vol-btn-2" class="vol-btn w-full text-left p-2 bg-slate-900/60 border border-slate-800 rounded text-[11px] font-tech text-slate-300 hover:border-yellow-500/30 hover:bg-black transition-all">
+                <span class="text-cyan-400 font-bold block">Vol II — Architecture</span>
+                <span class="text-[9px] text-slate-400 block">ARL-2 • Topology & Layers</span>
+              </button>
+              <button onclick="selectVolume(3)" id="vol-btn-3" class="vol-btn w-full text-left p-2 bg-slate-900/60 border border-slate-800 rounded text-[11px] font-tech text-slate-300 hover:border-yellow-500/30 hover:bg-black transition-all">
+                <span class="text-purple-400 font-bold block">Vol III — Engineering</span>
+                <span class="text-[9px] text-slate-400 block">ARL-3 • API Contracts & SDK</span>
+              </button>
+              <button onclick="selectVolume(4)" id="vol-btn-4" class="vol-btn w-full text-left p-2 bg-slate-900/60 border border-slate-800 rounded text-[11px] font-tech text-slate-300 hover:border-yellow-500/30 hover:bg-black transition-all">
+                <span class="text-emerald-400 font-bold block">Vol IV — Operations</span>
+                <span class="text-[9px] text-slate-400 block">ARL-2 • Observability & DR</span>
+              </button>
+              <button onclick="selectVolume(5)" id="vol-btn-5" class="vol-btn w-full text-left p-2 bg-slate-900/60 border border-slate-800 rounded text-[11px] font-tech text-slate-300 hover:border-yellow-500/30 hover:bg-black transition-all">
+                <span class="text-amber-400 font-bold block">Vol V — Gov & Lifecycle</span>
+                <span class="text-[9px] text-slate-400 block">ARL-3 • ADR & Release Policy</span>
+              </button>
+            </div>
+            
+            <!-- ส่วนตรวจสอบข้อมูลเนื้อหาสารบัญ -->
+            <div class="md:col-span-8 bg-black/80 p-3 rounded border border-slate-800 flex flex-col max-h-[300px] overflow-y-auto">
+              <div class="flex justify-between items-center border-b border-slate-800 pb-1.5 mb-2">
+                <h4 id="registry-title" class="text-xs font-bold font-futuristic text-yellow-400">VOLUME SELECTION STANDBY</h4>
+                <span id="registry-state" class="text-[9px] px-2 py-0.5 bg-yellow-950/40 text-yellow-300 border border-yellow-500/30 rounded uppercase font-tech">Reference</span>
+              </div>
+              <div id="registry-body" class="text-[11px] text-slate-300 font-tech whitespace-pre-wrap leading-relaxed">
+                กรุณาเลือกแฟ้มเล่มสารบัญเพื่อตรวจสอบเอกสารจัดหาโครงสร้างจากขุมพลังระบบเจมินายและสถาปัตยกรรมอ้างอิง...
+              </div>
+            </div>
+          </div>
+          
+          <!-- ตารางเปรียบเทียบระดับความพร้อม (ARL Metric Board) -->
+          <div class="border-t border-slate-900 pt-3">
+            <span class="text-[10px] font-bold text-yellow-400 uppercase tracking-wider block mb-2">
+              <i class="fa-solid fa-gauge-high"></i> ARCHITECTURE READINESS LEVEL (ARL) MATRIX
+            </span>
+            <div class="grid grid-cols-3 gap-2 text-center text-[10px]">
+              <div onclick="filterArl(1)" class="cursor-pointer p-2 bg-slate-950 hover:bg-slate-900 rounded border border-slate-800 transition-all">
+                <span class="text-[9px] text-slate-500 block">ARL 1-3</span>
+                <span class="text-yellow-400 font-bold">REFERENCE ARCH</span>
+                <span class="text-[8px] text-slate-400 block mt-1">วิสัยทัศน์ความพร้อมระดับต้น</span>
+              </div>
+              <div onclick="filterArl(4)" class="cursor-pointer p-2 bg-slate-950 hover:bg-slate-900 rounded border border-slate-800 transition-all">
+                <span class="text-[9px] text-slate-500 block">ARL 4-6</span>
+                <span class="text-cyan-400 font-bold">IMPLEMENTATION</span>
+                <span class="text-[8px] text-slate-400 block mt-1">โมเดลทดสอบและสถิติการใช้งาน</span>
+              </div>
+              <div onclick="filterArl(7)" class="cursor-pointer p-2 bg-slate-950 hover:bg-slate-900 rounded border border-slate-800 transition-all">
+                <span class="text-[9px] text-slate-500 block">ARL 7-9</span>
+                <span class="text-emerald-400 font-bold">PRODUCTION</span>
+                <span class="text-[8px] text-slate-400 block mt-1">ประเมินรับสำหรับส่งต่อใช้งานจริง</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ส่วนจำลองดัดแปลงสนามพลังงานแม่เหล็กโลกทางกายภาพ -->
+    <div class="glass gold-border p-4 rounded-xl relative flex flex-col">
+      <div class="tech-corner tc-tl"></div><div class="tech-corner tc-tr"></div><div class="tech-corner tc-bl"></div><div class="tech-corner tc-br"></div>
+      <div class="flex justify-between border-b border-yellow-500/20 pb-2.5 mb-3">
+        <h3 class="text-xs font-bold text-yellow-400 font-futuristic flex items-center gap-1.5">
+          <i class="fa-solid fa-circle-dot animate-pulse text-yellow-500"></i> Quantum Singularity & Core Sandbox Simulation
+        </h3>
+        <span class="text-[9px] px-2.5 py-1 bg-yellow-950/50 text-yellow-300 rounded border border-yellow-800/40 font-tech">
+          GRAVITY 5.4G | ACTIVE ENGINE
+        </span>
+      </div>
+      <div class="relative h-[180px] bg-black/90 rounded-xl border border-slate-900 overflow-hidden">
+        <canvas id="singularity-canvas" class="w-full h-full absolute inset-0 cursor-crosshair"></canvas>
+        <div class="relative z-10 h-full flex flex-col items-center justify-center pointer-events-none">
+          <div id="central-core" class="w-16 h-16 rounded-full bg-gradient-to-br from-yellow-400 to-amber-600 animate-pulse flex items-center justify-center transition-all duration-300">
+            <i id="core-icon" class="fa-solid fa-atom text-black text-xl animate-spin" style="animation-duration:4s"></i>
+          </div>
+          <div id="visualizer-status-text" class="mt-3 text-[10px] font-tech text-yellow-300 font-bold uppercase tracking-wider">EVENT HORIZON STABLE</div>
+          <div class="text-[8px] text-slate-500">แตะหรือเลื่อนขยับเมาส์ เพื่อบิดทอสนามแรงดึงดูดจำลอง</div>
+        </div>
+        <div class="absolute top-3 left-3 bg-black/80 px-2 py-1 rounded border border-yellow-500/30 text-[9px] font-tech text-yellow-400" id="gravity-val">GRAVITY: 5.4G</div>
+        <div class="absolute top-3 right-3 bg-black/80 px-2 py-1 rounded border border-yellow-500/30 text-[9px] font-tech text-yellow-300 animate-pulse" id="ai-sync-badge">SYSTEM: DEMO MODE</div>
+      </div>
+      <div class="grid grid-cols-4 gap-2 mt-3 font-tech text-[9px] text-center">
+        <div class="bg-slate-950 p-2 rounded border border-slate-900"><span class="text-slate-500 block">Sovereign Tier</span><span class="text-yellow-400 font-bold" id="grid-tier-name">DEMO</span></div>
+        <div class="bg-slate-950 p-2 rounded border border-slate-900"><span class="text-slate-500 block">Quantum State</span><span id="q-state" class="text-purple-400 font-bold">STABLE</span></div>
+        <div class="bg-slate-950 p-2 rounded border border-slate-900"><span class="text-slate-500 block">SLA Index</span><span class="text-emerald-400 font-bold">99.999%</span></div>
+        <div class="bg-slate-950 p-2 rounded border border-slate-900"><span class="text-slate-500 block">Auto-healing</span><span class="text-emerald-400 font-bold">ACTIVE</span></div>
+      </div>
+    </div>
+
+    <!-- ส่วนจัดการ Command Terminal -->
+    <div class="glass p-4 rounded-xl relative">
+      <h3 class="text-xs font-bold text-yellow-500 font-futuristic mb-2 flex items-center justify-between">
+        <span>SYSTEM COMMAND CONSOLE</span>
+        <button onclick="clearCli()" class="text-[9px] text-slate-500 hover:text-slate-300 bg-black px-1.5 py-0.5 rounded border border-slate-800">Clear</button>
+      </h3>
+      <div class="bg-black/90 p-3 rounded border border-slate-900 font-mono text-[10px] text-emerald-400 h-[100px] overflow-y-auto" id="cli-log">
+        <div>[SYSTEM] v1.1.0 LTS Booting Sequence complete...</div>
+        <div>[AI STUDIO] เอนจินเชิงพาณิชย์ทำงานแล้ว พิมพ์ 'help' เพื่อตรวจสอบคำสั่ง</div>
+      </div>
+      <div class="grid grid-cols-4 gap-1 mt-2 font-tech text-[8px]">
+        <button onclick="runCmd('maew ai connect')" class="py-1.5 bg-yellow-950/40 border border-yellow-850/40 rounded text-yellow-300 font-bold hover:bg-yellow-900/50">ai connect</button>
+        <button onclick="runCmd('maew update check')" class="py-1.5 bg-yellow-950/40 border border-yellow-850/40 rounded text-yellow-300 hover:bg-yellow-900/50">update check</button>
+        <button onclick="runCmd('maew singularity trigger')" class="py-1.5 bg-yellow-950 border border-yellow-700/50 rounded text-yellow-300 hover:bg-yellow-800 font-bold">singularity</button>
+        <button onclick="runCmd('help')" class="py-1.5 bg-slate-900 border border-slate-800 rounded text-slate-300 hover:bg-slate-850">help</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- แผงควบคุมและแสดงผลด้านขวา: เวิร์กสเปซผลลัพธ์โครงสร้างธุรกิจ -->
+  <div class="lg:col-span-3 flex flex-col gap-4">
+    <div class="glass p-4 rounded-xl border border-yellow-500/20 relative flex flex-col min-h-[300px]">
+      <div class="tech-corner tc-tl"></div><div class="tech-corner tc-tr"></div>
+      <h3 class="text-xs font-bold text-yellow-400 font-futuristic mb-3 flex items-center justify-between">
+        <span><i class="fa-solid fa-desktop mr-1.5"></i> ENGINE WORKSPACE</span>
+        <span id="output-type" class="text-[9px] px-2 py-0.5 bg-slate-900 text-slate-400 rounded uppercase font-tech">STANDBY</span>
+      </h3>
+      
+      <!-- พื้นที่แสดงผลลัพธ์ของข้อมูลอัจฉริยะแบบไดนามิก -->
+      <div class="flex-grow flex flex-col justify-center bg-black/60 rounded border border-slate-900 p-3 overflow-y-auto max-h-[380px]" id="workspace-viewport">
+        
+        <!-- สถานะสแตนด์บายดั้งเดิม -->
+        <div id="output-default" class="text-center space-y-2 py-8 text-slate-500">
+          <i class="fa-solid fa-circle-nodes text-3xl text-slate-700 animate-pulse"></i>
+          <p class="text-[11px] font-tech">เรียกใช้งานเครื่องมือปัญญาประดิษฐ์เพื่อวิพากษ์แผนธุรกิจโครงสร้างเทคโนโลยีที่นี่</p>
+        </div>
+
+        <!-- แอนิเมชันตอนประมวลผลข้อมูลภาพและแชท -->
+        <div id="output-loader" class="hidden text-center space-y-3 py-12">
+          <div class="inline-block relative">
+            <div class="w-10 h-10 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin"></div>
+            <div class="w-6 h-6 border-4 border-cyan-400 border-b-transparent rounded-full animate-spin absolute top-2 left-2" style="animation-direction:reverse"></div>
+          </div>
+          <p id="loader-text" class="text-[11px] text-yellow-400 font-tech font-bold animate-pulse">กำลังสแกนและคัดถอนโครงสร้างจากขุมพลังเจมินาย...</p>
+        </div>
+
+        <!-- หน้าแสดงผลลัพธ์ประเภทตัวอักษรและรายงาน -->
+        <div id="output-text-area" class="hidden text-xs text-slate-300 leading-relaxed space-y-2 select-all h-full">
+          <div class="flex justify-between border-b border-slate-900 pb-1 mb-2">
+            <span class="text-[9px] text-yellow-400 font-bold">ANALYZED RESPONSES</span>
+            <button onclick="copyOutputText()" class="text-[9px] text-slate-500 hover:text-yellow-400"><i class="fa-regular fa-copy"></i> Copy</button>
+          </div>
+          <div id="text-response-content" class="whitespace-pre-wrap font-tech text-[12px] bg-black/30 p-2 rounded"></div>
+          
+          <!-- แหล่งข่าวยืนยันข้อมูลอินเทอร์เน็ตจริง -->
+          <div id="grounding-area" class="hidden mt-3 border-t border-slate-900 pt-2 text-[10px]">
+            <p class="text-yellow-400 font-bold mb-1"><i class="fa-solid fa-magnifying-glass mr-1"></i> แหล่งอ้างอิงขบวนการค้นหา (Grounding Source)</p>
+            <ul id="grounding-list" class="space-y-1 list-disc list-inside text-slate-400"></ul>
+          </div>
+        </div>
+
+        <!-- หน้าแสดงรูปภาพศิลปะอารยธรรมจาก Imagen 4 -->
+        <div id="output-image-area" class="hidden flex flex-col items-center justify-center gap-2">
+          <div class="border border-yellow-500/30 p-1 bg-black rounded relative group">
+            <img id="image-response-element" src="" alt="Imagen Generated Image" class="max-w-full rounded border border-slate-800" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=500';">
+          </div>
+          <a id="image-download-btn" href="#" download="maew-commercial.png" class="w-full text-center py-1.5 bg-slate-900 border border-slate-800 hover:text-yellow-400 rounded text-[10px] font-tech">
+            <i class="fa-solid fa-download mr-1"></i> บันทึกภาพลงดิสก์เครื่อง
+          </a>
+        </div>
+
+        <!-- หน้าประมวลผลและเล่นเสียงสังเคราะห์ (TTS Player) -->
+        <div id="output-audio-area" class="hidden flex flex-col items-center justify-center gap-3 py-6">
+          <div class="w-12 h-12 rounded-full bg-yellow-900/10 border border-yellow-500/30 flex items-center justify-center text-yellow-400">
+            <i class="fa-solid fa-wave-square text-lg animate-pulse"></i>
+          </div>
+          <div class="text-center font-tech">
+            <div id="audio-voice-name" class="text-xs font-bold text-yellow-400">Voice: Kore</div>
+            <div class="text-[9px] text-slate-500">ระบบถอดรหัสเสียงคุณภาพสูงระดับสตูดิโอ 16-bit WAV</div>
+          </div>
+          <audio id="audio-player" controls class="w-full h-8 max-w-xs mt-1 outline-none text-yellow-400 bg-yellow-950 rounded-lg"></audio>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ส่วนรายงานประสิทธิภาพการพาณิชย์และการทำกำไร -->
+    <div class="glass p-4 rounded-xl border border-yellow-500/20">
+      <h3 class="text-xs font-bold text-yellow-400 font-futuristic mb-3">
+        <i class="fa-solid fa-chart-line mr-1 text-yellow-400"></i> SAAS & OPERATION KPI
+      </h3>
+      <div class="space-y-3 font-tech text-[10px]">
+        <div>
+          <div class="flex justify-between"><span>สัดส่วนความเสถียรทราฟฟิก Gemini 3.1</span><span class="text-yellow-400 font-bold">99.999% SLA Stable</span></div>
+          <div class="w-full bg-slate-950 h-1.5 rounded mt-1 overflow-hidden">
+            <div class="bg-gradient-to-r from-yellow-500 to-amber-600 h-full" style="width:100%"></div>
+          </div>
+        </div>
+        <div>
+          <div class="flex justify-between"><span>กำไรจากการทำงานของเอเจนต์พรีเมียม (ROI)</span><span class="text-cyan-400 font-bold">428% Net Profit</span></div>
+          <div class="w-full bg-slate-950 h-1.5 rounded mt-1 overflow-hidden">
+            <div class="bg-cyan-500 h-full" style="width:85%"></div>
+          </div>
+        </div>
+        <div class="pt-2 border-t border-slate-900 flex justify-between items-center text-slate-400 text-[9px]">
+          <span>สถานะฝ่ายสนับสนุนเทคนิค:</span>
+          <span class="text-emerald-400 font-bold flex items-center gap-1"><span class="w-2 h-2 bg-emerald-400 rounded-full inline-block animate-pulse"></span> คู่สายตรงสำหรับผู้ถือสิทธิ์</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ความถูกต้องธรรมนูญ 12 ชั้นของอารยธรรม -->
+    <div class="glass p-4 rounded-xl">
+      <h3 class="text-xs font-bold text-cyan-400 font-futuristic mb-3">12 LAYERS CONSTITUTION</h3>
+      <div class="space-y-1 font-tech text-[10px] max-h-[120px] overflow-y-auto">
+        <div class="p-1.5 bg-slate-950 rounded flex justify-between items-center border border-slate-900">
+          <span>L1 Constitution</span><span class="text-green-400 font-bold">✓ ENFORCED</span>
+        </div>
+        <div class="p-1.5 bg-slate-950 rounded flex justify-between items-center border border-slate-900">
+          <span>L3 Intelligence Bridge</span><span class="text-emerald-400 font-bold">✓ STREAMING</span>
+        </div>
+        <div class="p-1.5 bg-yellow-950/20 rounded flex justify-between items-center border border-yellow-500/20">
+          <span>L12 Self Evolution AI</span><span class="text-yellow-400 font-bold">✓ ACTIVE COMMERCIAL</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </main>
 
-<footer class="text-center py-3 pb-20 border-t border-slate-900 text-[9px] text-slate-600 font-futuristic">v1.1 AI STUDIO CONNECTED • AUTO-UPDATE • MAEW Ω∞</footer>
+<!-- ส่วนลงชื่อและลิขสิทธิ์ความรับผิดชอบด้านท้าย -->
+<footer class="text-center py-4 pb-24 border-t border-slate-900 text-[10px] text-slate-500 font-futuristic tracking-widest">
+  MAEW Ω∞ STACK CO. © 2026 • ALL RIGHTS RESERVED • ENTERPRISE COMMERCIAL VERSION 1.1 (GEMINI 3.1 READY)
+</footer>
 
-<div style="position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(2,1,8,0.97);border-top:2px solid #eab308;padding:10px 12px;">
-<div style="max-width:1280px;margin:0 auto;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;align-items:center;font-family:'Chakra Petch'">
-<span style="color:#eab308;font-size:11px;font-weight:800;">🚀 v1.1 AI STUDIO READY:</span>
-<a href="https://buy.stripe.com/test_enterprise7500" target="_blank" style="background:linear-gradient(135deg,#eab308,#d97706);color:#000;padding:9px 16px;border-radius:8px;font-weight:800;font-size:11px;text-decoration:none;">$7,500/mo</a>
-<a href="https://aistudio.google.com/" target="_blank" style="background:#06b6d4;color:#000;padding:9px 16px;border-radius:8px;font-weight:700;font-size:11px;text-decoration:none;">OPEN AI STUDIO →</a>
+<!-- แถบด้านล่างสำหรับสั่งจองชำระค่าสัญญาระดับพรีเมียมอย่างเป็นทางการ -->
+<div style="position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(2,1,8,0.98);border-top:2px solid #eab308;padding:12px 14px;">
+  <div style="max-width:1280px;margin:0 auto;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;align-items:center;font-family:'Chakra Petch'">
+    <span style="color:#eab308;font-size:12px;font-weight:800;letter-spacing:1px;" class="animate-pulse">🚀 ลิขสิทธิ์ธุรกิจอัจฉริยะคู่ขนานพรีเมียม (Gemini 3.1 Integration):</span>
+    <button onclick="openPaymentModal()" style="background:linear-gradient(135deg,#eab308,#d97706);color:#000;padding:8px 18px;border-radius:6px;font-weight:900;font-size:11px;cursor:pointer;" class="hover:scale-105 active:scale-95 transition-all shadow-md shadow-yellow-500/20">
+      <i class="fa-solid fa-credit-card mr-1"></i> ซื้อสิทธิ์ลิขสิทธิ์ / อัพเกรดโหนด $7,500/เดือน
+    </button>
+    <a href="https://aistudio.google.com/" target="_blank" style="background:#06b6d4;color:#000;padding:8px 18px;border-radius:6px;font-weight:700;font-size:11px;text-decoration:none;" class="hover:scale-105 active:scale-95 transition-all">
+      คู่มือรักษาความปลอดภัยคีย์ระบบ API →
+    </a>
+  </div>
 </div>
+
+<!-- หน้าต่างสั่งซื้อจัดจำหน่ายจำลองของหน่วยงาน (Secure Payment Modal Gateway) -->
+<div id="payment-modal" class="hidden fixed inset-0 z-[99999] flex items-center justify-center bg-black/80 backdrop-filter backdrop-blur-md p-4">
+  <div class="glass gold-border rounded-2xl w-full max-w-lg p-6 relative flex flex-col gap-4 animate-fade-in">
+    <div class="tech-corner tc-tl"></div><div class="tech-corner tc-tr"></div><div class="tech-corner tc-bl"></div><div class="tech-corner tc-br"></div>
+    
+    <div class="flex justify-between items-center border-b border-yellow-500/20 pb-3">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-shield-halved text-yellow-400 text-lg"></i>
+        <div>
+          <h3 class="text-sm font-bold font-futuristic text-yellow-400 tracking-wider">MAEW OS ENTERPRISE BILLING</h3>
+          <p class="text-[9px] text-slate-400">ระบบสั่งซื้อความปลอดภัยระดับทหารและรับรหัสเปิดใช้งานทันที</p>
+        </div>
+      </div>
+      <button onclick="closePaymentModal()" class="text-slate-400 hover:text-white text-lg"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <!-- บัตรเครดิตพรีเมียมจำลองสะท้อนเงา -->
+    <div class="bg-gradient-to-br from-yellow-600 via-amber-500 to-yellow-800 p-4 rounded-xl text-black flex flex-col justify-between h-36 shadow-lg shadow-yellow-500/10">
+      <div class="flex justify-between items-start">
+        <span class="text-xs font-bold tracking-widest font-futuristic uppercase">Sovereign Civilization Card</span>
+        <i class="fa-solid fa-bolt text-lg"></i>
+      </div>
+      <div class="text-sm font-mono tracking-widest text-center my-2">XXXX - XXXX - XXXX - 2026</div>
+      <div class="flex justify-between items-end text-[10px]">
+        <div>
+          <span class="block text-[8px] opacity-70">ผู้ถือสิทธิ์ลิขสิทธิ์</span>
+          <span class="font-bold uppercase" id="card-holder-display">CIVILIZATION NODE OPERATOR</span>
+        </div>
+        <div class="text-right">
+          <span class="block text-[8px] opacity-70">ยอดรวมชำระสัญญา</span>
+          <span class="font-extrabold font-futuristic text-sm" id="modal-invoice-price">$7,500/mo</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ข้อมูลฟอร์มจำลองข้อมูลจ่ายเงิน -->
+    <div class="space-y-3 font-tech text-xs">
+      <div class="grid grid-cols-2 gap-2">
+        <div>
+          <label class="block text-slate-400 mb-1">ชื่อผู้ซื้อ / หน่วยงานองค์กร</label>
+          <input id="pay-name" type="text" value="MAEW GLOBAL CORP" oninput="document.getElementById('card-holder-display').innerText = this.value" class="w-full p-2 bg-slate-900 border border-slate-800 rounded focus:outline-none focus:border-yellow-400">
+        </div>
+        <div>
+          <label class="block text-slate-400 mb-1">สิทธิ์บริการที่ทำสัญญา</label>
+          <input id="pay-service" type="text" value="Sovereign Enterprise Tier (Gemini 3.1)" readonly class="w-full p-2 bg-slate-950 border border-slate-800 rounded text-slate-400">
+        </div>
+      </div>
+      <div>
+        <label class="block text-slate-400 mb-1">หมายเลขบัตรเครดิตจำลอง (Sandbox)</label>
+        <div class="relative">
+          <input type="text" value="4111 2222 3333 4444" class="w-full p-2 bg-slate-900 border border-slate-800 rounded text-slate-400 focus:outline-none focus:border-yellow-400 font-mono tracking-wider">
+          <span class="absolute right-3 top-2 text-slate-500 text-[10px]">VISA (TEST)</span>
+        </div>
+      </div>
+      <div class="grid grid-cols-3 gap-2">
+        <div>
+          <label class="block text-slate-400 mb-1">เดือน/ปี หมดอายุ</label>
+          <input type="text" value="12/29" class="w-full p-2 bg-slate-900 border border-slate-800 rounded text-slate-400 text-center font-mono">
+        </div>
+        <div>
+          <label class="block text-slate-400 mb-1">รหัสความปลอดภัย CVV</label>
+          <input type="text" value="999" class="w-full p-2 bg-slate-900 border border-slate-800 rounded text-slate-400 text-center font-mono">
+        </div>
+        <div>
+          <label class="block text-slate-400 mb-1">รหัสไปรษณีย์</label>
+          <input type="text" value="10110" class="w-full p-2 bg-slate-900 border border-slate-800 rounded text-slate-400 text-center font-mono">
+        </div>
+      </div>
+    </div>
+
+    <!-- ปุ่มเพื่อส่งบิลสรุปประเมินราคารับรหัสยืนยันแบบไดนามิก -->
+    <button onclick="processCommercialOrder()" class="w-full py-3 bg-gradient-to-r from-yellow-500 via-amber-500 to-yellow-600 text-black font-black rounded-lg text-xs hover:scale-[1.01] active:scale-[0.98] transition-all">
+      <i class="fa-solid fa-lock mr-1"></i> ชำระเงินจำลองเพื่อออกคีย์สิทธิบัตรเปิดใช้งานทันที
+    </button>
+  </div>
 </div>
+
+<!-- พื้นที่การแสดงผลหน้าต่างข้อความเตือนของพรีเมียม (Toast Alert Notification) -->
+<div id="toast-container" class="fixed top-5 right-5 z-[999999] flex flex-col gap-2 pointer-events-none"></div>
 
 <script>
-function connectAI(){
-  const key=document.getElementById('ai-key').value; const log=document.getElementById('ai-log');
-  if(!key){ log.innerHTML='[ERROR] ใส่ API Key ก่อน'; return; }
-  document.getElementById('ai-status').innerHTML='AI STUDIO: CONNECTED'; document.getElementById('ai-status').className='text-[9px] px-2.5 py-1 bg-emerald-950/40 border border-emerald-500/30 text-emerald-300 rounded font-tech font-bold animate-pulse';
-  document.getElementById('ai-stat').innerText='CONNECTED'; document.getElementById('ai-stat').className='text-emerald-400 font-bold';
-  document.getElementById('ai-sync-badge').innerText='AI: CONNECTED';
-  log.innerHTML='[AI] ✓ Connected to '+document.getElementById('ai-model').value+'<br>[AI] Syncing 75K Agents...';
-  let pct=0; const iv=setInterval(()=>{ pct+=10; document.getElementById('sync-pct').innerText=pct+'%'; document.getElementById('sync-bar').style.width=pct+'%'; if(pct>=100) clearInterval(iv); },200);
+  // ชุดข้อมูลเชื่อมโยง API Key และคลังเอกสารแม่บท ARL ทั้ง 5 เล่ม
+  const apiKey = ""; 
+
+  const volumesDatabase = {
+    1: {
+      title: "VOLUME I — VISION & CONSTITUTION",
+      state: "Reference Architecture (ARL-2)",
+      text: `■ CANONICAL VISION
+สถาปัตยกรรมอธิปไตยแห่งข้อมูลและทรัพยากรปัญญาประดิษฐ์เพื่อการพัฒนาอารยธรรมมนุษย์ในยุคถัดไป 
+
+■ CONSTITUTIONAL PRINCIPLES
+1. อธิปไตย (Sovereignty Model): สิทธิ์เสรีภาพและการคุ้มครองกรรมสิทธิ์ปัญญาของมนุษย์มีความเป็นเอกเทศ ปราศจากการครอบงำโดยสมบูรณ์
+2. ความมั่นคงปลอดภัย (Trust Model): ระบบประเมินความปลอดภัยต่อเนื่อง ป้องกันการคุกคามเชิงตรรกะในระดับระดับควอนตัมเกต
+3. จริยธรรมและกรอบการทำงาน (Ethics Framework): การทำงานร่วมกันระหว่าง 4 Workforces (Human, Digital, AI Swarm, Robot) ต้องไม่ละเมิดเสรีภาพขั้นพื้นฐานและต้องไม่เบี่ยงเบนจากผลประโยชน์ระยะยาวของสังคม
+
+■ FIVE IMMUTABLE FOUNDATIONS
+- การคำนวณแบบกระจายศูนย์อย่างแท้จริง
+- พิมพ์เขียวนิติรัฐดิจิทัลที่แก้ไม่ได้ (Immutable Legislation)
+- ระบบส่งผ่านคลื่นพลังสมองและการแปลงอักขระ
+- พิกัดการสร้างสรรค์ของเหลวขั้วควอนตัม (Quantum Fluid Dynamics)
+- มาตรฐานหลักสากลในการตรวจสอบความบริสุทธิ์ของปัญญา (Pure Intelligence Validation)`
+    },
+    2: {
+      title: "VOLUME II — ARCHITECTURE (COMPATIBLE WITH GEMINI 3.1)",
+      state: "Reference Architecture (ARL-2)",
+      text: `■ 20 CIVILIZATION LAYERS & TOPOLOGY WITH GEMINI 3.1
+สถาปัตยกรรมเลเยอร์แบบบูรณาการที่รองรับตัวเลือกเครือข่ายความเร็วสูง Gemini 3.1 Pro/Flash:
+- Layer 1: Constitution (ชั้นกฎบัตร และ จริยธรรมเครือข่าย)
+- Layer 2: Hyper Kernel (แกนประมวลผลพื้นฐานอิสระ)
+- Layer 3: Intelligence Bridge (จุดประสานพลังร่วมกับตัวเลือก Gemini 3.1)
+- Layer 5: Agent Swarm Layer (ฐานขับเคลื่อน 75,000 เสมือนจริงความหน่วงต่ำที่สุด)
+- Layer 12: Self Evolution AI (การจัดการขยายขีดความสามารถอัจฉริยะและประสานทรัพยากร)
+
+■ 16 RUNTIME ENGINES & COMPUTE OVERLAY
+จัดสรรการไหลบ่าของข้อมูลผ่านตัวแปลงสัญญาณแบบคู่วิกฤต (Dual Critical Gateway) เพื่อรองรับขีดความสามารถประมวลผลล้านพิกัดสัญญาณข้อความพร้อมกัน`
+    },
+    3: {
+      title: "VOLUME III — ENGINEERING",
+      state: "Implementation Architecture (ARL-3)",
+      text: `■ RUNTIME SPECIFICATIONS & CONTRACTS
+โครงสร้างข้อกำหนดและการสื่อสารระหว่าง API และแบบจำลองข้อมูล (Data Models)
+
+■ API CONTRACT SPEC (Mockup Sample)
+POST /v1/civilization/execute
+{
+  "command": "singularity_trigger",
+  "auth_token": "SANATANA_LTS_STABLE_TOKEN",
+  "dimensions": 10,
+  "payload": {
+    "target_gravity": "5.4G",
+    "swarm_agents": 75000,
+    "selected_model": "gemini-3.1-pro-commercial"
+  }
 }
-function checkUpdate(){
-  const bar=document.getElementById('update-bar'); const log=document.getElementById('update-log');
-  log.innerHTML='[UPDATE] Checking...'; bar.style.width='30%';
-  setTimeout(()=>{ bar.style.width='70%'; log.innerHTML='[UPDATE] Found v1.1.0 → v1.2.0-alpha<br>Downloading...'; },800);
-  setTimeout(()=>{ bar.style.width='100%'; log.innerHTML='[UPDATE] ✓ v1.1.0 latest stable<br>[UPDATE] v1.2.0-alpha ready<br>Auto-update ON'; },1800);
+Response: 200 OK
+{
+  "status": "PROCESSED",
+  "event_horizon": "STABLE",
+  "quantum_desync_pct": 0.0,
+  "allocated_engine": "Gemini 3.1 Pro Pipeline"
 }
-const canvas=document.getElementById('singularity-canvas'); const ctx=canvas.getContext('2d'); let particles=[],gX,gY,isDrag=false;
-function resize(){ const r=canvas.getBoundingClientRect(); canvas.width=r.width*devicePixelRatio; canvas.height=r.height*devicePixelRatio; ctx.scale(devicePixelRatio,devicePixelRatio); gX=r.width/2; gY=r.height/2; } resize(); window.addEventListener('resize',resize);
-for(let i=0;i<70;i++)particles.push({x:Math.random()*500,y:Math.random()*300,r:Math.random()*2+0.6,s:Math.random()*0.8+0.2,c:Math.random()>0.5?'#eab308':'#06b6d4'});
-canvas.addEventListener('mousedown',e=>{ isDrag=true; const r=canvas.getBoundingClientRect(); gX=e.clientX-r.left; gY=e.clientY-r.top; });
-canvas.addEventListener('mousemove',e=>{ if(!isDrag) return; const r=canvas.getBoundingClientRect(); gX=e.clientX-r.left; gY=e.clientY-r.top; document.getElementById('gravity-val').innerText='GRAVITY: '+(5.4+Math.random()*3).toFixed(1)+'G'; });
-window.addEventListener('mouseup',()=>{ isDrag=false; document.getElementById('gravity-val').innerText='GRAVITY: 5.4G'; });
-function runCmd(cmd){ const log=document.getElementById('cli-log'); const row=document.createElement('div'); row.innerHTML='maew@sanatana:~$ <span style="color:#22d3ee">'+cmd+'</span>'; log.appendChild(row); let res=''; if(cmd==='maew ai connect') res='> ใส่ API Key → Connect → ONLINE'; else if(cmd==='maew update check'){ checkUpdate(); res='Checking updates...'; } else res='Commands: ai connect, update check, singularity trigger'; const r=document.createElement('div'); r.innerText=res; log.appendChild(r); log.scrollTop=log.scrollHeight; }
-function loop(){ const w=canvas.offsetWidth,h=canvas.offsetHeight; ctx.clearRect(0,0,w,h); ctx.strokeStyle='rgba(234,179,8,0.25)'; ctx.beginPath(); ctx.ellipse(gX,gY,90,45,0.2,0,6.28); ctx.stroke(); particles.forEach(p=>{ const dx=gX-p.x,dy=gY-p.y,d=Math.hypot(dx,dy); if(d>16){ p.x+=dx/d*0.9*p.s; p.y+=dy/d*0.9*p.s; } else { p.x=Math.random()*w; p.y=Math.random()*h; } ctx.fillStyle=p.c; ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,6.28); ctx.fill(); }); ctx.fillStyle='#000'; ctx.beginPath(); ctx.arc(gX,gY,14,0,6.28); ctx.fill(); ctx.strokeStyle='rgba(234,179,8,0.9)'; ctx.lineWidth=2; ctx.beginPath(); ctx.arc(gX,gY,15,0,6.28); ctx.stroke(); requestAnimationFrame(loop); } loop();
+
+■ SDK SPECIFICATION
+รองรับความสามารถการผูกสัญญาณอินเทอร์เฟซเพื่อป้องกันความล้มเหลวแบบต่อเนื่อง (Cascade Failures)`
+    },
+    4: {
+      title: "VOLUME IV — OPERATIONS",
+      state: "Reference Architecture (ARL-2)",
+      text: `■ OBSERVABILITY & SRE WITH GEMINI 3.1
+ระบบวิเคราะห์ความเสถียรทราฟฟิก และตรวจสอบข้อผิดพลาดด้านเหตุผลของตัวประมวลผล Gemini 3.1 เกรดองค์กร
+
+■ INCIDENT RESPONSE & DISASTER RECOVERY (DR)
+- แผนจำลองเหตุฉุกเฉินเมื่อกระแสสนามควอนตัมขัดข้องเกินขอบเขตพิกัด
+- การจำลองเบี่ยงเบนข้อมูลทราฟฟิกลงสู่สถานีสำรองข้อมูลอัตโนมัติภายในช่วงเวลาระดับมิลลิวินาที
+- สถิติตรวจเช็ก ROI ประสิทธิภาพการใช้พลังงานระบบคอมพิวต์เพื่อสิ่งแวดล้อม (GreenOps)`
+    },
+    5: {
+      title: "VOLUME V — GOVERNANCE & LIFECYCLE",
+      state: "Implementation Architecture (ARL-3)",
+      text: `■ ARCHITECTURE DECISION RECORDS (ADR)
+รหัสและบันทึกประวัติข้อตกลงในการออกแบบสถาปัตยกรรม (Architecture Decision Records) เพื่อรองรับโมเดลตระกูล 3.1
+
+■ NON-FUNCTIONAL REQUIREMENTS (NFR)
+- รองรับ Concurrency ระดับองค์กรขนาดใหญ่ > 1,000,000 EPS
+- เวลาประมวลผลเฉลี่ย (Response Latency) ระดับสากล < 8ms
+- ความสม่ำเสมอของสัญญาณระบบเชื่อมคลาวด์อัจฉริยะ 99.9999%
+
+■ VERSION & COMPLIANCE POLICY
+- สถาปัตยกรรมแช่แข็งเสถียร (Architecture Freeze v1.1.0 LTS)
+- ขอบข่ายการทำงานปรับตัวได้ระยะยาว 5 ปีเต็ม (LTS 2025-2030)`
+    }
+  };
+
+  // ดึงคีย์ลิขสิทธิ์ความปลอดภัยสูงสุดมาทำงาน
+  function getActiveApiKey() {
+    const customKey = document.getElementById('ai-key').value.trim();
+    if (customKey) return customKey;
+    return apiKey; 
+  }
+
+  // ระบบแสดงการแจ้งเตือนพรีเมียม (Toast Alert Notification)
+  function showToast(message, type = 'success') {
+    const container = document.getElementById('toast-container');
+    const toast = document.createElement('div');
+    toast.className = `p-3 rounded-lg text-xs font-tech flex items-center gap-2 pointer-events-auto shadow-lg transition-all transform translate-y-2 opacity-0 duration-300 ${
+      type === 'success' ? 'bg-yellow-500 text-black border border-yellow-600' :
+      type === 'info' ? 'bg-slate-900 text-slate-200 border border-slate-700' :
+      'bg-red-950/90 text-red-300 border border-red-500/50'
+    }`;
+    toast.innerHTML = `<i class="fa-solid ${type === 'success' ? 'fa-circle-check' : type === 'info' ? 'fa-circle-info' : 'fa-triangle-exclamation'}"></i> <span>${message}</span>`;
+    container.appendChild(toast);
+    
+    setTimeout(() => {
+      toast.classList.remove('translate-y-2', 'opacity-0');
+    }, 10);
+
+    setTimeout(() => {
+      toast.classList.add('opacity-0', 'translate-y-[-10px]');
+      setTimeout(() => {
+        toast.remove();
+      }, 300);
+    }, 4000);
+  }
+
+  // จัดตั้งรหัสตัวอย่างเพื่อปิดดีลปิดการขาย
+  function fillTestKey() {
+    document.getElementById('license-key-input').value = 'MAEW-ENTERPRISE-LTS';
+    showToast('เตรียมรหัสพรีเมียมตัวอย่างไว้แล้ว คลิกที่ยืนยันสิทธิ์เพื่ออัปเกรด!', 'info');
+  }
+
+  // ระบบยืนยันรหัสลิขสิทธิ์เปิดใช้ระบบพรีเมียม (License Activation)
+  function activateLicenseKey() {
+    const key = document.getElementById('license-key-input').value.trim();
+    const log = document.getElementById('license-log');
+    
+    if (key === 'MAEW-ENTERPRISE-LTS') {
+      document.getElementById('license-badge').innerText = 'ENTERPRISE GOLD';
+      document.getElementById('license-badge').className = 'text-[8px] bg-yellow-500 text-black px-1.5 py-0.5 rounded font-extrabold uppercase animate-pulse';
+      
+      document.getElementById('header-container').className = 'glass premium-gold-glow rounded-xl p-4 relative transition-all duration-500';
+      document.getElementById('central-playground-card').className = 'glass premium-gold-glow p-4 rounded-xl relative flex flex-col min-h-[480px] transition-all duration-500';
+      
+      document.getElementById('ai-status').innerHTML = '<i class="fa-solid fa-crown text-yellow-400"></i> ULTRA ENTERPRISE NODE: ACTIVE';
+      document.getElementById('ai-status').className = 'text-[9px] px-2.5 py-1 bg-yellow-950/80 border border-yellow-400/80 text-yellow-300 rounded font-tech font-bold animate-pulse';
+      
+      document.getElementById('grid-tier-name').innerText = 'GEMINI 3.1 ACTIVE';
+      document.getElementById('grid-tier-name').className = 'text-yellow-400 font-extrabold animate-pulse';
+      document.getElementById('ai-sync-badge').innerText = 'SYSTEM: GEMINI 3.1 ACTIVE';
+      document.getElementById('ai-sync-badge').className = 'absolute top-3 right-3 bg-black/80 px-2 py-1 rounded border border-yellow-500/50 text-[9px] font-tech text-yellow-400 animate-pulse';
+      
+      log.innerHTML = '[LICENSE] ✓ ตรวจสอบสิทธิ์ผ่านสมุดบัญชีบล็อกเชนสำเร็จ!<br>[LICENSE] ยินดีต้อนรับสู่โหนดประมวลผล Gemini 3.1 Enterprise ความหน่วงต่ำสูงสุด';
+      appendCli('[LICENSE] Activated Enterprise Elite node successfully via digital signature.', 'warn');
+      showToast('ปลดล็อคโมดูลพรีเมียมอัจฉริยะ Gemini 3.1 แบบ Enterprise เรียบร้อย!', 'success');
+      
+      document.getElementById('mrr-val').innerText = '$389,900';
+      document.getElementById('mrr-val').className = 'text-yellow-400 font-bold';
+      
+      triggerCorePulse('yellow');
+    } else if (key) {
+      log.innerHTML = '[LICENSE] <span class="text-red-400">[FAIL] ไม่พบคีย์ข้อมูลลิขสิทธิ์นี้ในคลังข้อมูลที่ได้รับใบอนุมัติ</span>';
+      showToast('ยืนยันรหัสล้มเหลว: รหัสลิขสิทธิ์ไม่ผ่านความปลอดภัย', 'error');
+    } else {
+      showToast('กรุณากรอกรหัสลิขสิทธิ์ก่อนยืนยันสิทธิ์', 'warn');
+    }
+  }
+
+  // คำนวณราคาตามขนาดจำนวนผู้ใช้ (SaaS Slider Calculator)
+  function calculatePrice() {
+    const agents = parseInt(document.getElementById('agent-slider').value);
+    document.getElementById('slider-agents-val').innerText = agents.toLocaleString() + ' Agents';
+    const computeCost = Math.round((agents / 1000) * 8);
+    const totalCost = 1500 + computeCost;
+    document.getElementById('compute-cost-val').innerText = `$${computeCost.toLocaleString()}/เดือน`;
+    document.getElementById('total-cost-val').innerText = `$${totalCost.toLocaleString()}/mo`;
+  }
+
+  // เปิดแผงหน้าต่างการชำระเงินสรุปราคาจำลอง
+  function openPaymentModal() {
+    document.getElementById('pay-service').value = "Sovereign Enterprise Tier (Gemini 3.1)";
+    document.getElementById('modal-invoice-price').innerText = "$7,500/mo";
+    document.getElementById('payment-modal').classList.remove('hidden');
+  }
+
+  function openPaymentModalWithCustom() {
+    const totalCost = document.getElementById('total-cost-val').innerText;
+    const agents = document.getElementById('slider-agents-val').innerText;
+    document.getElementById('pay-service').value = `Gemini 3.1 Node: ${agents}`;
+    document.getElementById('modal-invoice-price').innerText = `${totalCost}`;
+    document.getElementById('payment-modal').classList.remove('hidden');
+  }
+
+  function closePaymentModal() {
+    document.getElementById('payment-modal').classList.add('hidden');
+  }
+
+  // สร้างไฟล์สรุปการสั่งจ่ายเงินจำลองแบบทางการใน Workspace ขวา
+  function processCommercialOrder() {
+    const clientName = document.getElementById('pay-name').value.trim() || 'MAEW GLOBAL CORP';
+    const chosenService = document.getElementById('pay-service').value;
+    const totalCost = document.getElementById('modal-invoice-price').innerText;
+    
+    closePaymentModal();
+    showWorkspace('INVOICE / RECEIPT');
+    document.getElementById('output-text-area').classList.remove('hidden');
+    
+    const invoiceNumber = "INV-" + Math.floor(100000 + Math.random() * 900000);
+    const mockLicenseKey = "MAEW-LTS-" + Math.random().toString(36).substr(2, 9).toUpperCase();
+    
+    const invoiceHtml = `<div class="p-4 bg-slate-950 border border-yellow-500/40 rounded-lg text-slate-200 font-tech">
+      <div class="flex justify-between items-center border-b border-slate-800 pb-2 mb-3">
+        <span class="text-[10px] text-yellow-400 font-bold"><i class="fa-solid fa-file-invoice-dollar"></i> ใบเสร็จรับเงินอย่างเป็นทางการ</span>
+        <span class="text-[9px] text-slate-400">${invoiceNumber}</span>
+      </div>
+      <h4 class="font-bold text-yellow-400 text-xs mb-2">MAEW COGNITIVE SOVEREIGNTY LTD</h4>
+      <p class="text-[10px] text-slate-300"><b>ผู้สั่งซื้อ:</b> ${clientName}</p>
+      <p class="text-[10px] text-slate-300"><b>บริการประมวลผล:</b> ${chosenService}</p>
+      <p class="text-[10px] text-slate-300"><b>ยอดรวมชำระจริง:</b> <span class="text-emerald-400 font-bold">${totalCost}</span></p>
+      <p class="text-[10px] text-slate-300"><b>สถานะทำรายการ:</b> <span class="text-emerald-400 font-bold">✓ ชำระแล้วสำเร็จ (Sandbox)</span></p>
+      
+      <div class="mt-4 p-2 bg-yellow-500/10 border border-yellow-500/30 rounded text-center">
+        <span class="block text-[8px] text-yellow-300 uppercase font-futuristic">นี่คือรหัสลิขสิทธิ์เปิดใช้งานของคุณ (License Key)</span>
+        <code class="block text-xs font-mono font-bold text-yellow-400 select-all my-1">${mockLicenseKey}</code>
+        <span class="block text-[8px] text-slate-400">คัดลอกรหัสข้อมูลตัวนี้แล้วนำไปใส่ลงในช่องรหัสทางขวานั้นเพื่อเชื่อมเข้าหาโหนดประมวลผล</span>
+      </div>
+    </div>`;
+    
+    document.getElementById('text-response-content').innerHTML = invoiceHtml;
+    document.getElementById('grounding-area').classList.add('hidden');
+    
+    appendCli(`[BILLING] Checkout processed successfully for invoice ${invoiceNumber}`, 'warn');
+    showToast('ชำระจำลองสมบูรณ์แบบเรียบร้อย! คัดลอกรหัสที่ปรากฏบน Workspace เพื่อทดลองยืนยันสิทธิ์ได้เลย', 'success');
+    
+    document.getElementById('license-key-input').value = 'MAEW-ENTERPRISE-LTS'; 
+  }
+
+  // ระบบปรับเปลี่ยนแท็บข้อมูลอัจฉริยะ
+  function switchTab(tabId) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+    document.getElementById(tabId).classList.remove('hidden');
+
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    if (tabId === 'tab-chat') document.getElementById('btn-tab-chat').classList.add('active');
+    if (tabId === 'tab-imagen') document.getElementById('btn-tab-imagen').classList.add('active');
+    if (tabId === 'tab-tts') document.getElementById('btn-tab-tts').classList.add('active');
+    if (tabId === 'tab-vision') document.getElementById('btn-tab-vision').classList.add('active');
+    if (tabId === 'tab-blueprints') {
+      document.getElementById('btn-tab-blueprints').classList.add('active');
+      selectVolume(1);
+    }
+
+    appendCli(`[TAB] Switched workspace tab to: ${tabId.replace('tab-', '').toUpperCase()}`);
+    updateSingularityTheme(tabId);
+  }
+
+  // เรียกข้อมูลเล่มสารบัญแม่บท
+  function selectVolume(volId) {
+    document.querySelectorAll('.vol-btn').forEach(btn => btn.classList.remove('border-yellow-500', 'bg-yellow-950/20'));
+    document.getElementById(`vol-btn-${volId}`).classList.add('border-yellow-500', 'bg-yellow-950/20');
+    
+    const volData = volumesDatabase[volId];
+    if (volData) {
+      document.getElementById('registry-title').innerText = volData.title;
+      document.getElementById('registry-state').innerText = volData.state;
+      document.getElementById('registry-body').innerText = volData.text;
+      appendCli(`[REGISTRY] Loaded Specification metadata for: ${volData.title}`);
+    }
+  }
+
+  // ตัวกรองแผนภาพเปรียบเทียบระดับความพร้อม
+  function filterArl(level) {
+    const registryTitle = document.getElementById('registry-title');
+    const registryState = document.getElementById('registry-state');
+    const registryBody = document.getElementById('registry-body');
+
+    if (level === 1) {
+      registryTitle.innerText = "CANONICAL REFERENCE FRAMEWORK (ARL 1-3)";
+      registryState.innerText = "Reference Architecture";
+      registryState.className = "text-[9px] px-2 py-0.5 bg-yellow-950/40 text-yellow-300 border border-yellow-500/30 rounded uppercase font-tech";
+      registryBody.innerText = `● เกณฑ์ระดับความพร้อมของพิมพ์เขียว (ARL-1 ถึง ARL-3)
+สถานะปัจจุบัน: ล่วงล้ำกระบวนการออกแบบ (ARL-2) และกำลังเริ่มจัดทำสัญญา API ขั้วประมวลผล (ARL-3)
+
+- เอกสารข้อเสนอวิสัยทัศน์ที่ได้รับการอนุมัติอย่างเป็นทางการโดยสภาผู้บริหารระดับสูง
+- การสร้างเกณฑ์ Immutable Constitutional Principles เรียบร้อยแล้ว
+- อยู่ระหว่างการถอดสัญญารูปแบบข้อมูลสำหรับโครงข่ายเพื่อแปลงเข้าสู่ระบบจริง`;
+      appendCli('[REGISTRY] Filtered view: Reference Architecture (ARL 1-3)');
+    } else if (level === 4) {
+      registryTitle.innerText = "CIVILIZATION IMPLEMENTATION BLUEPRINT (ARL 4-6)";
+      registryState.innerText = "Implementation Architecture";
+      registryState.className = "text-[9px] px-2 py-0.5 bg-cyan-950/40 text-cyan-300 border border-cyan-500/30 rounded uppercase font-tech";
+      registryBody.innerText = `● เกณฑ์ระดับความพร้อมของการสร้างต้นแบบ (ARL-4 ถึง ARL-6)
+สถานะปัจจุบัน: ออกแบบเพื่อใช้ประเมินเชื่อมโยงกับการตั้งสถานีรันไทม์จำลอง
+
+- จำลองและประสานกำลังเชื่อมข้อมูลเครือข่าย AI Swarm Sandbox จำนวน 75,000 เอเจนต์
+- ทดสอบการดัดเบนพิกัดแรงดันสนามโน้มถ่วงใน Simulator แล้วสำเร็จ
+- อยู่ระหว่างการร่างข้อกำหนดการพัฒนาปลั๊กอินควบคุมเชื่อมต่อไปยัง Robot/IoT Hardware`;
+      appendCli('[REGISTRY] Filtered view: Implementation Architecture (ARL 4-6)');
+    } else {
+      registryTitle.innerText = "PRODUCTION CIVILIZATION OS SPEC (ARL 7-9)";
+      registryState.innerText = "Production Architecture";
+      registryState.className = "text-[9px] px-2 py-0.5 bg-emerald-950/40 text-emerald-300 border border-emerald-500/30 rounded uppercase font-tech";
+      registryBody.innerText = `● เกณฑ์ระดับความพร้อมระดับประเมินรับและใช้งานจริง (ARL-7 ถึง ARL-9)
+สถานะปัจจุบัน: จัดทำแผนผังความเสถียรและความพร้อมในการประมวลผลต่อเนื่อง (LTS 2025-2030)
+
+- พิมพ์เขียวกรอบตรวจสอบความบริสุทธิ์เพื่อรองรับมาตรฐานองค์กร
+- แผนการทำ Disaster Recovery Runbook และเฝ้าระวังอัตราเสื่อมสภาพเพื่อความมั่นคงระดับสูง
+- แขนงการทำงาน Auto-Healing ที่รันด้วยเครือข่าย Sandbox และจะได้รับการติดตั้งเป็นระดับ Production`;
+      appendCli('[REGISTRY] Filtered view: Production Architecture (ARL 7-9)');
+    }
+  }
+
+  // ระบบเชื่อมต่อแกนความลึก
+  function connectAI() {
+    const key = getActiveApiKey();
+    if (!key && !apiKey) {
+      showToast('กรุณากรอก API Key สำหรับวิเคราะห์เชื่อมความปลอดภัย', 'error');
+      return;
+    }
+    const chosenModel = document.getElementById('ai-model').value;
+    showToast(`✓ ประสานความสามารถกับโมเดล ${chosenModel} สำเร็จแล้ว!`, 'success');
+    appendCli(`[AI STUDIO] Connected core nodes directly to ${chosenModel}. Ready for action.`, 'info');
+  }
+
+  // ยืนยันเวอร์ชันอัพเกรดบนระบบคลาวด์
+  function checkUpdate() {
+    const bar = document.getElementById('update-bar');
+    const log = document.getElementById('update-log');
+    log.innerHTML = '[UPDATE] กำลังตรวจสอบเวอร์ชัน...';
+    bar.style.width = '30%';
+    setTimeout(() => {
+      bar.style.width = '100%';
+      log.innerHTML = '[UPDATE] ✓ ปลดล็อคเวอร์ชัน LTS เสถียรล่าสุดเรียบร้อยแล้ว<br>[UPDATE] สภาพแวดล้อมสถาปัตยกรรมทำงานปกติในสถานภาพที่สมบูรณ์';
+      showToast('ตรวจสอบเวอร์ชันความเสถียร LTS สิ้นสุดเรียบร้อย', 'info');
+    }, 1500);
+  }
+
+  // พิมพ์ข้อความแสดงความสามารถบนคอนโซล CLI
+  function appendCli(text, type = 'info') {
+    const log = document.getElementById('cli-log');
+    const row = document.createElement('div');
+    let color = 'text-emerald-400';
+    if (type === 'error') color = 'text-red-400';
+    if (type === 'warn') color = 'text-yellow-400';
+    if (type === 'output') color = 'text-cyan-300';
+    row.innerHTML = `<span class="text-slate-600">[${new Date().toLocaleTimeString()}]</span> <span class="${color}">${text}</span>`;
+    log.appendChild(row);
+    log.scrollTop = log.scrollHeight;
+  }
+
+  function clearCli() {
+    document.getElementById('cli-log').innerHTML = '<div>[CONSOLE] ล้างประวัติข้อมูลเสร็จสิ้น...</div>';
+  }
+
+  function runCmd(cmd) {
+    appendCli(`maew@sanatana:~$ ${cmd}`, 'output');
+    if (cmd === 'maew ai connect') {
+      connectAI();
+    } else if (cmd === 'maew update check') {
+      checkUpdate();
+    } else if (cmd === 'maew singularity trigger') {
+      triggerPurgeEffect();
+      appendCli('> บิดทอสนามแม่เหล็กด้วยแรงสั่นสะเทือนระดับวิกฤต!', 'warn');
+    } else if (cmd === 'help') {
+      appendCli('รหัสระบบ: maew ai connect, maew update check, maew singularity trigger', 'info');
+    } else {
+      appendCli(`ไม่เข้าใจรหัสคำสั่งระบบปฏิบัติการ "${cmd}"`, 'error');
+    }
+  }
+
+  // ประมวลผลถอดความข้อความอัจฉริยะ (ด้วยการจัดเก็บ routing หากเลือกรุ่น 3.1)
+  async function triggerTextGeneration() {
+    const prompt = document.getElementById('chat-prompt').value.trim();
+    if (!prompt) {
+      showToast('โปรดกรอกรายละเอียดคำถามก่อนกดตกลง', 'warn');
+      return;
+    }
+
+    const key = getActiveApiKey();
+    if (!key && !apiKey) {
+      showToast('ไม่พบคีย์สำหรับวิเคราะห์ขั้วความปลอดภัย', 'error');
+      return;
+    }
+
+    const chosenModel = document.getElementById('ai-model').value;
+    showWorkspace('LOADING', `โมดูล ${chosenModel} กำลังคำนวณและประมวลผลทราฟฟิกรองรับอย่างหนาแน่น...`);
+    triggerCorePulse('cyan');
+
+    const useSearch = document.getElementById('chat-search').checked;
+    
+    // ตั้งค่า payload ไปหาโมดูลเสถียรดั้งเดิมของ API
+    const payload = {
+      contents: [{ parts: [{ text: prompt }] }],
+      systemInstruction: {
+        parts: [{ text: `คุณคือ MAEW OS Assistant ขุมพลังการจำลองประมวลผลเครือข่ายโมเดลอัจฉริยะ ${chosenModel} - สถาปัตยกรรมทางปัญญาขั้นสุดยอดแห่งทศวรรษใหม่ จงให้ข้อมูลอย่างเป็นมืออาชีพ มีความชัดเจน แม่นยำ และเฉียบแหลม` }]
+      }
+    };
+
+    if (useSearch) {
+      payload.tools = [{ "google_search": {} }];
+    }
+
+    // กำหนด API Endpoint เข้าหาเอนจินจำลองที่ได้รับใบอนุมัติการตรวจสอบ
+    const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent`;
+
+    try {
+      appendCli(`[AI STUDIO] Dispatching request with high-concurrency model routing to ${chosenModel}...`, 'info');
+      const data = await callGeminiAPI(endpoint, payload);
+      const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+      
+      if (!text) throw new Error('ไม่ได้รับการตอบรับรูปแบบข้อความกลับมาจากเครือข่ายผู้บรรยายหลัก');
+
+      showWorkspace('TEXT RESPONSE');
+      document.getElementById('output-text-area').classList.remove('hidden');
+      document.getElementById('text-response-content').innerText = text;
+
+      const citations = data.candidates?.[0]?.groundingMetadata?.groundingAttributions;
+      const groundingArea = document.getElementById('grounding-area');
+      const groundingList = document.getElementById('grounding-list');
+      
+      if (useSearch && citations && citations.length > 0) {
+        groundingArea.classList.remove('hidden');
+        groundingList.innerHTML = '';
+        citations.forEach(a => {
+          const li = document.createElement('li');
+          li.innerHTML = `<a href="${a.web?.uri}" target="_blank" class="text-yellow-400 hover:underline font-bold">${a.web?.title || 'แหล่งอ้างอิง'}</a>`;
+          groundingList.appendChild(li);
+        });
+      } else {
+        groundingArea.classList.add('hidden');
+      }
+
+      appendCli(`[CHAT] Gemini 3.1 Pipeline: Response rendered for query.`, 'warn');
+    } catch (err) {
+      handleExecutionError(err, 'CHAT');
+    }
+  }
+
+  // สังเคราะห์ภาพผ่านโมเดลสร้างสรรค์ภาพพิกเซล
+  async function triggerImageGeneration() {
+    const prompt = document.getElementById('image-prompt').value.trim();
+    if (!prompt) {
+      showToast('โปรดกรอกรายละเอียดภาพมโนคติวิสัยทัศน์องค์กร', 'warn');
+      return;
+    }
+
+    const key = getActiveApiKey();
+    if (!key && !apiKey) {
+      showToast('ไม่พบคีย์สำหรับประมวลผลบนคลาวด์', 'error');
+      return;
+    }
+
+    showWorkspace('LOADING', 'โมดูล Imagen-4 กำลังประกอบพิกเซลความละเอียดสูงสเปกตรัมทอง...');
+    triggerCorePulse('yellow');
+
+    const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict`;
+    const payload = {
+      instances: { prompt: prompt },
+      parameters: { sampleCount: 1 }
+    };
+
+    try {
+      const response = await fetch(`${endpoint}?key=${key}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      if (!response.ok) {
+        const errJson = await response.json();
+        throw new Error(errJson.error?.message || `HTTP Error ${response.status}`);
+      }
+
+      const data = await response.json();
+      const base64Bytes = data.predictions?.[0]?.bytesBase64Encoded;
+
+      if (!base64Bytes) throw new Error('ไม่พบข้อมูลระนาบภาพที่สร้างสรรค์เสร็จสิ้น');
+
+      const imageUrl = `data:image/png;base64,${base64Bytes}`;
+      
+      showWorkspace('IMAGE CREATIVE');
+      document.getElementById('output-image-area').classList.remove('hidden');
+      document.getElementById('image-response-element').src = imageUrl;
+      document.getElementById('image-download-btn').href = imageUrl;
+
+      appendCli('[IMAGEN] สังเคราะห์ภาพดิจิทัลเสร็จสมบูรณ์');
+    } catch (err) {
+      handleExecutionError(err, 'IMAGEN');
+    }
+  }
+
+  // แปลงอักขระเป็นเสียงบรรยายเชิงพรีเมียม
+  async function triggerTTS() {
+    const text = document.getElementById('tts-prompt').value.trim();
+    const voice = document.getElementById('tts-voice').value;
+
+    if (!text) {
+      showToast('กรุณาระบุรายละเอียดประโยคคำพูดสำหรับออกเสียง', 'warn');
+      return;
+    }
+
+    const key = getActiveApiKey();
+    if (!key && !apiKey) {
+      showToast('ไม่พบคีย์สำหรับประมวลสัญญาณเสียงสังเคราะห์', 'error');
+      return;
+    }
+
+    showWorkspace('LOADING', 'เชื่อมกำลังสตรีมมิ่งเพื่อวิเคราะห์แกนเสียง...');
+    triggerCorePulse('yellow');
+
+    const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent`;
+    const payload = {
+      contents: [{ parts: [{ text: text }] }],
+      generationConfig: {
+        responseModalities: ["AUDIO"],
+        speechConfig: {
+          voiceConfig: {
+            prebuiltVoiceConfig: { voiceName: voice }
+          }
+        }
+      },
+      model: "gemini-2.5-flash-preview-tts"
+    };
+
+    try {
+      const response = await fetch(`${endpoint}?key=${key}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      if (!response.ok) {
+        const errJson = await response.json();
+        throw new Error(errJson.error?.message || `HTTP Error ${response.status}`);
+      }
+
+      const data = await response.json();
+      const base64Audio = data.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
+
+      if (!base64Audio) throw new Error('ไม่พบข้อมูลเสียงสุนทรพจน์ส่งกลับมาจากผู้บรรยายคลาวด์');
+
+      const wavUrl = pcmToWav(base64Audio, 24000);
+
+      showWorkspace('AUDIO SYNTH');
+      document.getElementById('output-audio-area').classList.remove('hidden');
+      document.getElementById('audio-voice-name').innerText = `Corporate Voice: ${voice}`;
+      
+      const audioPlayer = document.getElementById('audio-player');
+      audioPlayer.src = wavUrl;
+      audioPlayer.play();
+
+      appendCli('[TTS] จัดเก็บสัญญาณเสียงเสร็จสิ้นเรียบร้อย');
+    } catch (err) {
+      handleExecutionError(err, 'TTS');
+    }
+  }
+
+  // ส่งรูปภาพเข้าวิเคราะห์จักขุภาพ
+  async function triggerVision() {
+    const imageUrl = document.getElementById('vision-url').value.trim();
+    const prompt = document.getElementById('vision-prompt').value.trim();
+
+    if (!imageUrl) {
+      showToast('โปรดป้อนลิงก์ URL รูปภาพที่ใช้ตรวจสอบก่อน', 'warn');
+      return;
+    }
+
+    const key = getActiveApiKey();
+    if (!key && !apiKey) {
+      showToast('ไม่พบคีย์ในการถอดแบบจักขุวิสัยภายนอก', 'error');
+      return;
+    }
+
+    showWorkspace('LOADING', 'ถอดแบบและส่งภาพวิเคราะห์เข้าศูนย์สถาปัตยกรรมข้อมูลลึก...');
+    triggerCorePulse('cyan');
+
+    try {
+      const imgFetchResponse = await fetch(imageUrl);
+      if (!imgFetchResponse.ok) throw new Error('ไม่สามารถตรวจสอบหรือดึงพิกเซลจากลิงก์ภาพต้นทางได้');
+      const blob = await imgFetchResponse.blob();
+      
+      const reader = new FileReader();
+      reader.readAsDataURL(blob);
+      reader.onloadend = async () => {
+        const base64Data = reader.result.split(',')[1];
+        const mimeType = blob.type || "image/png";
+
+        const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent`;
+        const payload = {
+          contents: [{
+            role: "user",
+            parts: [
+              { text: prompt },
+              { inlineData: { mimeType: mimeType, data: base64Data } }
+            ]
+          }]
+        };
+
+        try {
+          const data = await callGeminiAPI(endpoint, payload);
+          const responseText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+
+          if (!responseText) throw new Error('ไม่ได้รับการตรวจสอบวิพากษ์รูปภาพสถาปัตยกรรมชิ้นนี้');
+
+          showWorkspace('MULTIMODAL SENSE');
+          document.getElementById('output-text-area').classList.remove('hidden');
+          document.getElementById('text-response-content').innerText = responseText;
+          document.getElementById('grounding-area').classList.add('hidden');
+
+          appendCli('[VISION] ตรวจสอบและรายงานจักขุวิสัยภาพความมั่นคงสำเร็จเสร็จสิ้น');
+        } catch (visionErr) {
+          handleExecutionError(visionErr, 'VISION ENGINE');
+        }
+      };
+    } catch (err) {
+      handleExecutionError(err, 'VISION STACK');
+    }
+  }
+
+  function setSampleVision(theme) {
+    const urlInput = document.getElementById('vision-url');
+    if (theme === 'space') {
+      urlInput.value = 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80';
+    } else {
+      urlInput.value = 'https://images.unsplash.com/photo-1515263487990-61b07816b324?auto=format&fit=crop&w=600&q=80';
+    }
+    appendCli(`[VISION] ตัวอย่างสำหรับแนว "${theme}" ได้รับการดาวน์โหลดใส่ช่องแล้ว`);
+  }
+
+  // --- ทั่วไปเพื่อประคองความปลอดภัยและความหน่วงต่ำ ---
+  async function callGeminiAPI(url, payload) {
+    const key = getActiveApiKey();
+    const finalUrl = `${url}?key=${key}`;
+    let retries = 5;
+    let delay = 1000;
+
+    for (let i = 0; i < retries; i++) {
+      try {
+        const response = await fetch(finalUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        if (response.ok) return await response.json();
+        const errorData = await response.json();
+        throw new Error(errorData.error?.message || `HTTP error ${response.status}`);
+      } catch (err) {
+        if (i === retries - 1) throw err;
+        await new Promise(res => setTimeout(res, delay));
+        delay *= 2;
+      }
+    }
+  }
+
+  function showWorkspace(type, loaderText = '') {
+    document.getElementById('output-default').classList.add('hidden');
+    document.getElementById('output-loader').classList.add('hidden');
+    document.getElementById('output-text-area').classList.add('hidden');
+    document.getElementById('output-image-area').classList.add('hidden');
+    document.getElementById('output-audio-area').classList.add('hidden');
+    
+    document.getElementById('output-type').innerText = type;
+
+    if (type === 'LOADING') {
+      document.getElementById('output-loader').classList.remove('hidden');
+      document.getElementById('loader-text').innerText = loaderText;
+    }
+  }
+
+  function handleExecutionError(err, source) {
+    showWorkspace('ERROR');
+    appendCli(`[${source} ERROR] ${err.message}`, 'error');
+    document.getElementById('output-text-area').classList.remove('hidden');
+    
+    const errorHtml = `<div class="p-3 bg-red-950/40 border border-red-500/30 text-red-300 rounded rounded-lg font-tech">
+      <h4 class="font-bold mb-1"><i class="fa-solid fa-triangle-exclamation"></i> การประมวลผลติดขัด</h4>
+      <p class="text-[11px] mb-2">${err.message}</p>
+      <div class="text-[9px] text-slate-400">
+        • ตรวจสอบให้มั่นใจว่า API Key ถูกต้อง และหากทดสอบใช้งานคลาวด์ แนะนำใช้คีย์ส่วนตัวจาก Google AI Studio<br>
+        • ฟีเจอร์สร้างรูปภาพความละเอียดพรีเมียมจาก Imagen 4 อาจมีการควบคุมการเข้าใช้พื้นที่ตามความปลอดภัยของสิทธิ์
+      </div>
+    </div>`;
+    document.getElementById('text-response-content').innerHTML = errorHtml;
+    document.getElementById('grounding-area').classList.add('hidden');
+  }
+
+  function copyOutputText() {
+    const content = document.getElementById('text-response-content').innerText;
+    if (!content) return;
+    const el = document.createElement('textarea');
+    el.value = content;
+    document.body.appendChild(el);
+    el.select();
+    try {
+      document.execCommand('copy');
+      showToast('คัดลอกรายละเอียดข้อมูลสู่กระดานคัดลอกเสร็จแล้ว', 'info');
+    } catch (e) {
+      appendCli('[SYSTEM] เกิดข้อผิดพลาดในการคัดลอกไฟล์', 'error');
+    }
+    document.body.removeChild(el);
+  }
+
+  function pcmToWav(pcmBase64, sampleRate = 24000) {
+    const binaryString = atob(pcmBase64);
+    const len = binaryString.length;
+    const bytes = new Uint8Array(len);
+    for (let i = 0; i < len; i++) {
+      bytes[i] = binaryString.charCodeAt(i);
+    }
+    const buffer = new ArrayBuffer(44 + len);
+    const view = new DataView(buffer);
+    writeString(view, 0, 'RIFF');
+    view.setUint32(4, 36 + len, true);
+    writeString(view, 8, 'WAVE');
+    writeString(view, 12, 'fmt ');
+    view.setUint32(16, 16, true);
+    view.setUint16(20, 1, true);
+    view.setUint16(22, 1, true);
+    view.setUint32(24, sampleRate, true);
+    view.setUint32(28, sampleRate * 2, true);
+    view.setUint16(32, 2, true);
+    view.setUint16(34, 16, true);
+    writeString(view, 36, 'data');
+    view.setUint32(40, len, true);
+    for (let i = 0; i < len; i++) {
+      view.setUint8(44 + i, bytes[i]);
+    }
+    const blob = new Blob([view], { type: 'audio/wav' });
+    return URL.createObjectURL(blob);
+  }
+
+  function writeString(view, offset, string) {
+    for (let i = 0; i < string.length; i++) {
+      view.setUint8(offset + i, string.charCodeAt(i));
+    }
+  }
+
+  // --- ส่วนจัดการรูปภาพ dynamic ซิงกูลาริตีบน Canvas ---
+  const canvas = document.getElementById('singularity-canvas');
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  let gX, gY;
+  let isDrag = false;
+  let activeThemeColor = '#eab308'; 
+
+  function resize() {
+    const r = canvas.getBoundingClientRect();
+    canvas.width = r.width * devicePixelRatio;
+    canvas.height = r.height * devicePixelRatio;
+    ctx.scale(devicePixelRatio, devicePixelRatio);
+    gX = r.width / 2;
+    gY = r.height / 2;
+  }
+  
+  resize();
+  window.addEventListener('resize', resize);
+
+  for (let i = 0; i < 90; i++) {
+    particles.push({
+      x: Math.random() * 500,
+      y: Math.random() * 300,
+      r: Math.random() * 2 + 0.6,
+      s: Math.random() * 0.9 + 0.3,
+      c: Math.random() > 0.5 ? '#eab308' : '#a855f7',
+      angle: Math.random() * Math.PI * 2,
+      dist: Math.random() * 120 + 30
+    });
+  }
+
+  function updatePointer(e) {
+    const r = canvas.getBoundingClientRect();
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    gX = clientX - r.left;
+    gY = clientY - r.top;
+  }
+
+  canvas.addEventListener('mousedown', e => {
+    isDrag = true;
+    updatePointer(e);
+  });
+  canvas.addEventListener('mousemove', e => {
+    if (!isDrag) return;
+    updatePointer(e);
+    document.getElementById('gravity-val').innerText = 'GRAVITY: ' + (5.4 + Math.random() * 4).toFixed(1) + 'G';
+    document.getElementById('q-state').innerText = 'DISTORTED';
+    document.getElementById('q-state').className = 'text-yellow-400 font-bold';
+  });
+  window.addEventListener('mouseup', () => {
+    isDrag = false;
+    document.getElementById('gravity-val').innerText = 'GRAVITY: 5.4G';
+    document.getElementById('q-state').innerText = 'STABLE';
+    document.getElementById('q-state').className = 'text-purple-400 font-bold';
+  });
+
+  canvas.addEventListener('touchstart', e => {
+    isDrag = true;
+    updatePointer(e);
+  }, { passive: true });
+  canvas.addEventListener('touchmove', e => {
+    if (!isDrag) return;
+    updatePointer(e);
+  }, { passive: true });
+  canvas.addEventListener('touchend', () => {
+    isDrag = false;
+  });
+
+  function updateSingularityTheme(tabId) {
+    if (tabId === 'tab-chat') activeThemeColor = '#eab308';
+    if (tabId === 'tab-imagen') activeThemeColor = '#f59e0b';
+    if (tabId === 'tab-tts') activeThemeColor = '#a855f7';
+    if (tabId === 'tab-vision') activeThemeColor = '#10b981';
+    if (tabId === 'tab-blueprints') activeThemeColor = '#eab308';
+    
+    particles.forEach(p => {
+      p.c = Math.random() > 0.4 ? activeThemeColor : '#a855f7';
+    });
+  }
+
+  function triggerCorePulse(theme) {
+    const core = document.getElementById('central-core');
+    const textStatus = document.getElementById('visualizer-status-text');
+    
+    if (theme === 'cyan') {
+      core.className = "w-20 h-20 rounded-full bg-gradient-to-br from-yellow-400 to-amber-600 animate-ping flex items-center justify-center transition-all duration-300";
+      textStatus.innerText = "SOVEREIGN DATA EXECUTING";
+      textStatus.className = "mt-3 text-[10px] font-tech text-yellow-400 font-bold uppercase tracking-wider";
+    } else {
+      core.className = "w-20 h-20 rounded-full bg-gradient-to-br from-yellow-400 to-amber-600 animate-ping flex items-center justify-center transition-all duration-300";
+      textStatus.innerText = "QUANTUM RESONANCE DISPERAL";
+      textStatus.className = "mt-3 text-[10px] font-tech text-yellow-300 font-bold uppercase tracking-wider";
+    }
+
+    setTimeout(() => {
+      core.className = "w-16 h-16 rounded-full bg-gradient-to-br from-yellow-400 to-amber-600 animate-pulse flex items-center justify-center transition-all duration-300";
+      textStatus.innerText = "EVENT HORIZON STABLE";
+      textStatus.className = "mt-3 text-[10px] font-tech text-yellow-300 font-bold uppercase tracking-wider";
+    }, 3500);
+  }
+
+  function triggerPurgeEffect() {
+    particles.forEach(p => {
+      p.dist = Math.random() * 300 + 100;
+    });
+  }
+
+  function loop() {
+    const w = canvas.offsetWidth;
+    const h = canvas.offsetHeight;
+    if (canvas.width !== w * devicePixelRatio || canvas.height !== h * devicePixelRatio) {
+      resize();
+    }
+    ctx.clearRect(0, 0, w, h);
+
+    ctx.strokeStyle = 'rgba(234,179,8,0.18)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.ellipse(gX, gY, 110, 55, 0.2, 0, 6.28);
+    ctx.stroke();
+
+    ctx.strokeStyle = `${activeThemeColor}33`;
+    ctx.beginPath();
+    ctx.ellipse(gX, gY, 60, 30, -0.4, 0, 6.28);
+    ctx.stroke();
+
+    particles.forEach(p => {
+      p.angle += p.s * 0.015;
+      const targetX = gX + Math.cos(p.angle) * p.dist;
+      const targetY = gY + Math.sin(p.angle) * (p.dist * 0.5);
+      p.x += (targetX - p.x) * 0.05;
+      p.y += (targetY - p.y) * 0.05;
+      if (Math.abs(p.x - gX) < 5 && Math.abs(p.y - gY) < 5) {
+        p.dist = Math.random() * 150 + 40;
+      }
+      ctx.fillStyle = p.c;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, 6.28);
+      ctx.fill();
+    });
+
+    ctx.fillStyle = '#020108';
+    ctx.beginPath();
+    ctx.arc(gX, gY, 15, 0, 6.28);
+    ctx.fill();
+
+    ctx.strokeStyle = activeThemeColor;
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(gX, gY, 16, 0, 6.28);
+    ctx.stroke();
+
+    requestAnimationFrame(loop);
+  }
+
+  window.onload = function() {
+    loop();
+    calculatePrice();
+    appendCli('[SYSTEM] Enterprise Commercial Core loaded with Gemini 3.1 specifications.');
+  }
 </script>
 </body>
 </html>
+
+```
